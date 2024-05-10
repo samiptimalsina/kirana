@@ -47,9 +47,10 @@ class ReservationController extends Controller
         $data->date = $request->date;
         $data->time = $request->time;
         $data->person = $request->person;
+        $data->food_id = $request->food_id ?? '';
 
         $data->save();
-        
+
         return redirect()->back()->with('msg', 'Reservation made successfully');
     }
 }
