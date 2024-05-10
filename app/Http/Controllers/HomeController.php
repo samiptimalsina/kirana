@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\Models\Food;
-use App\Models\Specialdishes;
+use App\Models\Banner;
 use App\Models\Testimonial;
+use Illuminate\Http\Request;
+use App\Models\Specialdishes;
+use Illuminate\Support\Facades\Auth;
 
 
 class HomeController extends Controller
@@ -18,7 +19,7 @@ class HomeController extends Controller
     private $navdata = [
         ["text" => "home", "href" => "#home"],
         ["text" => "about", "href" => "#about"],
-        ["text" => "menu", "href" => "#menu"],        
+        ["text" => "menu", "href" => "#menu"],
         ["text" => "testimonial", "href" => "#testimonial"],
         ["text" => "book", "href" => "#book"],
         ["text" => "contact", "href" => "#contact"],
@@ -35,6 +36,18 @@ class HomeController extends Controller
         $fooddata = food::all();
         $dishesdata = specialdishes::all();
         $testimonialdata = testimonial::all();
-        return view("home.index", compact('navdata', 'fooddata', 'dishesdata', 'testimonialdata'));
+        $banner = Banner::latest()->first();
+
+         $banner_image=$banner->image_url;
+
+        return view("home.index", compact('navdata', 'fooddata', 'dishesdata', 'testimonialdata','banner_image','banner'));
+    }
+
+    public function productDetail($slug){
+        $product=Food::where('slug',$slug)->first();
+        $navdata = $this->navdata;
+
+        return view('home.details',compact('product','navdata'));
+
     }
 }

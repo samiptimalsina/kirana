@@ -20,6 +20,8 @@ class CreateReservationsTable extends Migration
             $table->string('date');
             $table->string('time')->nullable();
             $table->enum('person', ['1', '2', '3', '4', '5', '6']);
+            $table->unsignedBigInteger('food_id')->nullable();
+            $table->foreign('food_id')->references('id')->on('food')->onDelete('set null');
             $table->timestamps();
         });
     }

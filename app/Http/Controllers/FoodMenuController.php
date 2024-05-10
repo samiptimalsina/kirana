@@ -28,6 +28,7 @@ class FoodMenuController extends Controller
     public function index()
     {
         $data = food::all();
+
         $user = Auth::id() ? Auth::user() : null;
         $isAdmin = $this->GetIsAdmin();
         return view("admin.pages.foodmenu.foodmenu", compact("data", "isAdmin", "user"));
@@ -66,11 +67,12 @@ class FoodMenuController extends Controller
             $data->name = $request->productname;
             $data->price = $request->productprice;
             $data->desc = $request->productdescription;
+            $data->slug = $data->name;
 
             $data->save();
 
             return redirect()->route('foodmenu.index')->with('msg', 'New Food menu entry created');
-        }        
+        }
         return redirect()->route('foodmenu.index')->with('msg', "Can't create food menu entry" );
     }
 
@@ -84,7 +86,7 @@ class FoodMenuController extends Controller
     {
         //
     }
-    
+
     /**
      * Show the form for editing the specified foodmenu entry.
      *
@@ -117,7 +119,7 @@ class FoodMenuController extends Controller
                 $imagename = time().".".$image->getClientOriginalExtension();
                 $imagepath = 'assets/images/foodimage';
                 $request->productimage->move($imagepath , $imagename);
-                $data->img = $imagepath."/".$imagename;            
+                $data->img = $imagepath."/".$imagename;
             }
             $data->name = $request->productname;
             $data->price = $request->productprice;

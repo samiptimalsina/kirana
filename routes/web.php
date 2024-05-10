@@ -2,10 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\FoodMenuController;
+use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\SpecialDishController;
 use App\Http\Controllers\TestimonialController;
 
@@ -23,7 +24,9 @@ use App\Http\Controllers\TestimonialController;
 /* home */
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('index');
+    Route::get('/product/{slug}', 'productDetail')->name('admin.details');
 });
+
 
 /* Admin */
 Route::controller(AdminController::class)->group(function () {
@@ -60,4 +63,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    Route::resource('banners', BannerController::class);
+
 });
+
+

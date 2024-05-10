@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Food extends Model
 {
@@ -26,6 +27,11 @@ class Food extends Model
         'img',
         'price',
         'desc',
+        'slug'
     ];
 
+    public function setSlugAttribute($value)
+    {
+        $this->attributes['slug'] = Str::slug($this->name);
+    }
 }
