@@ -4,7 +4,16 @@
 	  <div class="mx-4 lg:flex lg:items-center">
 	    <div class="flex items-center justify-between">
 	      <div class="lg:shrink-0">
-	        <a href="<?php echo e(route('index')); ?>"><img src="assets/images/logo/logo.png" alt="logo" class="h-auto lg:m-0 lg:p-2 m-auto max-w-[100px] min-w-[90px] px-2 py-2" /></a>
+	        <a href="<?php echo e(route('index')); ?>">
+                    <?php if(isset($settings->logo)): ?>
+
+                <img src=" <?php echo e($settings->getLogo($settings->logo)); ?>" alt="logo" class="h-auto lg:m-0 lg:p-2 m-auto max-w-[100px] min-w-[90px] px-2 py-2" />
+                     <?php else: ?>
+                        <div>No logo uploaded</div>
+                    <?php endif; ?>
+
+
+            </a>
 	      </div>
 	      <div class="nav-ham p-4 lg:hidden cursor-pointer transition ease-in-out duration-75 open">
 	      	<?php $__currentLoopData = [1, 2, 3]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -22,7 +31,7 @@
 	      	<?php $__currentLoopData = $navdata; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 					     <li class="font-bold lg:px-4 lg:py-2 lg:text-left p-2.5 text-[12.5px] text-right uppercase transition ease-in-out duration-300 hover:scale-105">
 					     	<a href=<?php echo e($data['href']); ?>><?php echo e($data['text']); ?></a>
-					     </li> 
+					     </li>
 					<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
 					<?php if(Route::has('login')): ?>
@@ -224,7 +233,7 @@
 <?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
 <?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
 <?php endif; ?>
-					</div>					 
+					</div>
 				<?php endif; ?> <?php endif; ?>
 
 	      </ul>
@@ -233,4 +242,4 @@
 	</header>
 	<!-- Header Area End -->
 
-				<?php /**PATH /home/rishi/Desktop/restaurant-site-laravel/resources/views/home/partials/header.blade.php ENDPATH**/ ?>
+<?php /**PATH /home/rishi/Desktop/restaurant-site-laravel/resources/views/home/partials/header.blade.php ENDPATH**/ ?>

@@ -85,13 +85,17 @@
 
             <form action="<?php echo e(route('reservation.store')); ?>" method="post" enctype="multipart/form-data" class="">
                 <?php echo csrf_field(); ?>
-                <div class="flex flex-wrap items-center justify-center">
+                <div class="flex flex-wrap items-start justify-start">
                     <div class="m-3 relative">
                         <span class="absolute top-0 left-0 px-2.5 py-2 text-slate-700"><i
                                 class="fa-solid fa-user text-[14px]"></i></span>
                         <input type="text" id="name" name="name"
                             class="w-48 rounded pl-8 text-[14px] font-sans-lato text-slate-700 leading-relaxed"
                             placeholder="Your name">
+
+                                                    <input type="hidden" id="name" name="food_id"
+                            class="w-48 rounded pl-8 text-[14px] font-sans-lato text-slate-700 leading-relaxed"
+                             value="<?php echo e($product->id); ?>">
                     </div>
                     <div class="m-3 relative">
                         <span class="absolute top-0 left-0 px-2.5 py-2 text-slate-700"><i
@@ -101,7 +105,7 @@
                             placeholder="Phone Number" required>
                     </div>
                 </div>
-                <div class="flex flex-wrap items-center justify-center">
+                <div class="flex flex-wrap items-start justify-start" >
 
                     <div class="m-3 relative">
                         <span class="absolute top-0 left-0 px-2.5 py-2 text-slate-700"><i
@@ -118,9 +122,9 @@
                         </select>
                     </div>
                 </div>
-                <div class="text-center">
+                <div class="text-start ml-3">
                     <button type="submit"
-                        class="inline-block rounded-sm shadow-md mt-7 px-5 py-3 bg-lime-400 uppercase font-sans-monts text-xs font-bold text-slate-900 border border-transparent transition ease-in-out duration-300 hover:-translate-y-1 hover:scale-110 hover:bg-transparent hover:border-lime-400 hover:text-slate-100">book
+                        class="inline-block rounded-sm shadow-md mt-7 px-5 py-3 bg-lime-400 uppercase font-sans-monts text-xs font-bold text-slate-900 border border-transparent transition ease-in-out duration-300 hover:-translate-y-1 hover:scale-110 hover:bg-transparent hover:border-lime-400 hover:text-slate-900">book
                         a Product</button>
                 </div>
             </form>

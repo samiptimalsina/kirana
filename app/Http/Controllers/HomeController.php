@@ -7,8 +7,8 @@ use App\Models\Banner;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use App\Models\Specialdishes;
+use App\Models\Setting;
 use Illuminate\Support\Facades\Auth;
-
 
 class HomeController extends Controller
 {
@@ -16,38 +16,46 @@ class HomeController extends Controller
      * Variable containing navigation data.
      *
      */
-    private $navdata = [
-        ["text" => "home", "href" => "#home"],
-        ["text" => "about", "href" => "#about"],
-        ["text" => "menu", "href" => "#menu"],
-        ["text" => "testimonial", "href" => "#testimonial"],
-        ["text" => "book", "href" => "#book"],
-        ["text" => "contact", "href" => "#contact"],
-    ];
+    private $navdata;
+
+    public function __construct()
+    {
+        $this->navdata = [
+            ["text" => "home", "href" => url('/') . '#home'],
+            ["text" => "about", "href" => url('/') . '#about'],
+            ["text" => "menu", "href" => url('/') . '#menu'],
+            ["text" => "testimonial", "href" => url('/') . '#testimonial'],
+            ["text" => "book", "href" => url('/') . '#book'],
+            ["text" => "contact", "href" => url('/') . '#contact'],
+        ];
+
+        $settings = Setting::first();
+        view()->share('settings', $settings);
+    }
 
     /**
-     * Display a home page of foodfun with all info.
+     * Display the home page of Foodfun with all info.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
         $navdata = $this->navdata;
-        $fooddata = food::all();
-        $dishesdata = specialdishes::all();
-        $testimonialdata = testimonial::all();
+        $fooddata = Food::all();
+        $dishesdata = Specialdishes::all();
+        $testimonialdata = Testimonial::all();
         $banner = Banner::latest()->first();
 
-         $banner_image=$banner->image_url;
+        $banner_image = $banner->image_url;
 
-        return view("home.index", compact('navdata', 'fooddata', 'dishesdata', 'testimonialdata','banner_image','banner'));
+        return view("home.index", compact('navdata', 'fooddata', 'dishesdata', 'testimonialdata', 'banner_image', 'banner'));
     }
 
-    public function productDetail($slug){
-        $product=Food::where('slug',$slug)->first();
+    public function productDetail($slug)
+    {
+        $product = Food::where('slug', $slug)->first();
         $navdata = $this->navdata;
 
-        return view('home.details',compact('product','navdata'));
-
+        return view('home.details', compact('product', 'navdata'));
     }
 }

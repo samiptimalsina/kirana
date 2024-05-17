@@ -43,11 +43,12 @@ class ReservationController extends Controller
     {
         $data = new reservation;
         $data->name = $request->name;
+        $data->product_name = $request->product_name;
         $data->phone_number = $request->phone;
         $data->date = $request->date;
         $data->time = $request->time;
         $data->person = $request->person;
-        $data->food_id = $request->food_id ?? '';
+        $data->food_id = $request->food_id ?? null;
 
         $data->save();
 

@@ -30,12 +30,19 @@
             </a>
         </li>
         <li class="nav-item nav-category">
-            <span class="nav-link">Tables</span>
+            <span class="nav-link">Menu</span>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="<?php echo e(route('user.index')); ?>">
                 <span class="menu-title">Users</span>
                 <i class="fa-solid fa-users menu-icon"></i>
+            </a>
+        </li>
+
+                <li class="nav-item">
+            <a class="nav-link" href="<?php echo e(route('settings')); ?>">
+                <span class="menu-title">Settings</span>
+                <i class="fa-solid fa-table menu-icon"></i>
             </a>
         </li>
         <li class="nav-item">
