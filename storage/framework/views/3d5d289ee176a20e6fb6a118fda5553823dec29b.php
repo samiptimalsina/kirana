@@ -3,10 +3,10 @@
         style="background-image: url(<?php echo e($foodBg); ?>)">
         <div class="flex flex-col justify-around items-center food-sm:items-start max-w-[980px] mx-auto">
             <div class="food-sm:text-left m-4 max-w-sm mt-5 p-4 text-center">
-                <h3 class="font-bold font-cursive-merie text-4xl leading-normal capitalize">
-                    <span class="text-amber-400 leading-snug">we serve</span> <br /><span class="leading-normal">delicious
-                        food</span>
-                </h3>
+<h3 class="font-bold font-cursive-merie text-4xl leading-normal capitalize">
+    <span class="text-amber-400 leading-snug">we provide</span> <br /><span class="leading-normal">quality groceries</span>
+</h3>
+
                 <p class="pt-4 text-[14px] font-sans-lato text-slate-600 leading-relaxed">They're fill divide i their
                     yielding our after have him fish on there for greater man moveth, moved Won't together isn't for fly
                     divide mids fish firmament on net.

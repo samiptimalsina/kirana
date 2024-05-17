@@ -4,7 +4,16 @@
 	  <div class="mx-4 lg:flex lg:items-center">
 	    <div class="flex items-center justify-between">
 	      <div class="lg:shrink-0">
-	        <a href="{{ route('index') }}"><img src="assets/images/logo/logo.png" alt="logo" class="h-auto lg:m-0 lg:p-2 m-auto max-w-[100px] min-w-[90px] px-2 py-2" /></a>
+	        <a href="{{ route('index') }}">
+                    @if(isset($settings->logo))
+
+                <img src=" {{ $settings->getLogo($settings->logo) }}" alt="logo" class="h-auto lg:m-0 lg:p-2 m-auto max-w-[100px] min-w-[90px] px-2 py-2" />
+                     @else
+                        <div>No logo uploaded</div>
+                    @endif
+
+
+            </a>
 	      </div>
 	      <div class="nav-ham p-4 lg:hidden cursor-pointer transition ease-in-out duration-75 open">
 	      	@foreach ([1, 2, 3] as $data)
@@ -22,7 +31,7 @@
 	      	@foreach ($navdata as $data)
 					     <li class="font-bold lg:px-4 lg:py-2 lg:text-left p-2.5 text-[12.5px] text-right uppercase transition ease-in-out duration-300 hover:scale-105">
 					     	<a href={{ $data['href'] }}>{{ $data['text'] }}</a>
-					     </li> 
+					     </li>
 					@endforeach
 
 					@if (Route::has('login'))
@@ -132,7 +141,7 @@
 								</x-jet-dropdown-link>
 							</x-slot>
 						</x-jet-dropdown>
-					</div>					 
+					</div>
 				@endif @endif
 
 	      </ul>
@@ -141,4 +150,3 @@
 	</header>
 	<!-- Header Area End -->
 
-				

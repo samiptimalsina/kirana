@@ -5,22 +5,22 @@
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes(['user' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($user),'isAdmin' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($isAdmin)]); ?>
 	<div class="content-wrapper">
-		<a href="<?php echo e(route('specialdishes.create')); ?>" class="btn btn-primary mx-2">Add Special Dish</a>
+		<a href="<?php echo e(route('specialdishes.create')); ?>" class="btn btn-primary mx-2">Add Special Product</a>
 	</div>
 
 	<div class="content-wrapper">
 		<div class="col-lg-12 grid-margin stretch-card">
 			<div class="card">
 				<div class="card-body">
-					<h4 class="card-title">Special-Dish Data-Table</h4>					
+					<h4 class="card-title">Special-Dish Data-Table</h4>
 					<p class="card-description">
-						Special-Dish information table  
+						Special-Dish information table
 					</p>
 
 					<?php if(session()->has('msg')): ?>
 					<p class="alert alert-info"><?php echo e(session()->get('msg')); ?></p>
 					<?php endif; ?>
-					
+
 					<table class="table table-hover overflow-auto block">
 						<thead>
 							<tr class="bg-slate-800">
@@ -34,13 +34,13 @@
 							<tr>
 								<td class="w-32">
 									<img src="<?php echo e($data->img); ?>" alt="<?php echo e($data->name); ?>" class="!w-full !h-auto !rounded-none">
-								</td>							
+								</td>
 								<td>
 									<p class="font-bold">
 		                <span class="text-amber-400"><?php echo e($data['namepart1']); ?></span> <span class="leading-normal"><?php echo e($data['namepart2']); ?></span>
 		              </p>
 		            </td>
-								<td><?php echo e($data->price); ?></td>								
+								<td><?php echo e($data->price); ?></td>
 								<td class="max-w-[190px] min-w-[190px] !leading-normal !whitespace-normal break-words"><?php echo e($data->desc); ?></td>
 								<td><?php echo e($data->created_at); ?></td>
 								<td>
@@ -55,9 +55,9 @@
 									<form method="POST" action="<?php echo e(route('specialdishes.destroy', $data->id)); ?>">
 						        <?php echo method_field('DELETE'); ?>
 										<?php echo csrf_field(); ?>
-					        	<button 
-					        		type="submit" 
-					        		class="badge badge-danger cursor-pointer" 
+					        	<button
+					        		type="submit"
+					        		class="badge badge-danger cursor-pointer"
 					        		onclick="return confirmDeleteSpDish(<?php echo e($data->id); ?> , '<?php echo e($data->name); ?>');"
 					        		>Delete</button>
 								  </form>

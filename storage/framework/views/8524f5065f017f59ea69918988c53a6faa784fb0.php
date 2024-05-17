@@ -6,6 +6,9 @@
 </head>
 
 <body>
+    					<?php if(session()->has('msg')): ?>
+					<p class="alert alert-info"><?php echo e(session()->get('msg')); ?></p>
+					<?php endif; ?>
     <?php echo $__env->make('home.partials.preloader', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <?php echo $__env->make('home.partials.header', ['navdata' => $navdata], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <?php echo $__env->make('home.partials.banner', ['bannerImg' => $banner_image ?? 'assets/images/banner-bg.jpg'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

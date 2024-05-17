@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Reservation extends Model
 {
     use HasFactory;
-    
+
     protected $fillable = [
         'name',
         'phone_number',
@@ -16,4 +16,8 @@ class Reservation extends Model
         'time',
         'person',
     ];
+
+    public function food(){
+        return $this->belongsTo(Food::class);
+    }
 }
