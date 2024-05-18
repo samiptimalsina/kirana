@@ -24,6 +24,7 @@ use App\Http\Controllers\TestimonialController;
 /* home */
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('index');
+    Route::get('/contact-us', 'contactUs')->name('contact.us');
     Route::get('/product/{slug}', 'productDetail')->name('admin.details');
 });
 

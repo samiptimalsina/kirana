@@ -26,7 +26,7 @@ class HomeController extends Controller
             ["text" => "menu", "href" => url('/') . '#menu'],
             ["text" => "testimonial", "href" => url('/') . '#testimonial'],
             ["text" => "book", "href" => url('/') . '#book'],
-            ["text" => "contact", "href" => url('/') . '#contact'],
+            ["text" => "contact", "href" => route('contact.us')],
         ];
 
         $settings = Setting::first();
@@ -57,5 +57,12 @@ class HomeController extends Controller
         $navdata = $this->navdata;
 
         return view('home.details', compact('product', 'navdata'));
+    }
+
+    public function contactUs(){
+        $navdata = $this->navdata;
+
+        return view('home.contact-us',compact('navdata'));
+
     }
 }
