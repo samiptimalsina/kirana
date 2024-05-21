@@ -2,7 +2,7 @@
  <footer id="contact" class="footer-area bg-slate-800 text-white font-sans-lato">
      <div class="flex flex-wrap footer-widget justify-between p-3 py-14 max-w-[960px] mx-auto section-padding">
          <div class="basis-[300px] grow shrink p-5 pr-9 single-widget single-widget1">
-             <a href="/"><img class="w-36 h-auto" src="assets/images/logo/logo2.png" alt="" /></a>
+             <a href="/"><img class="w-36 h-auto" src="@if(isset($settings)) {{ $settings->getLogo($settings->logo) }} @endif" alt="" /></a>
              <p class="mt-3 leading-normal">
                  Which morning fourth great won't is to fly bearing
                  man. Called unto shall seed, deep, herb set seed
@@ -50,20 +50,16 @@
              </span>
              <ul class="social-icons flex flex-wrap my-3 mx-5 transition ease-in-out duration-300">
                  <li class="mr-4 my-1">Follow Us:</li>
-                 <li
-                     class="mr-3 my-1 cursor-pointer border border-transparent hover:border-white hover:rounded-[50%] px-1">
+                 <li class="mr-3 my-1 cursor-pointer border border-transparent hover:border-white hover:rounded-[50%] px-1">
                      <a href="#" class="cursor-pointer"><i class="fa-brands fa-facebook"></i></a>
                  </li>
-                 <li
-                     class="mr-3 my-1 cursor-pointer border border-transparent hover:border-white hover:rounded-[50%] px-1">
+                 <li class="mr-3 my-1 cursor-pointer border border-transparent hover:border-white hover:rounded-[50%] px-1">
                      <a href="#" class="cursor-pointer"><i class="fa fa-twitter"></i></a>
                  </li>
-                 <li
-                     class="mr-3 my-1 cursor-pointer border border-transparent hover:border-white hover:rounded-[50%] px-1">
+                 <li class="mr-3 my-1 cursor-pointer border border-transparent hover:border-white hover:rounded-[50%] px-1">
                      <a href="#" class="cursor-pointer"><i class="fa-brands fa-google-plus"></i></a>
                  </li>
-                 <li
-                     class="mr-3 my-1 cursor-pointer border border-transparent hover:border-white hover:rounded-[50%] px-1">
+                 <li class="mr-3 my-1 cursor-pointer border border-transparent hover:border-white hover:rounded-[50%] px-1">
                      <a href="#" class="cursor-pointer"><i class="fa-brands fa-pinterest"></i></a>
                  </li>
                  <li class="my-1 cursor-pointer border border-transparent hover:border-white hover:rounded-[50%] px-1">
