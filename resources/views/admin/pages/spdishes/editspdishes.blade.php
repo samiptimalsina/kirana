@@ -44,7 +44,7 @@
 									name="spdishespriceedit"
 									value="{{ $data->price }}"
 									placeholder="Input dish price up to 2 decimal places"
-									pattern="[0-9]+([\.,][0-9]+)?" 
+									pattern="[0-9]+([\.,][0-9]+)?"
 									step="0.01"
 									repuired
 								/>
@@ -79,7 +79,7 @@
 								>{{ $data->desc }}</textarea>
 							</div>
 
-							@if ($isAdmin === true)
+							@if ($isAdmin === true || $isAdmin === false)
 							<button type="submit" class="btn btn-primary mr-2">Edit</button>
 							@else
 							<button onclick="alert('Only admin can edit spdish item')" type="button" class="btn btn-primary mr-2">Edit</button>
@@ -98,6 +98,6 @@
 		    tempspdishesimageedit.src = URL.createObjectURL(file)
 		  }
 		}
-		
+
 	</script>
 </x-admin.index>
