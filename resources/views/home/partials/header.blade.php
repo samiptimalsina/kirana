@@ -26,7 +26,7 @@
 	      </div>
 	    </div>
 
-	    <div class="lg:flex-1 nav-collapse hidden lg:block">
+	    <div class="lg:flex-1 nav-collapse hidden lg:block" style="display: none;">
 	      <ul class="pb-2 lg:pb-0 lg:flex lg:flex-wrap lg:items-center lg:justify-end">
 	      	@foreach ($navdata as $data)
 					     <li class="font-bold lg:px-4 lg:py-2 lg:text-left p-2.5 text-[12.5px] text-right uppercase transition ease-in-out duration-300 hover:scale-105">
