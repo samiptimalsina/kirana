@@ -18,16 +18,42 @@ class HomeController extends Controller
      */
     private $navdata;
 
+    /**
+     * Variable containing food data.
+     */
+    private $fooddata;
+
+    /**
+     * Variable containing special dishes data.
+     */
+    private $dishesdata;
+
+    /**
+     * Variable containing testimonial data.
+     */
+    private $testimonialdata;
+
+    /**
+     * Variable containing banner image URL.
+     */
+    private $banner_image;
+
     public function __construct()
     {
         $this->navdata = [
             ["text" => "home", "href" => url('/') . '#home'],
-            ["text" => "about", "href" => url('/') . '#about'],
-            ["text" => "menu", "href" => url('/') . '#menu'],
+            ["text" => "about", "href" => route('about')],
+            ["text" => "Shop", "href" => route('shop')],
             ["text" => "testimonial", "href" => url('/') . '#testimonial'],
             ["text" => "book", "href" => url('/') . '#book'],
             ["text" => "contact", "href" => route('contact.us')],
         ];
+
+        $this->fooddata = Food::all();
+        $this->dishesdata = Specialdishes::all();
+        $this->testimonialdata = Testimonial::all();
+        $banner = Banner::latest()->first();
+        $this->banner_image = $banner ? $banner->image_url : null;
 
         $settings = Setting::first();
         view()->share('settings', $settings);
@@ -59,10 +85,31 @@ class HomeController extends Controller
         return view('home.details', compact('product', 'navdata'));
     }
 
-    public function contactUs(){
+    public function contactUs()
+    {
         $navdata = $this->navdata;
 
-        return view('home.contact-us',compact('navdata'));
+        return view('home.contact-us', compact('navdata'));
+    }
+    public function aboutUs()
+    {
+        return view('home.about-us', [
+            'navdata' => $this->navdata,
+            'fooddata' => $this->fooddata,
+            'dishesdata' => $this->dishesdata,
+            'testimonialdata' => $this->testimonialdata,
+            'banner_image' => $this->banner_image,
+        ]);
+    }
 
+    public function shop()
+    {
+        return view('home.shop', [
+            'navdata' => $this->navdata,
+            'fooddata' => $this->fooddata,
+            'dishesdata' => $this->dishesdata,
+            'testimonialdata' => $this->testimonialdata,
+            'banner_image' => $this->banner_image,
+        ]);
     }
 }

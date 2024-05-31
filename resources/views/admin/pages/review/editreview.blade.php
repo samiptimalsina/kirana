@@ -44,7 +44,7 @@
 									name="reviewrating"
 									value="{{ $data->rating }}"
 									placeholder="Input Review Rating up to 2 decimal places"
-									pattern="[0-9]+([\.,][0-9]+)?" 
+									pattern="[0-9]+([\.,][0-9]+)?"
 									step="0.01"
 									repuired
 								/>
@@ -98,6 +98,6 @@
 		    tempreviewimageedit.src = URL.createObjectURL(file)
 		  }
 		}
-		
+
 	</script>
 </x-admin.index>

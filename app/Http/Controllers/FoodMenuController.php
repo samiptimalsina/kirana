@@ -55,14 +55,14 @@ class FoodMenuController extends Controller
     public function store(Request $request)
     {
         $isAdmin = $this->GetIsAdmin();
-        if($isAdmin === true){
+        if ($isAdmin === true) {
             $data = new food;
 
             $image = $request->productimage;
-            $imagename = time().".".$image->getClientOriginalExtension();
+            $imagename = time() . "." . $image->getClientOriginalExtension();
             $imagepath = 'assets/images/foodimage';
-            $request->productimage->move($imagepath , $imagename);
-            $data->img = $imagepath."/".$imagename;
+            $request->productimage->move($imagepath, $imagename);
+            $data->img = $imagepath . "/" . $imagename;
 
             $data->name = $request->productname;
             $data->price = $request->productprice;
@@ -73,7 +73,7 @@ class FoodMenuController extends Controller
 
             return redirect()->route('foodmenu.index')->with('msg', 'New Food menu entry created');
         }
-        return redirect()->route('foodmenu.index')->with('msg', "Can't create food menu entry" );
+        return redirect()->route('foodmenu.index')->with('msg', "Can't create food menu entry");
     }
 
     /**
@@ -111,15 +111,15 @@ class FoodMenuController extends Controller
     public function update($foodmenu, Request $request)
     {
         $isAdmin = $this->GetIsAdmin();
-        if($isAdmin === true){
+        if ($isAdmin === true) {
             $data = food::findOrFail($foodmenu);
 
             $image = $request->productimage;
-            if($image){
-                $imagename = time().".".$image->getClientOriginalExtension();
+            if ($image) {
+                $imagename = time() . "." . $image->getClientOriginalExtension();
                 $imagepath = 'assets/images/foodimage';
-                $request->productimage->move($imagepath , $imagename);
-                $data->img = $imagepath."/".$imagename;
+                $request->productimage->move($imagepath, $imagename);
+                $data->img = $imagepath . "/" . $imagename;
             }
             $data->name = $request->productname;
             $data->price = $request->productprice;
@@ -129,7 +129,7 @@ class FoodMenuController extends Controller
 
             return redirect()->route('foodmenu.index')->with('msg', 'Food menu entry edited');
         }
-        return redirect()->route('foodmenu.index')->with('msg', "Can't edit food menu entry" );
+        return redirect()->route('foodmenu.index')->with('msg', "Can't edit food menu entry");
     }
 
     /**
@@ -141,11 +141,11 @@ class FoodMenuController extends Controller
     public function destroy($foodmenu)
     {
         $isAdmin = $this->GetIsAdmin();
-        if($isAdmin === true){
+        if ($isAdmin === true) {
             $data = food::findOrFail($foodmenu);
-            $data -> delete();
-            return redirect() -> back()->with('msg', 'Food menu entry deleted successfully');
+            $data->delete();
+            return redirect()->back()->with('msg', 'Food menu entry deleted successfully');
         }
-        return redirect()->route('foodmenu.index')->with('msg', "Can't delete food menu entry" );
+        return redirect()->route('foodmenu.index')->with('msg', "Can't delete food menu entry");
     }
 }

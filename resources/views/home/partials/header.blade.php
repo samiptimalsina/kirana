@@ -36,7 +36,7 @@
 
 					@if (Route::has('login'))
 				 @auth
-					<div class="m-2 flex justify-end lg:mx-4 lg:block">
+					<div class="m-2 flex justify-end lg:mx-4 lg:block" style="display: none">
 						<x-jet-dropdown align="right" width="48">
 							<x-slot name="trigger">
 								@if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
@@ -111,7 +111,7 @@
 						</x-jet-dropdown>
 					</div>
 				 @else
-					<div class="m-2 flex justify-end lg:mx-4 lg:block">
+					<div class="m-2 flex justify-end lg:mx-4 lg:block" style="display: none">
 						<x-jet-dropdown align="right" width="48">
 							<x-slot name="trigger">
 								<span class="inline-flex rounded-md">
