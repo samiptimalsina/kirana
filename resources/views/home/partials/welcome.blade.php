@@ -2,7 +2,7 @@
     <section id="about"
         class="flex flex-wrap item-center justify-center lg-p-0 lg:justify-between lg:p-0 lg:pt-28 max-w-[960px] mx-auto p-5">
         <div class="basis-[500px] grow-0 pr-5">
-            <img class="h-auto w-full" src="{{  $banner->image_url ?? ''}}" alt="welcome food image" />
+            <img class="h-auto w-full" src="{{  $settings->about_us_image($settings->about_us_image) ?? ''}}" alt="welcome food image" />
         </div>
 
         <div class="basis-[400px] grow max-w-[650px] p-5">

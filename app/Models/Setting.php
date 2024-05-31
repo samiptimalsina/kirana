@@ -19,5 +19,9 @@ public function getLogo($value)
 {
     return $value ? asset('assets/images/settings/' . $value) : null;
 }
+    public function about_us_image($value)
+    {
+        return $value ? asset('assets/images/settings/' . $value) : null;
+    }
 
 }
