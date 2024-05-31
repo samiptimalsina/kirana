@@ -1,4 +1,9 @@
-<x-admin.index :user="$user" :isAdmin="$isAdmin">
+<?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
+<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.admin.index','data' => ['user' => $user,'isAdmin' => $isAdmin]]); ?>
+<?php $component->withName('admin.index'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php $component->withAttributes(['user' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($user),'isAdmin' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($isAdmin)]); ?>
 	<div class="content-wrapper">
 		<div class="row">
 			<div class="col-md-6 grid-margin stretch-card">
@@ -6,9 +11,9 @@
 					<div class="card-body">
 						<h4 class="card-title">Food-Menu Form</h4>
 						<p class="card-description">Edit food menu info</p>
-						<form action="{{ route('foodmenu.update', $data->id ) }}" method="post" enctype="multipart/form-data">
-							@method('PUT')
-							@csrf
+						<form action="<?php echo e(route('foodmenu.update', $data->id )); ?>" method="post" enctype="multipart/form-data">
+							<?php echo method_field('PUT'); ?>
+							<?php echo csrf_field(); ?>
 							<div class="form-group">
 								<label for="productname">Name</label>
 								<input
@@ -16,7 +21,7 @@
 									class="form-control"
 									id="productname"
 									name="productname"
-									value="{{ $data->name }}"
+									value="<?php echo e($data->name); ?>"
 									placeholder="Input product name"
 									required
 								/>
@@ -29,7 +34,7 @@
 									class="form-control"
 									id="productprice"
 									name="productprice"
-									value="{{ $data->price }}"
+									value="<?php echo e($data->price); ?>"
 									placeholder="Input product price up to 2 decimal places"
 									pattern="[0-9]+([\.,][0-9]+)?"
 									step="0.01"
@@ -46,12 +51,12 @@
 										placeholder="Upload product image"
 										id="productimageupdate"
 										name="productimage"
-										value="{{ $data->img }}"
+										value="<?php echo e($data->img); ?>"
 									/>
 								</div>
 							</div>
 							<div class="form-group">
-								<img id="tempproductimageedit" src="{{ $data->img }}" alt="{{ $data->name }}" class="h-auto shadow-sm w-1/2" />
+								<img id="tempproductimageedit" src="<?php echo e($data->img); ?>" alt="<?php echo e($data->name); ?>" class="h-auto shadow-sm w-1/2" />
 							</div>
 
 							<div class="form-group">
@@ -63,15 +68,15 @@
 									rows="4"
 									required
 									placeholder="Input product description"
-								>{{ $data->desc }}</textarea>
+								><?php echo e($data->desc); ?></textarea>
 							</div>
 
-							@if ($isAdmin === true || $isAdmin==false)
+							<?php if($isAdmin === true || $isAdmin==false): ?>
 							<button type="submit" class="btn btn-primary mr-2">Edit</button>
-							@else
+							<?php else: ?>
 							<button onclick="alert('Only admin can edit food menu')" type="button" class="btn btn-primary mr-2">Edit</button>
-							@endif
-							<a href="{{ route("foodmenu.index") }}" class="btn btn-light">Cancel</a>
+							<?php endif; ?>
+							<a href="<?php echo e(route("foodmenu.index")); ?>" class="btn btn-light">Cancel</a>
 						</form>
 					</div>
 				</div>
@@ -87,4 +92,10 @@
 		}
 
 	</script>
-</x-admin.index>
+ <?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
+<?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
+<?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
+<?php endif; ?>
+<?php /**PATH /home/rishi/Desktop/restaurant-site-laravel/resources/views/admin/pages/foodmenu/editfoodmenu.blade.php ENDPATH**/ ?>

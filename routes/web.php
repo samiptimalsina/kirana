@@ -22,10 +22,13 @@ use App\Http\Controllers\TestimonialController;
 */
 
 /* home */
+
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('index');
     Route::get('/contact-us', 'contactUs')->name('contact.us');
     Route::get('/product/{slug}', 'productDetail')->name('admin.details');
+    Route::get('/about-us', 'aboutUs')->name('about');
+    Route::get('/shop', 'shop')->name('shop');
 });
 
 
@@ -36,12 +39,12 @@ Route::controller(AdminController::class)->group(function () {
 
 /* User */
 Route::resource('user', UserController::class)->only([
-    'index','destroy'
+    'index', 'destroy'
 ]);
 
 /* Reservation */
 Route::resource('reservation', ReservationController::class)->only([
-    'index','store'
+    'index', 'store'
 ]);
 
 /* Food Menu */
@@ -66,8 +69,5 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     })->name('dashboard');
     Route::resource('banners', BannerController::class);
 
-    Route::match(['post','get','put'],'setting', [BannerController::class,'updateOrCreateSettings'])->name('settings');
-
+    Route::match(['post', 'get', 'put'], 'setting', [BannerController::class, 'updateOrCreateSettings'])->name('settings');
 });
-
-

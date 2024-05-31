@@ -36,7 +36,7 @@
 
 					<?php if(Route::has('login')): ?>
 				 <?php if(auth()->guard()->check()): ?>
-					<div class="m-2 flex justify-end lg:mx-4 lg:block">
+					<div class="m-2 flex justify-end lg:mx-4 lg:block" style="display: none">
 						<?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'jetstream::components.dropdown','data' => ['align' => 'right','width' => '48']]); ?>
 <?php $component->withName('jet-dropdown'); ?>
@@ -163,7 +163,7 @@
 <?php endif; ?>
 					</div>
 				 <?php else: ?>
-					<div class="m-2 flex justify-end lg:mx-4 lg:block">
+					<div class="m-2 flex justify-end lg:mx-4 lg:block" style="display: none">
 						<?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'jetstream::components.dropdown','data' => ['align' => 'right','width' => '48']]); ?>
 <?php $component->withName('jet-dropdown'); ?>
