@@ -11,9 +11,11 @@
 					<?php endif; ?>
     <?php echo $__env->make('home.partials.preloader', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <?php echo $__env->make('home.partials.header', ['navdata' => $navdata], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make('home.partials.page-bannner', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
     <?php echo $__env->make('home.partials.welcome', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
-    <?php echo $__env->make('home.partials.testimonial', [
+    <?php echo $__env->make('home.partials.teams', [
         'testimonialdata' => $testimonialdata,
         'quoteImg' => 'assets/images/quote.png',
     ], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

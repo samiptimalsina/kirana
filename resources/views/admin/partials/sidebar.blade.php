@@ -39,7 +39,7 @@
             </a>
         </li>
 
-                <li class="nav-item">
+         <li class="nav-item">
             <a class="nav-link" href="{{ route('settings') }}">
                 <span class="menu-title">Settings</span>
                 <i class="fa-solid fa-table menu-icon"></i>
@@ -73,6 +73,13 @@
             <a class="nav-link" href="{{ route('testimonial.index') }}">
                 <span class="menu-title">Testimonials</span>
                 <i class="fa-solid fa-star-half-stroke menu-icon"></i>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('blogs.index') }}">
+                <span class="menu-title">Blogs</span>
+                <i class="fa-solid fa-bowl-rice menu-icon"></i>
             </a>
         </li>
     </ul>

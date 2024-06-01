@@ -26,7 +26,7 @@
 	      </div>
 	    </div>
 
-	    <div class="lg:flex-1 nav-collapse hidden lg:block">
+	    <div class="lg:flex-1 nav-collapse hidden lg:block" >
 	      <ul class="pb-2 lg:pb-0 lg:flex lg:flex-wrap lg:items-center lg:justify-end">
 	      	<?php $__currentLoopData = $navdata; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 					     <li class="font-bold lg:px-4 lg:py-2 lg:text-left p-2.5 text-[12.5px] text-right uppercase transition ease-in-out duration-300 hover:scale-105">
@@ -36,7 +36,7 @@
 
 					<?php if(Route::has('login')): ?>
 				 <?php if(auth()->guard()->check()): ?>
-					<div class="m-2 flex justify-end lg:mx-4 lg:block" >
+					<div class="m-2 flex justify-end lg:mx-4 lg:block" style="display: none">
 						<?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'jetstream::components.dropdown','data' => ['align' => 'right','width' => '48']]); ?>
 <?php $component->withName('jet-dropdown'); ?>
