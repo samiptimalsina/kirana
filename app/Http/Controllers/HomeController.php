@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\Food;
 use App\Models\Banner;
+use App\Models\Setting;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use App\Models\Specialdishes;
-use App\Models\Setting;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -33,6 +34,7 @@ class HomeController extends Controller
      */
     private $testimonialdata;
 
+
     /**
      * Variable containing banner image URL.
      */
@@ -44,7 +46,7 @@ class HomeController extends Controller
             ["text" => "home", "href" => url('/') . '#home'],
             ["text" => "about", "href" => route('about')],
             ["text" => "Shop", "href" => route('shop')],
-            ["text" => "testimonial", "href" => url('/') . '#testimonial'],
+            ["text" => "Blog", "href" => route('blogs')],
             ["text" => "book", "href" => url('/') . '#book'],
             ["text" => "contact", "href" => route('contact.us')],
         ];
@@ -106,6 +108,33 @@ class HomeController extends Controller
     {
         return view('home.shop', [
             'navdata' => $this->navdata,
+            'fooddata' => $this->fooddata,
+            'dishesdata' => $this->dishesdata,
+            'testimonialdata' => $this->testimonialdata,
+            'banner_image' => $this->banner_image,
+        ]);
+    }
+
+    public function blogs()
+    {
+        $blogs = Blog::latest()->paginate(10);
+
+        return view('home.blogs', [
+            'navdata' => $this->navdata,
+            'blogs' => $blogs,
+            'fooddata' => $this->fooddata,
+            'dishesdata' => $this->dishesdata,
+            'testimonialdata' => $this->testimonialdata,
+            'banner_image' => $this->banner_image,
+        ]);
+    }
+
+    public function blogDetail($id)
+    {
+        $blog = Blog::find($id);
+        return view('home.blog-detail', [
+            'navdata' => $this->navdata,
+            'blog' => $blog,
             'fooddata' => $this->fooddata,
             'dishesdata' => $this->dishesdata,
             'testimonialdata' => $this->testimonialdata,

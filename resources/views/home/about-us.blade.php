@@ -11,7 +11,8 @@
 					@endif
     @include('home.partials.preloader')
     @include('home.partials.header', ['navdata' => $navdata])
-    @include('home.partials.page-bannner')
+    @include('home.partials.page-bannner', ['title' => 'Maha spice and food Product
+'])
 
     @include('home.partials.welcome')
 

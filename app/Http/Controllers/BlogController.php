@@ -38,6 +38,7 @@ class BlogController extends Controller
             'title' => $request->title,
             'slug' => Str::slug($request->title),
             'content' => $request->content,
+            'short_desc' => $request->short_desc,
             'image' => $imageName,
         ]);
 
@@ -69,6 +70,7 @@ class BlogController extends Controller
         $blog->title = $request->title;
         $blog->slug = Str::slug($request->title);
         $blog->content = $request->content;
+        $blog->short_desc = $request->short_desc;
         $blog->save();
 
         return redirect()->route('blogs.index')->with('success', 'Blog updated successfully.');

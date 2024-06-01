@@ -20,6 +20,11 @@
                                 <label for="title">Title</label>
                                 <input type="text" name="title" id="title" class="form-control" required>
                             </div>
+
+                            <div class="form-group">
+                                <label for="content">Short Desc</label>
+                                <textarea name="short_desc" id="short_desc" rows="5" class="form-control" ></textarea>
+                            </div>
                             <div class="form-group">
                                 <label for="content">Content</label>
                                 <textarea name="content" id="content" rows="5" class="form-control" required></textarea>
