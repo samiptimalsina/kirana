@@ -7,8 +7,7 @@
 
         <div class="basis-[400px] grow max-w-[650px] p-5">
             <h3 class="font-bold font-cursive-merie text-4xl">
-                <span class="text-amber-400 leading-snug">welcome</span> <br /><span class=" leading-normal">to food
-                    fun</span>
+                <span class="text-amber-400 leading-snug">welcome</span> <br /><span class=" leading-normal">Maha spice and food Product</span>
             </h3>
             <p class="pt-4 text-[14px] font-sans-lato text-slate-600 leading-relaxed">
                 Created god gathered don't you yielding herb you had. And isn't, god was

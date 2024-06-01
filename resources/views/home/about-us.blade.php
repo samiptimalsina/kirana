@@ -11,9 +11,11 @@
 					@endif
     @include('home.partials.preloader')
     @include('home.partials.header', ['navdata' => $navdata])
+    @include('home.partials.page-bannner')
+
     @include('home.partials.welcome')
 
-    @include('home.partials.testimonial', [
+    @include('home.partials.teams', [
         'testimonialdata' => $testimonialdata,
         'quoteImg' => 'assets/images/quote.png',
     ])

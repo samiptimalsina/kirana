@@ -28,15 +28,15 @@ class AppServiceProvider extends ServiceProvider
     {
         $user = Auth::id() ? Auth::user() : null;
         $isAdmin = $this->GetIsAdmin();
-            View::composer('*', function ($view) use ($user, $isAdmin) {
-        $view->with(compact('user', 'isAdmin'));
-    });
+        View::composer('*', function ($view) use ($user, $isAdmin) {
+            $view->with(compact('user', 'isAdmin'));
+        });
         // if (env('APP_ENV') == 'production') {
         //     $url->forceScheme('https');
         // }
     }
 
-        private function GetIsAdmin()
+    private function GetIsAdmin()
     {
         return Auth::id() && Auth::user()->usertype = "1" ? true : false;
     }
