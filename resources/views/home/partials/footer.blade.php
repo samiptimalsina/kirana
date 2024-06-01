@@ -15,9 +15,9 @@
              <div class="flex items-start">
                  <i class="fa fa-map-marker pr-3 pl-1 pt-2.5"></i>
                  <p>
-                     1234 Some St San Francisco, <br />
-                     CA 94102, US
-                     1.800.123.4567
+                     Mohan Galli Maitidebi-8, <br />
+                      kathmadu Nepal
+                     +9779860309035
                  </p>
              </div>
              <div class="flex">
