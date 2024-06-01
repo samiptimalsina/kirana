@@ -30,6 +30,8 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/product/{slug}', 'productDetail')->name('admin.details');
     Route::get('/about-us', 'aboutUs')->name('about');
     Route::get('/shop', 'shop')->name('shop');
+    Route::get('/blogs', 'blogs')->name('blogs');
+    Route::get('/blogs/{slug}', 'blogDetail')->name('blogs.detail');
 });
 
 
@@ -68,9 +70,10 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-    Route::resource('banners', BannerController::class);
-    Route::resource('blogs', BlogController::class);
+    Route::prefix('admin')->group(function () {
+        Route::resource('banners', BannerController::class);
+        Route::resource('blogs', BlogController::class);
 
-
-    Route::match(['post', 'get', 'put'], 'setting', [BannerController::class, 'updateOrCreateSettings'])->name('settings');
+        Route::match(['post', 'get', 'put'], 'setting', [BannerController::class, 'updateOrCreateSettings'])->name('settings');
+    });
 });

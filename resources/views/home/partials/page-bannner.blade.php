@@ -20,7 +20,7 @@
 
         <!-- Content inside the banner -->
         <div class="absolute inset-0 flex items-center justify-center text-white">
-            <h1 class="text-4xl font-bold">Maha spice and food Product</h1>
+            <h1 class="text-4xl font-bold">{{$title ?? ''}}</h1>
         </div>
     </section>
 

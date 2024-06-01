@@ -12,6 +12,8 @@
     @include('home.partials.preloader')
 
     @include('home.partials.header', ['navdata' => $navdata])
+        @include('home.partials.page-bannner', ['title' => "Our Shop"])
+
 
     @include('home.partials.food', ['fooddata' => $fooddata, 'foodBg' => 'assets/images/food-bg.png'])
 
