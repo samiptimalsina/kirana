@@ -26,7 +26,7 @@
              </div>
              <div class="flex">
                  <i class="fa fa-envelope-o pr-3 pl-1 pt-2.5"></i>
-                 <p>support@axiomthemes.com</p>
+                 <p>support@techzillasoft.com</p>
              </div>
          </div>
          <div class="single-widget single-widget3 leading-loose p-5 justify-self-end">
