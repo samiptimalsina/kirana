@@ -64,8 +64,8 @@
                             <div class="ml-4 mb-4">
                                 <h3 class="mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-white">Our Address
                                 </h3>
-                                <p class="text-gray-600 dark:text-slate-400">1230 Maecenas Street Donec Road</p>
-                                <p class="text-gray-600 dark:text-slate-400">New York, EEUU</p>
+                                <p class="text-gray-600 dark:text-slate-400">Mahitdebi 8 Mohan Galli</p>
+                                <p class="text-gray-600 dark:text-slate-400">kathmadu Nepal </p>
                             </div>
                         </li>
                         <li class="flex">
@@ -83,8 +83,8 @@
                             <div class="ml-4 mb-4">
                                 <h3 class="mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-white">Contact
                                 </h3>
-                                <p class="text-gray-600 dark:text-slate-400">Mobile: +1 (123) 456-7890</p>
-                                <p class="text-gray-600 dark:text-slate-400">Mail: tailnext@gmail.com</p>
+                                <p class="text-gray-600 dark:text-slate-400">Mobile: +9779860906038</p>
+                                <p class="text-gray-600 dark:text-slate-400">Mail: info@techzillasoft.com</p>
                             </div>
                         </li>
                         <li class="flex">
@@ -122,7 +122,7 @@
                             </div>
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="w-full bg-blue-800 text-white px-6 py-3 font-xl rounded-md sm:mb-0" style="background-color: #1E293B">Send Message</button>
+                            <button type="submit" class="w-full bg-blue-800 text-white px-6 py-3 font-xl rounded-md sm:mb-0" style="background-color: #d83316">Send Message</button>
                         </div>
                     </form>
                 </div>
