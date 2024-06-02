@@ -60,7 +60,7 @@
     </style>
 </head>
 
-    					<?php if(session()->has('msg')): ?>
+    <?php if(session()->has('msg')): ?>
 					<p class="alert alert-info"><?php echo e(session()->get('msg')); ?></p>
 					<?php endif; ?>
     <?php echo $__env->make('home.partials.preloader', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -71,10 +71,10 @@
     <main class="container mx-auto py-6">
         <div class=" mx-auto bg-white shadow-md rounded-lg p-6">
             <p class="text-gray-600 mb-4">Published on <span class="font-semibold">June 1, 2024</span> by <span class="font-semibold">John Doe</span></p>
-            <img src="blog-image.jpg" alt="Blog Image" class="w-full rounded-lg mb-4">
-            <p class="text-gray-800 leading-relaxed mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eget mi non nulla sodales tempus vel sed libero. Cras nec justo urna. Donec porta justo eget nulla faucibus, et venenatis est varius. Mauris vitae massa vitae dolor pharetra malesuada. Nullam auctor augue in ligula volutpat, sit amet tempor elit pulvinar. Nunc vitae nisl turpis.</p>
-            <p class="text-gray-800 leading-relaxed mb-4">Vivamus vel vehicula magna. Phasellus ac justo sit amet est gravida feugiat. Mauris vitae velit nec dolor aliquam lacinia eget et lorem. Nulla sit amet libero ut velit aliquam ullamcorper. Fusce vehicula nulla sit amet ultricies lobortis.</p>
-            <p class="text-gray-800 leading-relaxed mb-4">Suspendisse et lobortis ligula. Phasellus maximus fermentum enim, ac efficitur lectus venenatis et. Integer fringilla cursus nisi id sodales. Vestibulum posuere vehicula neque vitae lobortis. Nullam ac ultricies urna. Cras ut nisi a sapien tristique lacinia.</p>
+        <img src="<?php echo e(asset('assets/images/' . $blog->image)); ?>" alt="Blog Image" class="w-full h-auto rounded-lg mb-4">
+          <h1><?php echo e($blog->title ?? ''); ?></h1>
+            <p class="text-gray-800 leading-relaxed mb-4"><?php echo e($blog->short_desc ?? ''); ?></p>
+            <p class="text-gray-800 leading-relaxed mb-4"><?php echo e($blog->content ?? ''); ?></p>
         </div>
     </main>
 

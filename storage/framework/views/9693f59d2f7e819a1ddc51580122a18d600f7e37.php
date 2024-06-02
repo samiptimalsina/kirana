@@ -50,7 +50,7 @@
              </span>
                 <ul class="social-icons flex flex-wrap my-3 mx-5 transition ease-in-out duration-300">
                     <li class="mr-4 my-1">Follow Us:</li>
-                    <li class="mr-3 my-1 cursor-pointer border rounded-full border-transparent hover:border-white hover:rounded-full m-2 px-1 bg-blue-500"
+                    <li class="mr-3 my-1 cursor-pointer border rounded-full border-transparent hover:border-white hover:rounded-full  px-1 bg-blue-500"
                         style="background-color: #3b5998;">
                         <a href="#" class="cursor-pointer text-white"><i class="fa-brands fa-facebook"></i></a>
                     </li>
