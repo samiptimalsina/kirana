@@ -82,7 +82,7 @@
     </main>
 
 
-        @include('home.partials.table', ['tableBg' => 'assets/images/table-bg.jpg'])
+        {{-- @include('home.partials.table', ['tableBg' => 'assets/images/table-bg.jpg']) --}}
     @include('home.partials.footer')
 
     @include('home.partials.script')
