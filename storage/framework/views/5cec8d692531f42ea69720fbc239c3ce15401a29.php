@@ -21,8 +21,8 @@
                 <img src="<?php echo e(asset('assets/images/' . $blog->image)); ?>" alt="<?php echo e($blog->title); ?>" class="w-full h-48 object-cover rounded-lg">
                 </div>
                 <h2 class="text-xl font-semibold text-gray-800 mb-2"><?php echo e($blog->title); ?></h2>
-                <p class="text-gray-600 mb-4"><?php echo e($blog->excerpt); ?></p>
-                <a href="<?php echo e(route('blogs.detail', $blog->id)); ?>" class="text-blue-500 hover:underline">Read more</a>
+               <p class="text-gray-600 mb-4"><?php echo e(substr($blog->content, 0, 80)); ?></p>
+                <a href="<?php echo e(route('blogs.detail', $blog->slug)); ?>" class="text-blue-500 hover:underline">Read more</a>
             </div>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>

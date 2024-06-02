@@ -129,9 +129,9 @@ class HomeController extends Controller
         ]);
     }
 
-    public function blogDetail($id)
+    public function blogDetail($slug)
     {
-        $blog = Blog::find($id);
+        $blog = Blog::where('slug', $slug)->firstOrFail();
         return view('home.blog-detail', [
             'navdata' => $this->navdata,
             'blog' => $blog,

@@ -22,7 +22,7 @@
                 </div>
                 <h2 class="text-xl font-semibold text-gray-800 mb-2">{{ $blog->title }}</h2>
                <p class="text-gray-600 mb-4">{{ substr($blog->content, 0, 80) }}</p>
-                <a href="{{ route('blogs.detail', $blog->id) }}" class="text-blue-500 hover:underline">Read more</a>
+                <a href="{{ route('blogs.detail', $blog->slug) }}" class="text-blue-500 hover:underline">Read more</a>
             </div>
             @endforeach
         </div>
