@@ -60,7 +60,7 @@
     </style>
 </head>
 
-    					@if(session()->has('msg'))
+    @if(session()->has('msg'))
 					<p class="alert alert-info">{{ session()->get('msg') }}</p>
 					@endif
     @include('home.partials.preloader')
