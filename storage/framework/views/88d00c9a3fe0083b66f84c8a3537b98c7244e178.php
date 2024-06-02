@@ -72,7 +72,10 @@
         <div class=" mx-auto bg-white shadow-md rounded-lg p-6">
             <p class="text-gray-600 mb-4">Published on <span class="font-semibold">June 1, 2024</span> by <span class="font-semibold">John Doe</span></p>
         <img src="<?php echo e(asset('assets/images/' . $blog->image)); ?>" alt="Blog Image" class="w-full h-auto rounded-lg mb-4">
-          <h1><?php echo e($blog->title ?? ''); ?></h1>
+                        <br>
+
+                <h2 class="text-xl font-semibold text-gray-800 mb-2 mt-2"><?php echo e($blog->title); ?></h2>
+                <br>
             <p class="text-gray-800 leading-relaxed mb-4"><?php echo e($blog->short_desc ?? ''); ?></p>
             <p class="text-gray-800 leading-relaxed mb-4"><?php echo e($blog->content ?? ''); ?></p>
         </div>
