@@ -21,7 +21,7 @@
                 <img src="{{ asset('assets/images/' . $blog->image) }}" alt="{{ $blog->title }}" class="w-full h-48 object-cover rounded-lg">
                 </div>
                 <h2 class="text-xl font-semibold text-gray-800 mb-2">{{ $blog->title }}</h2>
-                <p class="text-gray-600 mb-4">{{ $blog->excerpt }}</p>
+               <p class="text-gray-600 mb-4">{{ substr($blog->content, 0, 30) }}</p>
                 <a href="{{ route('blogs.detail', $blog->id) }}" class="text-blue-500 hover:underline">Read more</a>
             </div>
             @endforeach
