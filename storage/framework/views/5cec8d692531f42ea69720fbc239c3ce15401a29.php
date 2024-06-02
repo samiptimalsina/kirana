@@ -18,7 +18,7 @@
             <?php $__currentLoopData = $blogs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $blog): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="bg-white shadow-md rounded-lg p-4">
                 <div class="mb-4">
-                    <img src="<?php echo e(asset('assets/image/'. $blog->image )); ?>" alt="<?php echo e($blog->title); ?>" class="w-full rounded-lg">
+                <img src="<?php echo e(asset('assets/images/' . $blog->image)); ?>" alt="<?php echo e($blog->title); ?>" class="w-full h-48 object-cover rounded-lg">
                 </div>
                 <h2 class="text-xl font-semibold text-gray-800 mb-2"><?php echo e($blog->title); ?></h2>
                 <p class="text-gray-600 mb-4"><?php echo e($blog->excerpt); ?></p>
@@ -26,6 +26,9 @@
             </div>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
+        <?php echo e($blogs->links()); ?>
+
+
     </main>
     <!-- End Blog List Section -->
 
