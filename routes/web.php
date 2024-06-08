@@ -34,6 +34,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/shop', 'shop')->name('shop');
     Route::get('/blogs', 'blogs')->name('blogs');
     Route::get('/blogs/{slug}', 'blogDetail')->name('blogs.detail');
+    Route::get('/dealers', 'dealers')->name('dealers');
 });
 
 

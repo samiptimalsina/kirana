@@ -9,6 +9,8 @@ use App\Models\Setting;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use App\Models\Specialdishes;
+use App\Models\Dealer;
+
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -48,6 +50,7 @@ class HomeController extends Controller
             ["text" => "Shop", "href" => route('shop')],
             ["text" => "Blog", "href" => route('blogs')],
             ["text" => "book", "href" => url('/') . '#book'],
+            ["text" => "Dealers", "href" =>  route('dealers')],
             ["text" => "contact", "href" => route('contact.us')],
         ];
 
@@ -135,6 +138,19 @@ class HomeController extends Controller
         return view('home.blog-detail', [
             'navdata' => $this->navdata,
             'blog' => $blog,
+            'fooddata' => $this->fooddata,
+            'dishesdata' => $this->dishesdata,
+            'testimonialdata' => $this->testimonialdata,
+            'banner_image' => $this->banner_image,
+        ]);
+    }
+
+    public function dealers()
+    {
+        $dealers = Dealer::all();
+        return view('home.dealers', [
+            'navdata' => $this->navdata,
+            'dealers' => $dealers,
             'fooddata' => $this->fooddata,
             'dishesdata' => $this->dishesdata,
             'testimonialdata' => $this->testimonialdata,
