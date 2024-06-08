@@ -82,5 +82,17 @@
                 <i class="fa-solid fa-bowl-rice menu-icon"></i>
             </a>
         </li>
+       <li class="nav-item">
+            <a class="nav-link" href="{{ route('teams.index') }}">
+                <span class="menu-title">Teams</span>
+                <i class="fa-solid fa-bowl-rice menu-icon"></i>
+            </a>
+        </li>
+                <li class="nav-item">
+            <a class="nav-link" href="{{ route('dealers.index') }}">
+                <span class="menu-title">Deallers</span>
+                <i class="fa-solid fa-bowl-rice menu-icon"></i>
+            </a>
+        </li>
     </ul>
 </nav>

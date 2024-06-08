@@ -29,8 +29,10 @@
             <div class="form-group">
                 <label for="photo">Photo:</label>
                 <input type="file" id="photo" name="photo" class="form-control-file">
-                @if ($photoPath)
-                    <img src="{{ asset($photoPath) }}" alt="Current Photo" style="max-width: 200px;">
+
+                @if ($team->photo)
+
+                    <img src="{{ \App\Models\Team::renderImage($team->photo) }}" alt="Current Photo" style="max-width: 200px;" class="mt-2">
                 @else
                     <p>No photo uploaded</p>
                 @endif

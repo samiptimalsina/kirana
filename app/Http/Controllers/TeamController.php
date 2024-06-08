@@ -19,13 +19,16 @@ class TeamController extends Controller
         $isAdmin = $this->getIsAdmin();
         $teams = Team::all();
 
+
         return view("admin.teams.index", compact("user", "isAdmin", "teams"));
     }
 
     public function create()
     {
+
         $user = Auth::user();
         $isAdmin = $this->getIsAdmin();
+
         return view('admin.teams.create', compact('user', 'isAdmin'));
     }
 

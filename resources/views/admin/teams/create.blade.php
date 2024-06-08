@@ -1,6 +1,5 @@
-<x-admin.index :user="$user" :isAdmin="$isAdmin" :teams="$teams" />
-
-    <div class="container">
+<x-admin.index :user="$user" :isAdmin="$isAdmin" >
+    <div class="container card">
         <h1>Create Team Member</h1>
         <form action="{{ route('teams.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -38,5 +37,4 @@
             <button type="submit" class="btn btn-primary">Create</button>
         </form>
     </div>
-@endsection
 </x-admin.index>
