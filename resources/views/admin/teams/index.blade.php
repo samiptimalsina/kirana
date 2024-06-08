@@ -1,6 +1,5 @@
 <x-admin.index :user="$user" :isAdmin="$isAdmin" :teams="$teams">
-
-    <div class="container">
+    <div class="container-fluid">
         <h1>Team Members</h1>
         <a href="{{ route('teams.create') }}" class="btn btn-primary mb-3">Add Team Member</a>
 
@@ -24,8 +23,8 @@
                         <td>{{ $team->contact_no }}</td>
                         <td>{{ $team->email }}</td>
                         <td>
-                            @if ($team->photo_url)
-                                <img src="{{ asset($team->photo_url) }}" alt="Team Photo" style="max-width: 100px;">
+                            @if ($team->photo)
+                                <img src="{{ \App\Models\Team::renderImage($team->photo) }}" alt="Team Photo" style="max-width: 100px;">
                             @else
                                 No photo
                             @endif
@@ -33,7 +32,11 @@
                         <td>{{ $team->description }}</td>
                         <td>
                             <a href="{{ route('teams.edit', $team->id) }}" class="btn btn-sm btn-primary">Edit</a>
-                            <!-- Add delete button or form here -->
+                            <form action="{{ route('teams.destroy', $team->id) }}" method="POST" style="display: inline-block;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this team member?')">Delete</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach

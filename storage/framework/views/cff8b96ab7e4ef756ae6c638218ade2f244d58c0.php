@@ -82,6 +82,18 @@
                 <i class="fa-solid fa-bowl-rice menu-icon"></i>
             </a>
         </li>
+       <li class="nav-item">
+            <a class="nav-link" href="<?php echo e(route('teams.index')); ?>">
+                <span class="menu-title">Teams</span>
+                <i class="fa-solid fa-bowl-rice menu-icon"></i>
+            </a>
+        </li>
+                <li class="nav-item">
+            <a class="nav-link" href="<?php echo e(route('dealers.index')); ?>">
+                <span class="menu-title">Deallers</span>
+                <i class="fa-solid fa-bowl-rice menu-icon"></i>
+            </a>
+        </li>
     </ul>
 </nav>
 <?php /**PATH /home/rishi/Desktop/restaurant-site-laravel/resources/views/admin/partials/sidebar.blade.php ENDPATH**/ ?>
