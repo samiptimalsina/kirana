@@ -33,7 +33,7 @@
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
             </div>
-                                        <div class="mt-10">
+           <div class="mt-10">
                 <?php echo e($fooddata->links()); ?>
 
             </div>
