@@ -31,8 +31,14 @@
                         </a>
                     </div>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+            </div>
+                                        <div class="mt-10">
+                <?php echo e($fooddata->links()); ?>
+
             </div>
         </div>
+
     </section>
     <!-- Food Area End -->
 <?php /**PATH /home/rishi/Desktop/restaurant-site-laravel/resources/views/home/partials/food.blade.php ENDPATH**/ ?>
