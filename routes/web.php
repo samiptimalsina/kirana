@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\DealerController;
 use App\Http\Controllers\FoodMenuController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\SpecialDishController;
@@ -75,5 +76,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
         Route::resource('blogs', BlogController::class);
 
         Route::match(['post', 'get', 'put'], 'setting', [BannerController::class, 'updateOrCreateSettings'])->name('settings');
+        Route::resource('dealers', DealerController::class);
+        Route::resource('teams', TeamController::class);
     });
 });
