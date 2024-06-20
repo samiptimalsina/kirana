@@ -54,7 +54,7 @@ class HomeController extends Controller
             ["text" => "contact", "href" => route('contact.us')],
         ];
 
-        $this->fooddata = Food::all();
+        $this->fooddata = Food::paginate(12);
         $this->dishesdata = Specialdishes::all();
         $this->testimonialdata = Testimonial::all();
         $banner = Banner::latest()->first();
@@ -77,7 +77,8 @@ class HomeController extends Controller
         $testimonialdata = Testimonial::all();
         $banner = Banner::latest()->first();
 
-        $banner_image = $banner->image_url;
+        $banner_image = $this->getBanner('HOME');
+
 
         return view("home.index", compact('navdata', 'fooddata', 'dishesdata', 'testimonialdata', 'banner_image', 'banner'));
     }
@@ -103,7 +104,7 @@ class HomeController extends Controller
             'fooddata' => $this->fooddata,
             'dishesdata' => $this->dishesdata,
             'testimonialdata' => $this->testimonialdata,
-            'banner_image' => $this->banner_image,
+            'banner_image' => $this->getBanner('ABOUT'),
         ]);
     }
 
@@ -114,7 +115,7 @@ class HomeController extends Controller
             'fooddata' => $this->fooddata,
             'dishesdata' => $this->dishesdata,
             'testimonialdata' => $this->testimonialdata,
-            'banner_image' => $this->banner_image,
+            'banner_image' => $this->getBanner('SHOP'),
         ]);
     }
 
@@ -128,7 +129,7 @@ class HomeController extends Controller
             'fooddata' => $this->fooddata,
             'dishesdata' => $this->dishesdata,
             'testimonialdata' => $this->testimonialdata,
-            'banner_image' => $this->banner_image,
+            'banner_image' => $this->getBanner('BLOG'),
         ]);
     }
 
@@ -141,7 +142,7 @@ class HomeController extends Controller
             'fooddata' => $this->fooddata,
             'dishesdata' => $this->dishesdata,
             'testimonialdata' => $this->testimonialdata,
-            'banner_image' => $this->banner_image,
+            'banner_image' => $this->getBanner('BLOG'),
         ]);
     }
 
@@ -154,7 +155,13 @@ class HomeController extends Controller
             'fooddata' => $this->fooddata,
             'dishesdata' => $this->dishesdata,
             'testimonialdata' => $this->testimonialdata,
-            'banner_image' => $this->banner_image,
+            'banner_image' => $this->getBanner('DEALERS'),
         ]);
+    }
+
+
+    private function getBanner($page)
+    {
+        return Banner::where('page', $page)->first();
     }
 }
