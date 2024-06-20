@@ -10,16 +10,18 @@ use Illuminate\Support\Facades\Auth;
 
 class BannerController extends Controller
 {
-  public function index()
+    public function index()
     {
 
         $banners = Banner::all();
-        return view('admin.banners.index', compact( 'banners'));
+        return view('admin.banners.index', compact('banners'));
     }
 
     public function create()
     {
-        return view('admin.banners.create');
+
+        $pageOptions = $this->getJsonData();
+        return view('admin.banners.create', compact('pageOptions'));
     }
 
     public function store(Request $request)
@@ -28,18 +30,21 @@ class BannerController extends Controller
             'image_url' => 'required',
             'title' => 'required',
             'description' => 'nullable',
+            'page' => 'nullable|in:HOME,ABOUT,SHOP,DEALERS,CONTACT',
+
         ]);
 
-        if($request->has('image_url')){
+        if ($request->has('image_url')) {
             $image = $request->file('image_url');
             $image_name = Str::random(5) . '_' . time() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('assets/images/banner'), $image_name);
         }
 
-            Banner::create([
+        Banner::create([
             'image_url' => $image_name,
             'title' => $request->input('title'),
             'description' => $request->input('description'),
+            'page' => $request->page,
         ]);
 
         return redirect()->route('banners.index')->with('success', 'Banner created successfully.');
@@ -54,7 +59,9 @@ class BannerController extends Controller
     public function edit($id)
     {
         $banner = Banner::findOrFail($id);
-        return view('admin.banners.edit', compact('banner'));
+        $pageOptions = $this->getJsonData();
+
+        return view('admin.banners.edit', compact('banner', 'pageOptions'));
     }
 
     public function update(Request $request, $id)
@@ -63,6 +70,8 @@ class BannerController extends Controller
             'image_url' => 'nullable|image',
             'title' => 'required',
             'description' => 'nullable',
+            'page' => 'nullable|in:HOME,ABOUT,SHOP,DEALERS,CONTACT',
+
         ]);
 
         $banner = Banner::findOrFail($id);
@@ -81,6 +90,7 @@ class BannerController extends Controller
         $banner->update([
             'title' => $request->input('title'),
             'description' => $request->input('description'),
+            'page' => $request->input('page'),
         ]);
 
         return redirect()->route('banners.index')->with('success', 'Banner updated successfully.');
@@ -99,7 +109,7 @@ class BannerController extends Controller
         return redirect()->route('banners.index')->with('success', 'Banner deleted successfully.');
     }
 
-        private function GetIsAdmin()
+    private function GetIsAdmin()
     {
         return Auth::id() && Auth::user()->usertype = "1" ? true : true;
     }
@@ -109,46 +119,52 @@ class BannerController extends Controller
     public function updateOrCreateSettings(Request $request)
     {
         $settings = Setting::find(1);
- if ($request->isMethod('post') || $request->isMethod('put')) {
-        $validatedData = $request->validate([
-            'logo' => 'nullable|image',
-            'site_name' => 'required|string',
-            'about_us' => 'required|string',
-            'about_us_image' => 'nullable|image',
-            'contact_address' => 'required|string',
-            'contact_phone' => 'required|string',
-            'contact_email' => 'required|string|email',
-            'opening_hours' => 'required|string',
-        ]);
+        if ($request->isMethod('post') || $request->isMethod('put')) {
+            $validatedData = $request->validate([
+                'logo' => 'nullable|image',
+                'site_name' => 'required|string',
+                'about_us' => 'required|string',
+                'about_us_image' => 'nullable|image',
+                'contact_address' => 'required|string',
+                'contact_phone' => 'required|string',
+                'contact_email' => 'required|string|email',
+                'opening_hours' => 'required|string',
+            ]);
 
-        if ($request->hasFile('logo')) {
-            $logo = $request->file('logo');
-            $logo_name = Str::random(5) . '_' . time() . '.' . $logo->getClientOriginalExtension();
-            $logo->move(public_path('assets/images/settings'), $logo_name);
-            $validatedData['logo'] = $logo_name;
+            if ($request->hasFile('logo')) {
+                $logo = $request->file('logo');
+                $logo_name = Str::random(5) . '_' . time() . '.' . $logo->getClientOriginalExtension();
+                $logo->move(public_path('assets/images/settings'), $logo_name);
+                $validatedData['logo'] = $logo_name;
+            }
+
+            if ($request->hasFile('about_us_image')) {
+                $about_us_image = $request->file('about_us_image');
+                $about_us_image_name = Str::random(5) . '_' . time() . '.' . $about_us_image->getClientOriginalExtension();
+                $about_us_image->move(public_path('assets/images/settings'), $about_us_image_name);
+                $validatedData['about_us_image'] = $about_us_image_name;
+            }
+
+            if ($settings) {
+                $settings->update($validatedData);
+            } else {
+                $settings = Setting::create($validatedData);
+            }
+
+
+
+            return redirect()->route('settings')->with('success', 'Settings updated successfully.');
         }
 
-        if ($request->hasFile('about_us_image')) {
-            $about_us_image = $request->file('about_us_image');
-            $about_us_image_name = Str::random(5) . '_' . time() . '.' . $about_us_image->getClientOriginalExtension();
-            $about_us_image->move(public_path('assets/images/settings'), $about_us_image_name);
-            $validatedData['about_us_image'] = $about_us_image_name;
-        }
-
-        if ($settings) {
-            $settings->update($validatedData);
-        } else {
-            $settings = Setting::create($validatedData);
-        }
-
-
-
-        return redirect()->route('settings')->with('success', 'Settings updated successfully.');
-          }
-
-              return view('admin.setting.update', compact('settings'));
-
+        return view('admin.setting.update', compact('settings'));
     }
 
 
+    private function getJsonData()
+    {
+
+        $jsonPath = public_path('enum_values.json');
+        $jsonData = file_get_contents($jsonPath);
+        return $enumValues = json_decode($jsonData, true);
+    }
 }
