@@ -34,7 +34,7 @@
 
             </div>
            <div class="mt-10">
-                {{ $fooddata->links() }}
+                {{ $fooddata->links()  }}
             </div>
         </div>
 
