@@ -5,11 +5,10 @@
             <span class="text-amber-400">{{ $banner->description ?? '' }}</span>
         </h1>
     </section>
-    <!-- Banner Area End -->
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const images = @json($banner_images);
+            const images = @json($banner_images  ?? []);
             let currentIndex = 0;
 
             function changeBackgroundImage() {
