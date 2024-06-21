@@ -22,7 +22,7 @@
     @include('home.partials.deshes', ['dishesdata' => $dishesdata])
 
 
-    @include('home.partials.table', ['tableBg' => $banner_images[1]?->image_url ?? 'assets/images/food-bg.png'])
+    @include('home.partials.table', ['tableBg' => $banner_images[0]?->image_url ?? 'assets/images/food-bg.png'])
     @include('home.partials.footer')
 
     @include('home.partials.script')
