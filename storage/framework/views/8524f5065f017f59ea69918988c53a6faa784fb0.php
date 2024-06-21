@@ -13,7 +13,7 @@
     <?php echo $__env->make('home.partials.header', ['navdata' => $navdata], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <?php echo $__env->make('home.partials.banner', ['bannerImg' => $banner_images[1]?->image_url ?? 'assets/images/banner-bg.jpg'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <?php echo $__env->make('home.partials.welcome', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-    <?php echo $__env->make('home.partials.food', ['fooddata' => $fooddata, 'foodBg' => $banner_images[1]?->image_url ?? 'assets/images/banner-bg.jpg'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make('home.partials.food', ['fooddata' => $fooddata, 'foodBg' => ''], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
     <?php echo $__env->make('home.partials.testimonial', [
         'testimonialdata' => $testimonialdata,
