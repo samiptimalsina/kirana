@@ -14,7 +14,7 @@
             background-position: center;
             background-repeat: no-repeat;
             position: relative;
-            height: 960px;
+            height: 600px;
         }
         .banner-content {
             position: relative;
