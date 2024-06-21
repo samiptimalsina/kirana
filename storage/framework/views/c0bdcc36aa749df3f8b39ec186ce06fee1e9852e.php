@@ -21,4 +21,5 @@
             setInterval(changeBackgroundImage, 5000);
         });
     </script>
+
 <?php /**PATH /home/rishi/Desktop/restaurant-site-laravel/resources/views/home/partials/banner.blade.php ENDPATH**/ ?>
