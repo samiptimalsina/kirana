@@ -13,7 +13,7 @@
     @include('home.partials.header', ['navdata' => $navdata])
     @include('home.partials.banner', ['bannerImg' => $banner_images[1]?->image_url ?? 'assets/images/banner-bg.jpg'])
     @include('home.partials.welcome')
-    @include('home.partials.food', ['fooddata' => $fooddata, 'foodBg' => $banner_images[1]?->image_url ?? 'assets/images/banner-bg.jpg'])
+    @include('home.partials.food', ['fooddata' => $fooddata, 'foodBg' => ''])
 
     @include('home.partials.testimonial', [
         'testimonialdata' => $testimonialdata,
