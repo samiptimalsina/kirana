@@ -148,7 +148,9 @@ class HomeController extends Controller
 
     public function dealers()
     {
+
         $dealers = Dealer::all();
+
         return view('home.dealers', [
             'navdata' => $this->navdata,
             'dealers' => $dealers,

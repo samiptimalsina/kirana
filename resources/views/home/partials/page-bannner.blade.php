@@ -7,33 +7,34 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
+            background-color: rgba(0, 0, 0, 0.4); /* Dark overlay */
         }
-        #bannerSection{
+        #bannerSection {
             margin-top: 50px;
+            background-size: auto;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+        .banner-content {
+            position: relative;
+            z-index: 2;
         }
     </style>
 
-<section id="bannerSection" class="relative h-64 overflow-hidden">
-        <!-- Dark overlay -->
-        <div class="overlay"></div>
+<section id="bannerSection" class="relative h-96 overflow-hidden">
+    <div class="overlay"></div>
 
-        <!-- Content inside the banner -->
-        <div class="absolute inset-0 flex items-center justify-center text-white">
-            <h1 class="text-4xl font-bold">{{$title ?? ''}}</h1>
-        </div>
-    </section>
+    <div class="absolute inset-0 flex items-center justify-center text-white">
+        <h1 class="text-4xl font-bold">{{ $title ?? '' }}</h1>
+    </div>
+</section>
 
-
-
-        <script>
-        // Function to fetch a random background image from Unsplash API
-        async function fetchRandomImage() {
-            const response = await fetch('https://source.unsplash.com/random/1600x900');
-            const imageUrl = response.url;
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const imageUrl = @json($banner_image->image_url ?? '');
+        if (imageUrl) {
             document.getElementById('bannerSection').style.backgroundImage = `url(${imageUrl})`;
         }
-
-        // Call the function to set the random background image
-        fetchRandomImage();
-    </script>
+    });
+</script>

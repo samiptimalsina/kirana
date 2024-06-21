@@ -15,7 +15,7 @@ class AddPageToBannersTable extends Migration
     {
         Schema::table('banners', function (Blueprint $table) {
             //
-            $table->enum('page', ['HOME', 'ABOUT', 'SHOP', 'DEALERS', 'CONTACT'])->nullable()->default(NULL);
+            $table->enum('page', ['HOME', 'ABOUT', 'SHOP', 'DEALERS', 'CONTACT', 'BLOG'])->nullable()->default(NULL);
         });
     }
 

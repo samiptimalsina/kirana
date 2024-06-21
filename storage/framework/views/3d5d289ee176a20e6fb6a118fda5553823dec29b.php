@@ -34,7 +34,7 @@
 
             </div>
            <div class="mt-10">
-                <?php echo e($fooddata->links() ?? ''); ?>
+                <?php echo e($fooddata->links()); ?>
 
             </div>
         </div>
