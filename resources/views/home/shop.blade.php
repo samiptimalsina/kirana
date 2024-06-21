@@ -13,9 +13,9 @@
 
     @include('home.partials.header', ['navdata' => $navdata])
         @include('home.partials.page-bannner', ['title' => "Our Shop"])
+{{-- assets/images/food-bg.png --}}
 
-
-    @include('home.partials.food', ['fooddata' => $fooddata, 'foodBg' => 'assets/images/food-bg.png'])
+    @include('home.partials.food', ['fooddata' => $fooddata, 'foodBg' => ''])
 
 
 
