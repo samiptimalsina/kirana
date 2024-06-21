@@ -80,7 +80,7 @@ class HomeController extends Controller
         $banner_images = Banner::where('page', 'HOME')->get();
 
 
-        return view("home.index", compact('navdata', 'fooddata', 'dishesdata', 'testimonialdata', 'banner_image', 'banner'));
+        return view("home.index", compact('navdata', 'fooddata', 'dishesdata', 'testimonialdata', 'banner_images', 'banner'));
     }
 
     public function productDetail($slug)
