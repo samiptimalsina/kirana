@@ -31,7 +31,12 @@
                         </a>
                     </div>
                 @endforeach
+
+            </div>
+           <div class="mt-10">
+                {{ $fooddata->links()  }}
             </div>
         </div>
+
     </section>
     <!-- Food Area End -->
