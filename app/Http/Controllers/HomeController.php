@@ -10,7 +10,7 @@ use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use App\Models\Specialdishes;
 use App\Models\Dealer;
-
+use App\Models\Team;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -103,7 +103,7 @@ class HomeController extends Controller
             'navdata' => $this->navdata,
             'fooddata' => $this->fooddata,
             'dishesdata' => $this->dishesdata,
-            'testimonialdata' => $this->testimonialdata,
+            'testimonialdata' => Team::get(),
             'banner_image' => $this->getBanner('ABOUT'),
         ]);
     }

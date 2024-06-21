@@ -10,7 +10,6 @@
             background-color: rgba(0, 0, 0, 0.4); /* Dark overlay */
         }
         #bannerSection {
-            margin-top: 50px;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -22,7 +21,6 @@
         }
     </style>
 
-<br/>
 <section id="bannerSection" class="relative h-96 overflow-hidden">
     <div class="overlay"></div>
 
