@@ -22,7 +22,7 @@
     ])
 
 
-    @include('home.partials.table', ['tableBg' => 'assets/images/table-bg.jpg'])
+    {{-- @include('home.partials.table', ['tableBg' => 'https://betal.techzillasoft.com/assets/images/banner/5M6qu_1718908856.jpeg']) --}}
     @include('home.partials.footer')
 
     @include('home.partials.script')

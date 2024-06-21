@@ -11,9 +11,9 @@
 					@endif
     @include('home.partials.preloader')
     @include('home.partials.header', ['navdata' => $navdata])
-    @include('home.partials.banner', ['bannerImg' => $banner_images ?? 'assets/images/banner-bg.jpg'])
+    @include('home.partials.banner', ['bannerImg' => $banner_images[1]?->image_url ?? 'assets/images/banner-bg.jpg'])
     @include('home.partials.welcome')
-    @include('home.partials.food', ['fooddata' => $fooddata, 'foodBg' => 'assets/images/food-bg.png'])
+    @include('home.partials.food', ['fooddata' => $fooddata, 'foodBg' => $banner_images[1]?->image_url ?? 'assets/images/banner-bg.jpg'])
 
     @include('home.partials.testimonial', [
         'testimonialdata' => $testimonialdata,
@@ -22,7 +22,7 @@
     @include('home.partials.deshes', ['dishesdata' => $dishesdata])
 
 
-    @include('home.partials.table', ['tableBg' => 'assets/images/table-bg.jpg'])
+    @include('home.partials.table', ['tableBg' => $banner_images[1]?->image_url ?? 'assets/images/banner-bg.jpg'])
     @include('home.partials.footer')
 
     @include('home.partials.script')

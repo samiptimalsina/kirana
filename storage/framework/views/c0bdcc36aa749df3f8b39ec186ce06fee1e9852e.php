@@ -1,15 +1,14 @@
     <section id="home" class="w-full h-screen flex flex-col justify-center items-center bg-cover bg-center bg-no-repeat"
-        style="background-image: url(<?php echo e($banner_images[0]->image_url ?? ''); ?>)">
+        style="background-image: url(<?php echo e($banner_images[0]?->image_url ?? ''); ?>)">
         <h1 class="font-cursive-merie text-white text-center leading-normal text-6xl">
             <span class="text-amber-400"><?php echo e($banner->title ?? ''); ?></span><br />
             <span class="text-amber-400"><?php echo e($banner->description ?? ''); ?></span>
         </h1>
     </section>
-    <!-- Banner Area End -->
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const images = <?php echo json_encode($banner_images, 15, 512) ?>;
+            const images = <?php echo json_encode($banner_images  ?? [], 15, 512) ?>;
             let currentIndex = 0;
 
             function changeBackgroundImage() {
