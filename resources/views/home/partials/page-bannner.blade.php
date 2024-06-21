@@ -22,6 +22,7 @@
         }
     </style>
 
+<br/>
 <section id="bannerSection" class="relative h-96 overflow-hidden">
     <div class="overlay"></div>
 
