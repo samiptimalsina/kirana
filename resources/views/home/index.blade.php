@@ -11,7 +11,7 @@
 					@endif
     @include('home.partials.preloader')
     @include('home.partials.header', ['navdata' => $navdata])
-    @include('home.partials.banner', ['bannerImg' => $banner_image ?? 'assets/images/banner-bg.jpg'])
+    @include('home.partials.banner', ['bannerImg' => $banner_images ?? 'assets/images/banner-bg.jpg'])
     @include('home.partials.welcome')
     @include('home.partials.food', ['fooddata' => $fooddata, 'foodBg' => 'assets/images/food-bg.png'])
 
