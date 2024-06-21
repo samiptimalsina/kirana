@@ -77,7 +77,7 @@ class HomeController extends Controller
         $testimonialdata = Testimonial::all();
         $banner = Banner::latest()->first();
 
-        $banner_image = $this->getBanner('HOME');
+        $banner_images = Banner::where('page', 'HOME')->get();
 
 
         return view("home.index", compact('navdata', 'fooddata', 'dishesdata', 'testimonialdata', 'banner_image', 'banner'));
