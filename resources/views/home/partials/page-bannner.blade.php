@@ -11,7 +11,8 @@
         }
         #bannerSection {
             margin-top: 50px;
-            background-size: auto;
+            background-size: cover;
+            /* background-size: auto; */
             background-position: center;
             background-repeat: no-repeat;
             position: relative;
