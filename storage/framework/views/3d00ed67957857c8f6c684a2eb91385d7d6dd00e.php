@@ -15,7 +15,7 @@
         <?php echo $__env->make('home.partials.page-bannner', ['title' => "Our Shop"], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
-    <?php echo $__env->make('home.partials.food', ['fooddata' => $fooddata, 'foodBg' => 'assets/images/food-bg.png'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make('home.partials.food', ['fooddata' => $fooddata, 'foodBg' => ''], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
 
