@@ -14,6 +14,16 @@
                         <label for="title">Title</label>
                         <input type="text" class="form-control" id="title" name="title" required>
                     </div>
+                            <div class="form-group">
+                               <label for="title">Page</label>
+
+                                <select name="page" class="form-control">
+                                    <option value="">Select a page</option>
+                                    @foreach($pageOptions as $option)
+                                        <option value="{{ $option }}">{{ $option }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                     <div class="form-group">
                         <label for="description">Description</label>
                         <textarea class="form-control" id="description" name="description" rows="3"></textarea>
