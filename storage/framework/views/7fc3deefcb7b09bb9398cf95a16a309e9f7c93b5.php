@@ -16,14 +16,14 @@
             width: 100%;
         }
     </style>
-        @include('home.partials.head')
+        <?php echo $__env->make('home.partials.head', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 </head>
 
 <body class="bg-gray-100 ">
 
-    @include('home.partials.header', ['navdata' => $navdata])
-        @include('home.partials.page-bannner', ['title' => "Contact Us"])
+    <?php echo $__env->make('home.partials.header', ['navdata' => $navdata], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+        <?php echo $__env->make('home.partials.page-bannner', ['title' => "Contact Us"], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <section class="bg-blue-50 dark:bg-slate-800" id="contact">
     <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
@@ -130,10 +130,11 @@
         </div>
     </div>
 </section>
-    @include('home.partials.footer')
+    <?php echo $__env->make('home.partials.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
-    @include('home.partials.script')
+    <?php echo $__env->make('home.partials.script', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </body>
 
 </html>
 
+<?php /**PATH /home/rishi/Desktop/restaurant-site-laravel/resources/views/home/contact-us.blade.php ENDPATH**/ ?>
