@@ -31,7 +31,7 @@
     </main>
     <!-- End Blog List Section -->
 
-    @include('home.partials.table', ['tableBg' => 'assets/images/table-bg.jpg'])
+    @include('home.partials.table', ['tableBg' => $banner_image->image_url ?? ''])
     @include('home.partials.footer')
 
     @include('home.partials.script')
