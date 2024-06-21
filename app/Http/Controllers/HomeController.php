@@ -94,9 +94,13 @@ class HomeController extends Controller
     public function contactUs()
     {
         $navdata = $this->navdata;
+        $banner_image = $this->getBanner('CONTACT');
 
-        return view('home.contact-us', compact('navdata'));
+
+        return view('home.contact-us', compact('navdata', 'banner_image'));
     }
+
+
     public function aboutUs()
     {
         return view('home.about-us', [
