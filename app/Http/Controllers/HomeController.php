@@ -47,7 +47,7 @@ class HomeController extends Controller
         $this->navdata = [
             ["text" => "home", "href" => url('/') . '#home'],
             ["text" => "about", "href" => route('about')],
-            ["text" => "Shop", "href" => route('shop')],
+            ["text" => "Our Product", "href" => route('shop')],
             ["text" => "Blog", "href" => route('blogs')],
             ["text" => "book", "href" => url('/') . '#book'],
             ["text" => "Dealers", "href" =>  route('dealers')],
