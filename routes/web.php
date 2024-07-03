@@ -32,7 +32,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/product/{slug}', 'productDetail')->name('admin.details');
     Route::get('/about-us', 'aboutUs')->name('about');
     Route::get('/shop', 'shop')->name('shop');
-    Route::get('/blogs', 'blogs')->name('blogs');
+    Route::get('/galleries', 'blogs')->name('galleries');
     Route::get('/blogs/{slug}', 'blogDetail')->name('blogs.detail');
     Route::get('/dealers', 'dealers')->name('dealers');
 });

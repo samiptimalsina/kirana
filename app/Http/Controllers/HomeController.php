@@ -48,7 +48,7 @@ class HomeController extends Controller
             ["text" => "home", "href" => url('/') . '#home'],
             ["text" => "about", "href" => route('about')],
             ["text" => "Our Product", "href" => route('shop')],
-            ["text" => "Blog", "href" => route('blogs')],
+            ["text" => "Gallery", "href" => route('galleries')],
             ["text" => "book", "href" => url('/') . '#book'],
             ["text" => "Dealers", "href" =>  route('dealers')],
             ["text" => "contact", "href" => route('contact.us')],
