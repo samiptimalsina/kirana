@@ -55,26 +55,39 @@ class FoodMenuController extends Controller
     public function store(Request $request)
     {
         $isAdmin = $this->GetIsAdmin();
-        if ($isAdmin === true) {
-            $data = new food;
+        $data = new food;
 
-            $image = $request->productimage;
-            $imagename = time() . "." . $image->getClientOriginalExtension();
-            $imagepath = 'assets/images/foodimage';
-            $request->productimage->move($imagepath, $imagename);
-            $data->img = $imagepath . "/" . $imagename;
-
-            $data->name = $request->productname;
-            $data->price = $request->productprice;
-            $data->desc = $request->productdescription;
-            $data->slug = $data->name;
-
-            $data->save();
-
-            return redirect()->route('foodmenu.index')->with('msg', 'New Food menu entry created');
+        // Handle multiple image uploads
+        $images = [];
+        if ($request->hasFile('productimages')) {
+            foreach ($request->file('productimages') as $image) {
+                $imagename = time() . "-" . $image->getClientOriginalName();
+                $imagepath = 'assets/images/foodimage';
+                $image->move($imagepath, $imagename);
+                $images[] = $imagepath . "/" . $imagename;
+            }
+            $data->img = json_encode($images); // Save images as JSON
+        } else {
+            // Handle single image upload
+            $image = $request->file('productimage');
+            if ($image) {
+                $imagename = time() . "." . $image->getClientOriginalExtension();
+                $imagepath = 'assets/images/foodimage';
+                $image->move($imagepath, $imagename);
+                $data->img = $imagepath . "/" . $imagename;
+            }
         }
-        return redirect()->route('foodmenu.index')->with('msg', "Can't create food menu entry");
+
+        $data->name = $request->productname;
+        $data->price = $request->productprice;
+        $data->desc = $request->productdescription;
+        $data->slug = $data->name;
+
+        $data->save();
+
+        return redirect()->route('foodmenu.index')->with('msg', 'New Food menu entry created');
     }
+
 
     /**
      * Display the specified foodmenu entry.

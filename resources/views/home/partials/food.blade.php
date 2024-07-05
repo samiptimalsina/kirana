@@ -17,7 +17,12 @@
                 @foreach ($fooddata as $data)
                     <div class="max-w-[290px] m-4 shadow-md group transition">
                         <a href="{{ route('admin.details', $data->slug) }}">
-                            <img class="w-full h-auto" src={{ $data['img'] }} alt={{ $data['name'] . '-image' }}>
+                                @if(is_array($data->img))
+                                    <img src="{{ asset(collect($data->img)->first()) }}" alt="{{ $data->name }}" class="w-full h-auto">
+                                @else
+                                    <img src="{{ asset($data->img) }}" alt="{{ $data->name }}" class="w-full h-auto">
+                                @endif
+
                             <div
                                 class="p-7 bg-slate-100 group-hover:bg-amber-400 transition duration-300 min-h-[170px]">
                                 <div class="flex flex-wrap justify-between font-bold font-cursive-merie text-lg">
