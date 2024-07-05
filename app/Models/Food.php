@@ -35,8 +35,24 @@ class Food extends Model
     {
         $this->attributes['slug'] = Str::slug($this->name);
     }
-    public function booked(){
+    public function booked()
+    {
         return $this->hasMany(Reservation::class);
+    }
 
+    public function getImgAttribute($value)
+    {
+        // Check if the value is a valid JSON string
+        if ($this->isJson($value)) {
+            return json_decode($value);
+        }
+
+        return $value;
+    }
+
+    private function isJson($string)
+    {
+        json_decode($string);
+        return (json_last_error() == JSON_ERROR_NONE);
     }
 }
