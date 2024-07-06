@@ -52,6 +52,6 @@ class ReservationController extends Controller
 
         $data->save();
 
-        return redirect()->back()->with('msg', 'Reservation made successfully');
+        return redirect()->back()->with('msg', 'Order Booked successfully');
     }
 }
