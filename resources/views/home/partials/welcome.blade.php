@@ -85,7 +85,7 @@
         @if(Route::currentRouteName() == 'about')
             {!! $settings->about_us !!}
         @else
-            {!! \Illuminate\Support\Str::limit($settings->about_us, 822, '') !!}
+            {!! \Illuminate\Support\Str::limit($settings->about_us, 822, '....') !!}
             <br>
 
             <a href="{{ route('about') }}"
