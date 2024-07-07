@@ -85,7 +85,9 @@
         @if(Route::currentRouteName() == 'about')
             {!! $settings->about_us !!}
         @else
-            {!! \Illuminate\Support\Str::limit($settings->about_us, 822, '...') !!}
+            {!! \Illuminate\Support\Str::limit($settings->about_us, 822, '') !!}
+            <br>
+
             <a href="{{ route('about') }}"
             class="inline-block rounded-sm shadow-md mt-7 px-5 py-3 bg-lime-400 uppercase font-sans-monts text-xs font-bold text-slate-900 border border-transparent transition ease-in-out duration-300 hover:-translate-y-1 hover:scale-110 hover:bg-transparent hover:border-lime-400">
                 Read More
@@ -105,7 +107,7 @@
             <p>
                 Welcome to our company! At Maha Spice and Food Product, we are dedicated to providing the highest quality products and exceptional service. Our commitment to excellence drives everything we do, and we are proud to serve our customers with passion and integrity.
             </p>
-            <p class="ceo-name">John Doe</p>
+            <p class="ceo-name">Madan Raj Neupane</p>
             <p class="ceo-position">Chief Executive Officer</p>
         </div>
         <div class="ceo-image">
