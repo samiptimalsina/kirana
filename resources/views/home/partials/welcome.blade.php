@@ -103,9 +103,16 @@
 <section id="ceo-message">
     <div class="ceo-container">
         <div class="ceo-content">
-            <h3>Welcome Message</h3>
+            <h3>Welcome to Maha Spice and Food Products Industries Pvt. Ltd.</h3>
             <p>
-                Welcome to our company! At Maha Spice and Food Product, we are dedicated to providing the highest quality products and exceptional service. Our commitment to excellence drives everything we do, and we are proud to serve our customers with passion and integrity.
+               I am Madan Raj Neupane, the founder and Managing Director. Our journey began with a simple dream and a passion for bringing quality FMCG products to your doorstep. From selling water and retail items to establishing our manufacturing unit, our story is one of perseverance, dedication, and growth.
+               <br/>
+
+At Maha Spice, we are committed to producing the finest products such as Kurkure, Cheeseballs, Lays Bhuja, Dalmote, and Namkeen. Despite facing challenges, we have remained steadfast in our mission to deliver excellence. Our transition from a proprietorship to a private limited company is a testament to our commitment to growth and innovation.
+  <br/>
+We believe in inspiring our community and contributing to our country's progress. With deep faith in the Bhagwat Gita, we find strength to overcome challenges and strive for success.
+  <br/>
+Thank you for being a part of our journey. We look forward to serving you with the best products and services.
             </p>
             <p class="ceo-name">Madan Raj Neupane</p>
             <p class="ceo-position">Chief Executive Officer</p>
