@@ -16,7 +16,7 @@
         @foreach ($dealers as $dealer)
             <div class="max-w-sm rounded overflow-hidden shadow-lg p-4 bg-white">
                 <div class="flex items-center mb-2">
-                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                    <i class="fas fa-check-circle text-green-500 "></i>
                     <strong class="text-xl">Dealer Name:</strong>
                     <span class="ml-2">{{ $dealer->name }}</span>
                 </div>
