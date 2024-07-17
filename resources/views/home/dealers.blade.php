@@ -23,7 +23,7 @@
                 <p class="flex items-center text-gray-700 text-base">
                     <i class="fas fa-phone mr-2"></i>
                     <strong>Contact No:</strong>
-                    <span class="ml-2">{{ $dealer->contact_no }}</span>
+                    <span class="ml-2 hidden">{{ $dealer->contact_no }}</span>
                 </p>
                 <p class="flex items-center text-gray-700 text-base">
                     <i class="fas fa-user-friends mr-2"></i>
