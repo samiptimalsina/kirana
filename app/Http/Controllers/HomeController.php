@@ -58,6 +58,7 @@ class HomeController extends Controller
         $this->dishesdata = Specialdishes::all();
         $this->testimonialdata = Testimonial::all();
         $banner = Banner::latest()->first();
+
         $this->banner_image = $banner ? $banner->image_url : null;
 
         $settings = Setting::first();
