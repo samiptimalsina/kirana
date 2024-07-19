@@ -45,9 +45,8 @@
             <div class="grid md:grid-cols-2">
                 <div class="h-full pr-6">
                     <p class="mt-3 mb-12 text-lg text-gray-600 dark:text-slate-400">
-                        Class aptent taciti sociosqu ad
-                        litora torquent per conubia nostra, per inceptos himenaeos. Duis nec ipsum orci. Ut scelerisque
-                        sagittis ante, ac tincidunt sem venenatis ut.
+Need support? Fill out the form below or email us. Our team is here to assist you Monday through Friday.
+Connect on social media for updates. We're here to help and look forward to hearing from you!
                     </p>
                     <ul class="mb-6 md:mb-0">
                         <li class="flex">
