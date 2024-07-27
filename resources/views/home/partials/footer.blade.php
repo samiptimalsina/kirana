@@ -14,18 +14,16 @@ ensuring freshness and flavor in every product, catering to diverse culinary nee
                 <div class="flex items-start">
                     <i class="fa fa-map-marker pr-3 pl-1 pt-2.5"></i>
                     <p>
-                        Kailali, <br />
-                        Lamki Nepal
+                   {{$settings->contact_address ?? ''}}
                     </p>
                 </div>
                 <div class="flex">
                     <i class="fa fa-phone pr-3 pl-1 pt-2.5"></i>
-                    <p>                        +9779869711440
-</p>
+                    <p>{{$settings->contact_phone ?? ''}}</p>
                 </div>
                 <div class="flex">
                     <i class="fa fa-envelope-o pr-3 pl-1 pt-2.5"></i>
-                    <p>support@techzillasoft.com</p>
+                    <p>{{$settings->contact_email ?? ''}}</p>
                 </div>
             </div>
             <div class="basis-full md:basis-[300px] flex-grow single-widget single-widget3 leading-loose p-5">
