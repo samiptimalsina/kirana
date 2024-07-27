@@ -36,8 +36,7 @@
                     class="font-heading mb-4 font-bold tracking-tight text-gray-900 dark:text-white text-3xl sm:text-5xl">
                     Get in Touch
                 </h2>
-                <p class="mx-auto mt-4 max-w-3xl text-xl text-gray-600 dark:text-slate-400">In hac habitasse platea
-                    dictumst
+                <p class="mx-auto mt-4 max-w-3xl text-xl text-gray-600 dark:text-slate-400">Please contact us to any inqueries
                 </p>
             </div>
         </div>
@@ -45,9 +44,8 @@
             <div class="grid md:grid-cols-2">
                 <div class="h-full pr-6">
                     <p class="mt-3 mb-12 text-lg text-gray-600 dark:text-slate-400">
-                        Class aptent taciti sociosqu ad
-                        litora torquent per conubia nostra, per inceptos himenaeos. Duis nec ipsum orci. Ut scelerisque
-                        sagittis ante, ac tincidunt sem venenatis ut.
+Need support? Fill out the form below or email us. Our team is here to assist you Monday through Friday.
+Connect on social media for updates. We're here to help and look forward to hearing from you!
                     </p>
                     <ul class="mb-6 md:mb-0">
                         <li class="flex">
@@ -64,9 +62,10 @@
                             <div class="ml-4 mb-4">
                                 <h3 class="mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-white">Our Address
                                 </h3>
-                                <p class="text-gray-600 dark:text-slate-400">Mahitdebi 8 Mohan Galli</p>
-                                <p class="text-gray-600 dark:text-slate-400">kathmadu Nepal </p>
+                                <p class="text-gray-600 dark:text-slate-400"><?php echo e($settings->contact_address ?? ''); ?> </p>
+                                <p class="text-gray-600 dark:text-slate-400"> </p>
                             </div>
+
                         </li>
                         <li class="flex">
                             <div class="flex h-10 w-10 items-center justify-center rounded bg-red-500 text-gray-50">
@@ -83,8 +82,8 @@
                             <div class="ml-4 mb-4">
                                 <h3 class="mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-white">Contact
                                 </h3>
-                                <p class="text-gray-600 dark:text-slate-400">Mobile: +9779860906038</p>
-                                <p class="text-gray-600 dark:text-slate-400">Mail: info@techzillasoft.com</p>
+                                <p class="text-gray-600 dark:text-slate-400">Mobile: <?php echo e($settings->contact_phone); ?></p>
+                                <p class="text-gray-600 dark:text-slate-400">Mail: <?php echo e($settings->contact_email); ?></p>
                             </div>
                         </li>
                         <li class="flex">

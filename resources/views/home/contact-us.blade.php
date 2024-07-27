@@ -36,8 +36,7 @@
                     class="font-heading mb-4 font-bold tracking-tight text-gray-900 dark:text-white text-3xl sm:text-5xl">
                     Get in Touch
                 </h2>
-                <p class="mx-auto mt-4 max-w-3xl text-xl text-gray-600 dark:text-slate-400">In hac habitasse platea
-                    dictumst
+                <p class="mx-auto mt-4 max-w-3xl text-xl text-gray-600 dark:text-slate-400">Please contact us to any inqueries
                 </p>
             </div>
         </div>
@@ -63,9 +62,10 @@ Connect on social media for updates. We're here to help and look forward to hear
                             <div class="ml-4 mb-4">
                                 <h3 class="mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-white">Our Address
                                 </h3>
-                                <p class="text-gray-600 dark:text-slate-400">Mahitdebi 8 Mohan Galli</p>
-                                <p class="text-gray-600 dark:text-slate-400">kathmadu Nepal </p>
+                                <p class="text-gray-600 dark:text-slate-400">{{$settings->contact_address ?? ''}} </p>
+                                <p class="text-gray-600 dark:text-slate-400"> </p>
                             </div>
+
                         </li>
                         <li class="flex">
                             <div class="flex h-10 w-10 items-center justify-center rounded bg-red-500 text-gray-50">
@@ -82,8 +82,8 @@ Connect on social media for updates. We're here to help and look forward to hear
                             <div class="ml-4 mb-4">
                                 <h3 class="mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-white">Contact
                                 </h3>
-                                <p class="text-gray-600 dark:text-slate-400">Mobile: +9779860906038</p>
-                                <p class="text-gray-600 dark:text-slate-400">Mail: info@techzillasoft.com</p>
+                                <p class="text-gray-600 dark:text-slate-400">Mobile: {{$settings->contact_phone}}</p>
+                                <p class="text-gray-600 dark:text-slate-400">Mail: {{$settings->contact_email}}</p>
                             </div>
                         </li>
                         <li class="flex">

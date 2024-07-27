@@ -4,11 +4,9 @@
             <div class="basis-full md:basis-[300px] flex-grow p-5 single-widget single-widget1">
                 <a href="/"><img class="w-36 h-auto" src="<?php if(isset($settings)): ?> <?php echo e($settings->getLogo($settings->logo)); ?> <?php endif; ?>" alt="" /></a>
                 <p class="mt-3 leading-normal">
-                    Which morning fourth great won't is to fly bearing
-                    man. Called unto shall seed, deep, herb set seed
-                    <br>
-                    land divide after over first creeping. First
-                    creature set upon stars.
+            <?php echo \Illuminate\Support\Str::limit($settings->about_us, 59,); ?>
+
+
                 </p>
             </div>
             <div class="basis-full md:basis-[300px] flex-grow single-widget single-widget2 leading-loose p-5">
@@ -16,18 +14,17 @@
                 <div class="flex items-start">
                     <i class="fa fa-map-marker pr-3 pl-1 pt-2.5"></i>
                     <p>
-                        Kailali, <br />
-                        Lamki Nepal
+                   <?php echo e($settings->contact_address ?? ''); ?>
+
                     </p>
                 </div>
                 <div class="flex">
                     <i class="fa fa-phone pr-3 pl-1 pt-2.5"></i>
-                    <p>                        +9779869711440
-</p>
+                    <p><?php echo e($settings->contact_phone ?? ''); ?></p>
                 </div>
                 <div class="flex">
                     <i class="fa fa-envelope-o pr-3 pl-1 pt-2.5"></i>
-                    <p>support@techzillasoft.com</p>
+                    <p><?php echo e($settings->contact_email ?? ''); ?></p>
                 </div>
             </div>
             <div class="basis-full md:basis-[300px] flex-grow single-widget single-widget3 leading-loose p-5">
