@@ -34,7 +34,9 @@
                                 No photo
                             <?php endif; ?>
                         </td>
-                        <td><?php echo e($team->description); ?></td>
+                        <td> <?php echo Str::words( $team->description, 12, ' ...'); ?>
+
+</td>
                         <td>
                             <a href="<?php echo e(route('teams.edit', $team->id)); ?>" class="btn btn-sm btn-primary">Edit</a>
                             <form action="<?php echo e(route('teams.destroy', $team->id)); ?>" method="POST" style="display: inline-block;">
