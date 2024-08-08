@@ -72,13 +72,13 @@
 }
 </style>
 
-<section id="about" class="flex flex-wrap item-center justify-center lg-p-0 lg:justify-between lg:p-0 lg:pt-28  max-w-[960px] mx-auto p-5">
-    <div class="basis-[500px] grow-0 pr-5">
-        <img class="h-auto w-full" src="{{  $settings->about_us_image($settings->about_us_image) ?? ''}}" alt="welcome food image" />
+<section id="about" class="flex flex-wrap items-center justify-center lg:justify-between max-w-[960px] mx-auto p-5">
+    <div class="flex justify-center basis-[500px] grow-0 pr-5">
+        <img class="h-auto w-full max-w-full object-cover" src="{{ $settings->about_us_image($settings->about_us_image) ?? '' }}" alt="welcome food image" />
     </div>
 
     <div class="basis-[400px] grow max-w-[650px] p-5">
-        <h3 class="font-bold font-cursive-merie text-4xl">
+        <h3 class="font-bold text-4xl">
             <span class="text-amber-400 leading-snug">welcome</span> <br /><span class="leading-normal">Maha spice and food Product</span>
         </h3>
 
@@ -87,16 +87,13 @@
         @else
             {!! \Illuminate\Support\Str::limit($settings->about_us, 822, '....') !!}
             <br>
-
-            <a href="{{ route('about') }}"
-            class="inline-block rounded-sm shadow-md mt-7 px-5 py-3 bg-lime-400 uppercase font-sans-monts text-xs font-bold text-slate-900 border border-transparent transition ease-in-out duration-300 hover:-translate-y-1 hover:scale-110 hover:bg-transparent hover:border-lime-400">
+            <a href="{{ route('about') }}" class="inline-block rounded-sm shadow-md mt-7 px-5 py-3 bg-lime-400 uppercase text-xs font-bold text-slate-900 border border-transparent transition ease-in-out duration-300 hover:-translate-y-1 hover:scale-110 hover:bg-transparent hover:border-lime-400">
                 Read More
             </a>
         @endif
-
-
     </div>
 </section>
+
 
 @if(Route::currentRouteName() == 'about')
 
