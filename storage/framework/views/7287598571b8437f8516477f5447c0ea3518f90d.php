@@ -43,18 +43,11 @@
                 <p class="flex items-center text-gray-700 text-base">
                     <i class="fas fa-globe mr-2"></i>
                     <strong>Google Address:</strong>
-                    <span class="ml-2"><?php echo e($dealer->google_address); ?></span>
+                    <span class="ml-2"><?php echo $dealer->google_address; ?></span>
                 </p>
                 <div class="mt-4">
-                    <iframe
-                        width="100%"
-                        height="200"
-                        frameborder="0"
-                        style="border:0"
-                        referrerpolicy="no-referrer-when-downgrade"
-                        src="https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=<?php echo e(urlencode($dealer->google_address)); ?>"
-                        allowfullscreen>
-                    </iframe>
+               <?php echo $dealer->google_address; ?>
+
                 </div>
             </div>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
