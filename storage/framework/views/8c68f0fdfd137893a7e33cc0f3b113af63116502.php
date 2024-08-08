@@ -7,7 +7,7 @@
 	        <a href="<?php echo e(route('index')); ?>">
                     <?php if(isset($settings->logo)): ?>
 
-                <img src=" <?php echo e($settings->getLogo($settings->logo)); ?>" alt="logo" class="h-auto lg:m-0 lg:p-2 m-auto max-w-[100px] min-w-[90px] px-2 py-2" />
+                <img src=" <?php echo e($settings->getLogo($settings->logo)); ?>" alt="logo" class="h-auto lg:m-0 lg:p-2 m-auto max-w-[200px] min-w-[90px] px-2 py-2" />
                      <?php else: ?>
                         <div>No logo uploaded</div>
                     <?php endif; ?>
