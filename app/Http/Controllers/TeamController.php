@@ -91,7 +91,8 @@ class TeamController extends Controller
             $imageName = time() . '.' . $image->getClientOriginalExtension();
 
             $photoPath = Team::getPhotoPath($team->photo);
-            if (file_exists($photoPath)) {
+
+            if (file_exists($photoPath) && !is_dir($photoPath)) {
                 unlink($photoPath);
             }
 
@@ -99,6 +100,7 @@ class TeamController extends Controller
 
             $data['photo'] = $imageName;
         }
+
 
         $team->update($data);
 
