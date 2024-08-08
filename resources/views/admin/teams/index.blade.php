@@ -29,7 +29,8 @@
                                 No photo
                             @endif
                         </td>
-                        <td>{{ $team->description }}</td>
+                        <td> {!! Str::words( $team->description, 12, ' ...') !!}
+</td>
                         <td>
                             <a href="{{ route('teams.edit', $team->id) }}" class="btn btn-sm btn-primary">Edit</a>
                             <form action="{{ route('teams.destroy', $team->id) }}" method="POST" style="display: inline-block;">

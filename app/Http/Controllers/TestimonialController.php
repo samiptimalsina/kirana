@@ -30,6 +30,7 @@ class TestimonialController extends Controller
         $data = testimonial::all();
         $user = Auth::id() ? Auth::user() : null;
         $isAdmin = $this->GetIsAdmin();
+
         return view("admin.pages.review.review", compact("data", "isAdmin", "user"));
     }
 
@@ -54,14 +55,14 @@ class TestimonialController extends Controller
     public function store(Request $request)
     {
         $isAdmin = $this->GetIsAdmin();
-        if($isAdmin === true){
+        if ($isAdmin === true) {
             $data = new testimonial;
 
             $image = $request->reviewimage;
-            $imagename = time().".".$image->getClientOriginalExtension();
+            $imagename = time() . "." . $image->getClientOriginalExtension();
             $imagepath = 'assets/images/testimonialimage';
-            $request->reviewimage->move($imagepath , $imagename);
-            $data->img = $imagepath."/".$imagename;
+            $request->reviewimage->move($imagepath, $imagename);
+            $data->img = $imagepath . "/" . $imagename;
 
             $data->name = $request->reviewname;
             $data->bio = $request->reviewbio;
@@ -71,8 +72,8 @@ class TestimonialController extends Controller
             $data->save();
 
             return redirect()->route('review.index')->with('msg', 'New testimonial entry created');
-        }        
-        return redirect()->route('review.index')->with('msg', "Can't create testimonial entry" );
+        }
+        return redirect()->route('review.index')->with('msg', "Can't create testimonial entry");
     }
 
     /**
@@ -85,7 +86,7 @@ class TestimonialController extends Controller
     {
         //
     }
-    
+
     /**
      * Show the form for editing the specified testimonial entry.
      *
@@ -110,17 +111,17 @@ class TestimonialController extends Controller
     public function update($testimonial, Request $request)
     {
         $isAdmin = $this->GetIsAdmin();
-        if($isAdmin === true){
+        if ($isAdmin === true) {
             $data = testimonial::findOrFail($testimonial);
 
             $image = $request->reviewimage;
-            if($image){
-                $imagename = time().".".$image->getClientOriginalExtension();
+            if ($image) {
+                $imagename = time() . "." . $image->getClientOriginalExtension();
                 $imagepath = 'assets/images/testimonialimage';
-                $request->reviewimage->move($imagepath , $imagename);
-                $data->img = $imagepath."/".$imagename;            
+                $request->reviewimage->move($imagepath, $imagename);
+                $data->img = $imagepath . "/" . $imagename;
             }
-            
+
             $data->name = $request->reviewname;
             $data->bio = $request->reviewbio;
             $data->review = $request->reviewtext;
@@ -130,7 +131,7 @@ class TestimonialController extends Controller
 
             return redirect()->route('testimonial.index')->with('msg', 'Testimonial entry edited');
         }
-        return redirect()->route('testimonial.index')->with('msg', "Can't edit testimonial" );
+        return redirect()->route('testimonial.index')->with('msg', "Can't edit testimonial");
     }
 
     /**
@@ -142,11 +143,11 @@ class TestimonialController extends Controller
     public function destroy($testimonial)
     {
         $isAdmin = $this->GetIsAdmin();
-        if($isAdmin === true){
+        if ($isAdmin === true) {
             $data = testimonial::findOrFail($testimonial);
-            $data -> delete();
-            return redirect() -> back()->with('msg', 'Testimonial entry deleted successfully');
+            $data->delete();
+            return redirect()->back()->with('msg', 'Testimonial entry deleted successfully');
         }
-        return redirect()->route('testimonial.index')->with('msg', "Can't delete testimonial entry" );
+        return redirect()->route('testimonial.index')->with('msg', "Can't delete testimonial entry");
     }
 }
