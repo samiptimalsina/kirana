@@ -39,7 +39,7 @@
 <body class="bg-gray-100 font-sans">
     @include('home.partials.header', ['navdata' => $navdata])
 
-    <div class="container mx-auto mt-20 mb-10 px-4">
+    <div class="container mx-auto mt-20 mb-10 px-4" style="margin-top:20px;">
         <div class="flex flex-wrap -mx-2 mt-20 bg-white p-6 rounded-lg shadow-lg">
             <br/>
             <br/>
