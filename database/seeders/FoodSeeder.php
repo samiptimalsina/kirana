@@ -14,7 +14,9 @@ class FoodSeeder extends Seeder
      */
     public function run()
     {
+
         $products = [
+
             [
                 'name' => 'छक्का पन्जा',
                 'slug' => 'chhakka-panja',
