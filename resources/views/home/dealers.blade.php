@@ -14,7 +14,7 @@
     <h1 class="text-3xl font-bold mb-4">Dealers</h1>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         @foreach ($dealers as $dealer)
-            <div class="max-w-sm rounded overflow-hidden shadow-lg p-4 bg-white">
+            <div class="max-w-sm rounded overflow-hidden shadow-lg p-4 bg-white hover:shadow-2xl transition-shadow duration-300 ease-in-out">
                 <div class=" items-center mb-2">
                     <i class="fas fa-check-circle text-green-500 "></i>
                     <strong class="text-xl">Dealer Name:</strong>
