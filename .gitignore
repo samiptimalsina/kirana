@@ -17,3 +17,6 @@ yarn-error.log
 .vercel
 /temp
 *.bat
+/storage/framework/*
+/storage/logs/*
+/storage/*.log
