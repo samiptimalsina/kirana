@@ -15,15 +15,15 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <?php $__currentLoopData = $dealers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dealer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="max-w-sm rounded overflow-hidden shadow-lg p-4 bg-white">
-                <div class="flex items-center mb-2">
-                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                <div class=" items-center mb-2">
+                    <i class="fas fa-check-circle text-green-500 "></i>
                     <strong class="text-xl">Dealer Name:</strong>
                     <span class="ml-2"><?php echo e($dealer->name); ?></span>
                 </div>
                 <p class="flex items-center text-gray-700 text-base">
                     <i class="fas fa-phone mr-2"></i>
                     <strong>Contact No:</strong>
-                    <span class="ml-2"><?php echo e($dealer->contact_no); ?></span>
+                    <span class="ml-2 hidden"><?php echo e($dealer->contact_no); ?></span>
                 </p>
                 <p class="flex items-center text-gray-700 text-base">
                     <i class="fas fa-user-friends mr-2"></i>
@@ -43,18 +43,11 @@
                 <p class="flex items-center text-gray-700 text-base">
                     <i class="fas fa-globe mr-2"></i>
                     <strong>Google Address:</strong>
-                    <span class="ml-2"><?php echo e($dealer->google_address); ?></span>
+                    <span class="ml-2"><?php echo $dealer->google_address; ?></span>
                 </p>
                 <div class="mt-4">
-                    <iframe
-                        width="100%"
-                        height="200"
-                        frameborder="0"
-                        style="border:0"
-                        referrerpolicy="no-referrer-when-downgrade"
-                        src="https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=<?php echo e(urlencode($dealer->google_address)); ?>"
-                        allowfullscreen>
-                    </iframe>
+               <?php echo $dealer->google_address; ?>
+
                 </div>
             </div>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

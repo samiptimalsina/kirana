@@ -8,7 +8,7 @@
 <body>
     <?php echo $__env->make('home.partials.preloader', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <?php echo $__env->make('home.partials.header', ['navdata' => $navdata], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-    <?php echo $__env->make('home.partials.page-bannner', ['title' => 'Blogs'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make('home.partials.page-bannner', ['title' => 'Galleries'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
 
@@ -21,8 +21,8 @@
                 <img src="<?php echo e(asset('assets/images/' . $blog->image)); ?>" alt="<?php echo e($blog->title); ?>" class="w-full h-48 object-cover rounded-lg">
                 </div>
                 <h2 class="text-xl font-semibold text-gray-800 mb-2"><?php echo e($blog->title); ?></h2>
-               <p class="text-gray-600 mb-4"><?php echo e(substr($blog->content, 0, 80)); ?></p>
-                <a href="<?php echo e(route('blogs.detail', $blog->slug)); ?>" class="text-blue-500 hover:underline">Read more</a>
+               
+                
             </div>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
@@ -32,7 +32,7 @@
     </main>
     <!-- End Blog List Section -->
 
-    <?php echo $__env->make('home.partials.table', ['tableBg' => 'assets/images/table-bg.jpg'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make('home.partials.table', ['tableBg' => $banner_image->image_url ?? ''], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <?php echo $__env->make('home.partials.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
     <?php echo $__env->make('home.partials.script', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

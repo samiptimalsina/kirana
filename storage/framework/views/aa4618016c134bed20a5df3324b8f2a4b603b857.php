@@ -1,76 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html>
 <head>
     <?php echo $__env->make('home.partials.head', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://sachinchoolur.github.io/lightslider/dist/css/lightslider.css">
     <style>
-        /* Custom CSS for login form */
-        .login-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            background-color: #f4f4f4;
+        .light-slider .lSSlideOuter .lSPager.lSGallery img {
+            max-height: 60px;
+            border-radius: 0.5rem;
         }
 
-        .login-form {
-            max-width: 400px;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        .custom-button:hover {
+            background-color: transparent;
+            color: #d97706;
+            border-color: #d97706;
         }
 
-        .form-group {
-            margin-bottom: 15px;
-            display: flex;
-            flex-direction: column;
+        .custom-button {
+            transition: all 0.3s ease-in-out;
         }
 
-        .form-group label {
-            font-weight: bold;
-            margin-bottom: 5px;
+        .custom-input {
+            position: relative;
+            padding-left: 2.5rem;
         }
 
-        .form-group input[type="text"],
-        .form-group input[type="password"],
-        .form-group select {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        .form-group button {
-            width: 100%;
-            padding: 10px;
-            background-color: #4caf50;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .form-group button:hover {
-            background-color: #45a049;
+        .custom-input i {
+            position: absolute;
+            top: 50%;
+            left: 0.75rem;
+            transform: translateY(-50%);
+            color: #4b5563; /* Change the icon color if needed */
         }
     </style>
+
 </head>
-
-<body>
-
-    <!-- Welcome Area Starts -->
+<body class="bg-gray-100 font-sans">
     <?php echo $__env->make('home.partials.header', ['navdata' => $navdata], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-    <section id="about"
-        class="flex flex-wrap item-center justify-center lg-p-0 lg:justify-between lg:p-0 lg:pt-28 max-w-[960px] mx-auto p-5">
-        <div class="basis-[500px] grow-0 pr-5">
-            <img class="h-auto w-full" src="<?php echo e(asset($product->img)); ?>" alt="welcome food image" />
-        </div>
 
-        <div class="basis-[400px] grow max-w-[650px] p-5">
+    <div class="container mx-auto mt-20 mb-10 px-4">
+        <div class="flex flex-wrap -mx-2 bg-white p-6 rounded-lg shadow-lg">
+            <div class="w-full md:w-5/12 px-2 mb-4 md:mb-0">
+                <div class="demo">
+                    <ul id="lightSlider">
+                        <?php if(is_array($product->img)): ?>
+                            <?php $__currentLoopData = $product->img; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $image): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <li data-thumb="<?php echo e(asset($image)); ?>">
+                                    <img class="w-full rounded-lg" src="<?php echo e(asset($image)); ?>" alt="<?php echo e($product->name); ?>" />
+                                </li>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        <?php else: ?>
+                            <li data-thumb="<?php echo e(asset($product->img)); ?>">
+                                <img class=" w-full rounded-lg" src="<?php echo e(asset($product->img)); ?>" alt="<?php echo e($product->name); ?>" />
+                            </li>
+                        <?php endif; ?>
+                    </ul>
+                </div>
+            </div>
+            <div class="w-full md:w-7/12 px-2">
             <h3 class="font-bold font-cursive-merie text-4xl">
                 <span class="text-amber-400 leading-snug"><?php echo e($product->name ?? ''); ?></span> <br />
                 <span class="text-amber-400 group-hover:text-slate-600 p-1 text-right">Rs<?php echo e($product->price); ?></span>
@@ -82,60 +70,61 @@
                 <span class="block mt-3"></span>
 
             </p>
-
-            <form action="<?php echo e(route('reservation.store')); ?>" method="post" enctype="multipart/form-data" class="">
-                <?php echo csrf_field(); ?>
-                <div class="flex flex-wrap items-start justify-start">
-                    <div class="m-3 relative">
-                        <span class="absolute top-0 left-0 px-2.5 py-2 text-slate-700"><i
-                                class="fa-solid fa-user text-[14px]"></i></span>
-                        <input type="text" id="name" name="name"
-                            class="w-48 rounded pl-8 text-[14px] font-sans-lato text-slate-700 leading-relaxed"
-                            placeholder="Your name">
-
-                                                    <input type="hidden" id="name" name="food_id"
-                            class="w-48 rounded pl-8 text-[14px] font-sans-lato text-slate-700 leading-relaxed"
-                             value="<?php echo e($product->id); ?>">
+                <form action="<?php echo e(route('reservation.store')); ?>" method="post" enctype="multipart/form-data">
+                    <?php echo csrf_field(); ?>
+                    <input type="hidden" name="food_id" value="<?php echo e($product->id); ?>">
+                    <div class=" -mx-2 mb-4">
+                        <div class="w-full md:w-1/2 px-2 mb-4 md:mb-0 custom-input">
+                            <i class="fa fa-user text-sm"></i>
+                            <input type="text" id="name" name="name" class="w-full rounded pl-10 py-3 text-gray-700 border focus:border-amber-500 focus:ring-amber-500" placeholder="Your name">
+                        </div>
+                        <div class="w-full md:w-1/2 px-2 custom-input my-2">
+                            <i class="fa fa-phone text-sm"></i>
+                            <input type="text" id="phone" name="phone" class="w-full rounded pl-10 py-3 text-gray-700 border focus:border-amber-500 focus:ring-amber-500" placeholder="Phone Number" required>
+                        </div>
                     </div>
-                    <div class="m-3 relative">
-                        <span class="absolute top-0 left-0 px-2.5 py-2 text-slate-700"><i
-                                class="fa-solid fa-phone text-[14px]"></i></span>
-                        <input type="text" id="phone" name="phone"
-                            class="w-48 rounded pl-8 text-[14px] font-sans-lato text-slate-700 leading-relaxed"
-                            placeholder="Phone Number" required>
+                    <div class="flex flex-wrap -mx-2 mb-4">
+                        <div class="w-full md:w-1/2 px-2 custom-input">
+                            <i class="fa fa-border-none text-sm"></i>
+                            <select name="person" id="person" class="w-full rounded pl-10 py-3 text-gray-700 border focus:border-amber-500 focus:ring-amber-500" required>
+                                <option value="0" disabled selected>QTY</option>
+                                <?php for($i = 1; $i <= 10; $i++): ?>
+                                    <option value="<?php echo e($i); ?>"><?php echo e($i); ?></option>
+                                <?php endfor; ?>
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div class="flex flex-wrap items-start justify-start" >
-
-                    <div class="m-3 relative">
-                        <span class="absolute top-0 left-0 px-2.5 py-2 text-slate-700"><i
-                                class="fa-solid fa-border-none text-[14px]"></i></span>
-                        <select name="person" required id="person"
-                            class="w-48 md:w-32 rounded pl-8 text-[14px] font-sans-lato text-slate-700 leading-relaxed">
-                            <option value="0" disabled selected>QTY</option>
-                            <option value="1">1 </option>
-                            <option value="2">2 </option>
-                            <option value="3">3 </option>
-                            <option value="4">4 </option>
-                            <option value="5">5 </option>
-                            <option value="6">6 </option>
-                        </select>
+                    <div class="text-left ">
+                        <button type="submit" class="inline-block rounded-sm shadow-md mt-7 px-5 py-3 mx-8 bg-amber-500 uppercase text-sm font-bold text-white border border-transparent transition ease-in-out duration-300 custom-button">
+                            Book a Product
+                        </button>
                     </div>
-                </div>
-                <div class="text-start ml-3">
-                    <button type="submit"
-                        class="inline-block rounded-sm shadow-md mt-7 px-5 py-3 bg-lime-400 uppercase font-sans-monts text-xs font-bold text-slate-900 border border-transparent transition ease-in-out duration-300 hover:-translate-y-1 hover:scale-110 hover:bg-transparent hover:border-lime-400 hover:text-slate-900">book
-                        a Product</button>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
-    </section>
-    <!-- Welcome Area End -->
-
+    </div>
     <?php echo $__env->make('home.partials.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
     <?php echo $__env->make('home.partials.script', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <script src="https://sachinchoolur.github.io/lightslider/dist/js/lightslider.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#lightSlider").lightSlider({
+                gallery: true,
+                item: 1,
+                loop: true,
+                thumbItem: 9,
+                slideMargin: 0,
+                enableDrag: false,
+                currentPagerPosition: 'left',
+                onSliderLoad: function(el) {
+                    el.lightGallery({
+                        selector: '#lightSlider .lslide'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
-
 </html>
 <?php /**PATH /home/samiptimalsina/betal.techzillasoft.com/resources/views/home/details.blade.php ENDPATH**/ ?>

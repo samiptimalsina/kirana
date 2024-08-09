@@ -10,11 +10,11 @@
             background-color: rgba(0, 0, 0, 0.4); /* Dark overlay */
         }
         #bannerSection {
-            margin-top: 50px;
-            background-size: auto;
+            background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             position: relative;
+            height: 600px;
         }
         .banner-content {
             position: relative;
