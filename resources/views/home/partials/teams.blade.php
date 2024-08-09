@@ -59,7 +59,7 @@
 
     <!-- Testimonial Area Starts -->
 <section id="testimonial" class="relative w-full z-1 mt-28 px-10 py-24" style="background-image: url('assets/images/pexels-belle-co-99483-1000445.jpg'); background-position: center; background-size: cover; background-repeat: no-repeat;">
-    <span class="overlay absolute w-full h-full left-0 top-0 z-n1" style="background-color: rgba(255, 0, 0, 0.6);"></span>
+    <span class="overlay absolute w-full h-full left-0 top-0 z-n1" style="background-color:rgba(0, 0, 0, 0.88)"></span>
       <div class="m-4 max-w-md mt-5 p-4 text-center text-white mx-auto">
         <h3 class="font-bold font-cursive-merie text-4xl leading-normal capitalize">Our Team <span class="text-amber-400 leading-snug">Members</span>...</h3>
         <p class="pt-2 text-[14px] font-sans-lato text-slate-100 leading-relaxed">Beast kind form divide night above let moveth bearing darkness.</p>
