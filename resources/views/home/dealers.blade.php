@@ -14,7 +14,7 @@
     <h1 class="text-3xl font-bold mb-4">Dealers</h1>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         @foreach ($dealers as $dealer)
-            <div class="max-w-sm rounded overflow-hidden shadow-lg p-4 bg-white hover:shadow-2xl transition-shadow duration-300 ease-in-out"
+            <div class="max-w-sm rounded overflow-hidden shadow-lg cursor-pointer p-4 bg-white hover:shadow-2xl transition-shadow duration-300 ease-in-out"
                  style="transition: background-color 0.3s ease-in-out;"
                  onmouseover="this.style.backgroundColor='rgba(246,224,1,0.69)';"
                  onmouseout="this.style.backgroundColor='white';">
