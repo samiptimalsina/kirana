@@ -17,7 +17,12 @@
                 <?php $__currentLoopData = $fooddata; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="max-w-[290px] m-4 shadow-md group transition">
                         <a href="<?php echo e(route('admin.details', $data->slug)); ?>">
-                            <img class="w-full h-auto" src=<?php echo e($data['img']); ?> alt=<?php echo e($data['name'] . '-image'); ?>>
+                                <?php if(is_array($data->img)): ?>
+                                    <img src="<?php echo e(asset(collect($data->img)->first())); ?>" alt="<?php echo e($data->name); ?>" class="w-full h-auto">
+                                <?php else: ?>
+                                    <img src="<?php echo e(asset($data->img)); ?>" alt="<?php echo e($data->name); ?>" class="w-full h-auto">
+                                <?php endif; ?>
+
                             <div
                                 class="p-7 bg-slate-100 group-hover:bg-amber-400 transition duration-300 min-h-[170px]">
                                 <div class="flex flex-wrap justify-between font-bold font-cursive-merie text-lg">
@@ -31,8 +36,14 @@
                         </a>
                     </div>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+            </div>
+           <div class="mt-10">
+                <?php echo e($fooddata->links()); ?>
+
             </div>
         </div>
+
     </section>
     <!-- Food Area End -->
 <?php /**PATH /home/samiptimalsina/betal.techzillasoft.com/resources/views/home/partials/food.blade.php ENDPATH**/ ?>

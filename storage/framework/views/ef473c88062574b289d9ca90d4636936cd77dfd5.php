@@ -4,11 +4,9 @@
             <div class="basis-full md:basis-[300px] flex-grow p-5 single-widget single-widget1">
                 <a href="/"><img class="w-36 h-auto" src="<?php if(isset($settings)): ?> <?php echo e($settings->getLogo($settings->logo)); ?> <?php endif; ?>" alt="" /></a>
                 <p class="mt-3 leading-normal">
-                    Which morning fourth great won't is to fly bearing
-                    man. Called unto shall seed, deep, herb set seed
+Maha Spice and Food Products Industries Pvt. Ltd. specializes in producing high-quality spices and food products,
                     <br>
-                    land divide after over first creeping. First
-                    creature set upon stars.
+ensuring freshness and flavor in every product, catering to diverse culinary needs.
                 </p>
             </div>
             <div class="basis-full md:basis-[300px] flex-grow single-widget single-widget2 leading-loose p-5">
@@ -16,23 +14,25 @@
                 <div class="flex items-start">
                     <i class="fa fa-map-marker pr-3 pl-1 pt-2.5"></i>
                     <p>
-                        Mohan Galli Maitidebi-8, <br />
-                        Kathmandu Nepal
+                   <?php echo e($settings->contact_address ?? ''); ?>
+
                     </p>
                 </div>
                 <div class="flex">
                     <i class="fa fa-phone pr-3 pl-1 pt-2.5"></i>
-                    <p>                        +9779860309035
-</p>
+                    <p><?php echo e($settings->contact_phone ?? ''); ?></p>
                 </div>
                 <div class="flex">
                     <i class="fa fa-envelope-o pr-3 pl-1 pt-2.5"></i>
-                    <p>support@techzillasoft.com</p>
+                    <p><?php echo e($settings->contact_email ?? ''); ?></p>
                 </div>
             </div>
             <div class="basis-full md:basis-[300px] flex-grow single-widget single-widget3 leading-loose p-5">
                 <div style="width: 100%; height: 200px; overflow: hidden;">
-            <iframe width="100%" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=200&amp;hl=en&amp;q=Kathmandu,%20Nepal&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+            <iframe width="100%" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14027.19265812297!2d81.1409446!3d28.6208198!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDM3JzE1LjAiTiA4McKwMDgnMzYuNyJF!5e0!3m2!1sen!2s!4v1690468901806!5m2!1sen!2s"
+
+            ></iframe>
                 </div>
             </div>
         </div>

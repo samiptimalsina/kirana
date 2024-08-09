@@ -36,8 +36,7 @@
                     class="font-heading mb-4 font-bold tracking-tight text-gray-900 dark:text-white text-3xl sm:text-5xl">
                     Get in Touch
                 </h2>
-                <p class="mx-auto mt-4 max-w-3xl text-xl text-gray-600 dark:text-slate-400">In hac habitasse platea
-                    dictumst
+                <p class="mx-auto mt-4 max-w-3xl text-xl text-gray-600 dark:text-slate-400">Please contact us to any inqueries
                 </p>
             </div>
         </div>
@@ -45,13 +44,12 @@
             <div class="grid md:grid-cols-2">
                 <div class="h-full pr-6">
                     <p class="mt-3 mb-12 text-lg text-gray-600 dark:text-slate-400">
-                        Class aptent taciti sociosqu ad
-                        litora torquent per conubia nostra, per inceptos himenaeos. Duis nec ipsum orci. Ut scelerisque
-                        sagittis ante, ac tincidunt sem venenatis ut.
+Need support? Fill out the form below or email us. Our team is here to assist you Monday through Friday.
+Connect on social media for updates. We're here to help and look forward to hearing from you!
                     </p>
                     <ul class="mb-6 md:mb-0">
                         <li class="flex">
-                            <div class="flex h-10 w-10 items-center justify-center rounded bg-blue-900 text-gray-50">
+                            <div class="flex h-10 w-10 items-center justify-center rounded bg-red-500 text-gray-50">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-6 w-6">
@@ -64,12 +62,13 @@
                             <div class="ml-4 mb-4">
                                 <h3 class="mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-white">Our Address
                                 </h3>
-                                <p class="text-gray-600 dark:text-slate-400">Mahitdebi 8 Mohan Galli</p>
-                                <p class="text-gray-600 dark:text-slate-400">kathmadu Nepal </p>
+                                <p class="text-gray-600 dark:text-slate-400"><?php echo e($settings->contact_address ?? ''); ?> </p>
+                                <p class="text-gray-600 dark:text-slate-400"> </p>
                             </div>
+
                         </li>
                         <li class="flex">
-                            <div class="flex h-10 w-10 items-center justify-center rounded bg-blue-900 text-gray-50">
+                            <div class="flex h-10 w-10 items-center justify-center rounded bg-red-500 text-gray-50">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-6 w-6">
@@ -83,12 +82,12 @@
                             <div class="ml-4 mb-4">
                                 <h3 class="mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-white">Contact
                                 </h3>
-                                <p class="text-gray-600 dark:text-slate-400">Mobile: +9779860906038</p>
-                                <p class="text-gray-600 dark:text-slate-400">Mail: info@techzillasoft.com</p>
+                                <p class="text-gray-600 dark:text-slate-400">Mobile: <?php echo e($settings->contact_phone); ?></p>
+                                <p class="text-gray-600 dark:text-slate-400">Mail: <?php echo e($settings->contact_email); ?></p>
                             </div>
                         </li>
                         <li class="flex">
-                            <div class="flex h-10 w-10 items-center justify-center rounded bg-blue-900 text-gray-50">
+                            <div class="flex h-10 w-10 items-center justify-center rounded bg-red-500 text-gray-50">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-6 w-6">
@@ -112,6 +111,9 @@
                             <div class="mx-0 mb-1 sm:mb-4">
                                 <div class="mx-0 mb-1 sm:mb-4">
                                     <label for="name" class="pb-1 text-xs uppercase tracking-wider"></label><input type="text" id="name" autocomplete="given-name" placeholder="Your name" class="mb-2 w-full rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md dark:text-gray-300 sm:mb-0" name="name">
+                                </div>
+                                  <div class="mx-0 mb-1 sm:mb-4">
+                                    <label for="name" class="pb-1 text-xs uppercase tracking-wider"></label><input type="text" id="phone" autocomplete="given-name" placeholder="Your Phone" class="mb-2 w-full rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md dark:text-gray-300 sm:mb-0" name="phone">
                                 </div>
                                 <div class="mx-0 mb-1 sm:mb-4">
                                     <label for="email" class="pb-1 text-xs uppercase tracking-wider"></label><input type="email" id="email" autocomplete="email" placeholder="Your email address" class="mb-2 w-full rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md dark:text-gray-300 sm:mb-0" name="email">
