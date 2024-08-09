@@ -8,15 +8,18 @@
 <body>
     @include('home.partials.preloader')
     @include('home.partials.header', ['navdata' => $navdata])
-    @include('home.partials.page-bannner', ['title' => 'Deallers'])
+    @include('home.partials.page-bannner', ['title' => 'Dealers'])
 
 <div class="container mx-auto p-4">
     <h1 class="text-3xl font-bold mb-4">Dealers</h1>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         @foreach ($dealers as $dealer)
-            <div class="max-w-sm rounded overflow-hidden shadow-lg p-4 bg-white hover:shadow-2xl hover:bg-[rgba(246,224,1,0.69)] transition-shadow duration-300 ease-in-out">
-                <div class=" items-center mb-2">
-                    <i class="fas fa-check-circle text-green-500 "></i>
+            <div class="max-w-sm rounded overflow-hidden shadow-lg p-4 bg-white hover:shadow-2xl transition-shadow duration-300 ease-in-out"
+                 style="transition: background-color 0.3s ease-in-out;"
+                 onmouseover="this.style.backgroundColor='rgba(246,224,1,0.69)';"
+                 onmouseout="this.style.backgroundColor='white';">
+                <div class="items-center mb-2">
+                    <i class="fas fa-check-circle text-green-500"></i>
                     <strong class="text-xl">Dealer Name:</strong>
                     <span class="ml-2">{{ $dealer->name }}</span>
                 </div>
@@ -43,21 +46,17 @@
                 <p class="flex items-center text-gray-700 text-base">
                     <i class="fas fa-globe mr-2"></i>
                     <strong>Google Address:</strong>
-                    <span class="ml-2">{!!$dealer->google_address !!}</span>
+                    <span class="ml-2">{!! $dealer->google_address !!}</span>
                 </p>
                 <div class="mt-4">
-               {!! $dealer->google_address !!}
+                    {!! $dealer->google_address !!}
                 </div>
             </div>
         @endforeach
     </div>
 </div>
 
-
-
-    @include('home.partials.footer')
-
-    @include('home.partials.script')
+@include('home.partials.footer')
+@include('home.partials.script')
 </body>
-
 </html>
