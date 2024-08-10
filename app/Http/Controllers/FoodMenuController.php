@@ -127,13 +127,27 @@ class FoodMenuController extends Controller
         if ($isAdmin === true || $isAdmin == false) {
             $data = food::findOrFail($foodmenu);
 
-            $image = $request->productimage;
-            if ($image) {
-                $imagename = time() . "." . $image->getClientOriginalExtension();
-                $imagepath = 'assets/images/foodimage';
-                $request->productimage->move($imagepath, $imagename);
-                $data->img = $imagepath . "/" . $imagename;
+            // Handle multiple image uploads
+            if ($request->hasFile('productimages')) {
+                $images = [];
+                foreach ($request->file('productimages') as $image) {
+                    $imagename = time() . "-" . $image->getClientOriginalName();
+                    $imagepath = 'assets/images/foodimage';
+                    $image->move($imagepath, $imagename);
+                    $images[] = $imagepath . "/" . $imagename;
+                }
+                $data->img = json_encode($images); // Save images as JSON
+            } else {
+                // Handle single image upload
+                $image = $request->file('productimage');
+                if ($image) {
+                    $imagename = time() . "." . $image->getClientOriginalExtension();
+                    $imagepath = 'assets/images/foodimage';
+                    $image->move($imagepath, $imagename);
+                    $data->img = $imagepath . "/" . $imagename;
+                }
             }
+
             $data->name = $request->productname;
             $data->price = $request->productprice;
             $data->desc = $request->productdescription;
@@ -142,8 +156,10 @@ class FoodMenuController extends Controller
 
             return redirect()->route('foodmenu.index')->with('msg', 'Food menu entry edited');
         }
+
         return redirect()->route('foodmenu.index')->with('msg', "Can't edit food menu entry");
     }
+
 
     /**
      * Remove the specified foodmenu entry from storage.

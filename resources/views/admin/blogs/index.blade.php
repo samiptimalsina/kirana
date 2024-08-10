@@ -26,7 +26,7 @@
                     <th scope="row">{{ $loop->iteration }}</th>
                     <td>
                         @if ($blog->image)
-                            <img src="{{ asset('assets/images/' . $blog->image) }}" class="img-fluid" style="max-width: 100px;" alt="{{ $blog->title }}">
+                            <img src="{{ asset('assets/images/blog' . $blog->image) }}" class="img-fluid" style="max-width: 100px;" alt="{{ $blog->title }}">
                         @endif
                     </td>
                     <td>{{ $blog->title }}</td>
