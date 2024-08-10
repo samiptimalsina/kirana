@@ -4,7 +4,7 @@
 >
   <div class="navbar-brand-wrapper d-flex align-items-center">
     <a href="{{ route('admin.index') }}">
-      <img src="assets/images/logo/logo.png" alt="logo" class="logo-dark w-32 h-20" />
+      <img src="assets/images/logo/logo.png" alt="logo" class="logo-dark w-32 "  style="height: 4rem"/>
     </a>
   </div>
   <div class="navbar-menu-wrapper d-flex align-items-center flex-grow-1">
