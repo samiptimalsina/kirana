@@ -126,7 +126,7 @@ class HomeController extends Controller
 
     public function blogs()
     {
-        $blogs = Blog::latest()->paginate(20);
+        $blogs = Blog::latest()->paginate(21);
 
         return view('home.blogs', [
             'navdata' => $this->navdata,
