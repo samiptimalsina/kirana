@@ -39,40 +39,61 @@ Route::controller(HomeController::class)->group(function () {
 
 
 /* Admin */
-Route::controller(AdminController::class)->group(function () {
-    Route::get('/admin/dashboard', 'index')->name('admin.index');
-});
-
-/* User */
-Route::resource('user', UserController::class)->only([
-    'index', 'destroy'
-]);
-
-/* Reservation */
-Route::resource('reservation', ReservationController::class)->only([
-    'index', 'store'
-]);
-
-/* Food Menu */
-Route::resource('foodmenu', FoodMenuController::class)->only([
-    'index', 'create', 'store', 'edit', 'update', 'destroy'
-]);
-
-/* Special Dish */
-Route::resource('specialdishes', SpecialDishController::class)->only([
-    'index', 'create', 'store', 'edit', 'update', 'destroy'
-]);
-
-/* Testimonial */
-Route::resource('testimonial', TestimonialController::class)->only([
-    'index', 'create', 'store', 'edit', 'update', 'destroy'
-]);
-
-/* jetstream auth */
+// Apply the auth middleware to all routes
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
+    // Admin Routes
+    Route::controller(AdminController::class)->group(function () {
+        Route::get('/admin/dashboard', 'index')->name('admin.index');
+    });
+
+    // User Routes
+    Route::resource('user', UserController::class)->only([
+        'index',
+        'destroy'
+    ]);
+
+    // Reservation Routes
+    Route::resource('reservation', ReservationController::class)->only([
+        'index',
+        'store'
+    ]);
+
+    // Food Menu Routes
+    Route::resource('foodmenu', FoodMenuController::class)->only([
+        'index',
+        'create',
+        'store',
+        'edit',
+        'update',
+        'destroy'
+    ]);
+
+    // Special Dish Routes
+    Route::resource('specialdishes', SpecialDishController::class)->only([
+        'index',
+        'create',
+        'store',
+        'edit',
+        'update',
+        'destroy'
+    ]);
+
+    // Testimonial Routes
+    Route::resource('testimonial', TestimonialController::class)->only([
+        'index',
+        'create',
+        'store',
+        'edit',
+        'update',
+        'destroy'
+    ]);
+
+    // Dashboard Route
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    // Admin Panel Routes
     Route::prefix('admin')->group(function () {
         Route::resource('banners', BannerController::class);
         Route::resource('blogs', BlogController::class);
