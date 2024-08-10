@@ -4,7 +4,7 @@
 >
   <div class="navbar-brand-wrapper d-flex align-items-center">
     <a href="{{ route('admin.index') }}">
-      <img src="assets/images/logo/logo2.png" alt="logo" class="logo-dark w-32" />
+      <img src="{{ $settings->getLogo($settings->logo) }}" alt="logo" class="logo-dark w-32" />
     </a>
   </div>
   <div class="navbar-menu-wrapper d-flex align-items-center flex-grow-1">
@@ -88,7 +88,7 @@
             >
               <i class="dropdown-item-icon icon-power text-primary"></i> {{
               __('Log Out') }}
-            </a>            
+            </a>
           </form>
 
           @else
