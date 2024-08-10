@@ -14,7 +14,7 @@ class FoodSeeder extends Seeder
      */
     public function run()
     {
-
+        DB::table('food')->truncate();
         $products = [
 
             [
