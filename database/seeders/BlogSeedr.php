@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
-use App\Models\Blog; // Import the Blog model
 use Illuminate\Support\Str;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use App\Models\Blog; // Import the Blog model
 
 class BlogSeedr extends Seeder
 {
@@ -15,6 +16,8 @@ class BlogSeedr extends Seeder
      */
     public function run()
     {
+        DB::table('blogs')->truncate(); // Use the table name here
+
         $imagesPath = public_path('assets/images/blog');
 
         // Scan the directory for image files
