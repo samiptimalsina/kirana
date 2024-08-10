@@ -17,11 +17,11 @@
                 @foreach ($fooddata as $data)
                     <div class="max-w-[290px] m-4 shadow-md group transition">
                         <a href="{{ route('admin.details', $data->slug) }}">
-                                @if(is_array($data->img))
-                                    <img src="{{ asset(collect($data->img)->first()) }}" alt="{{ $data->name }}" class="w-full h-auto">
-                                @else
-                                    <img src="{{ asset($data->img) }}" alt="{{ $data->name }}" class="w-full h-auto">
-                                @endif
+                            @if(is_array($data->img))
+                                <img src="{{ asset(collect($data->img)->first()) }}" alt="{{ $data->name }}" style="width: 300px; height: 362px;" class="w-[300px] h-[362px]  w-full h-auto" >
+                            @else
+                                <img src="{{ asset($data->img) }}" alt="{{ $data->name }}" style="width: 300px; height: 362px;" class="w-[300px] h-[362px] w-full h-auto" >
+                            @endif
 
                             <div
                                 class="p-7 bg-slate-100 group-hover:bg-amber-400 transition duration-300 min-h-[170px]">
