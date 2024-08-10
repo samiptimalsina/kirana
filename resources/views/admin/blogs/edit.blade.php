@@ -39,7 +39,7 @@
                                 <label for="image">Image</label>
                                 <input type="file" name="image" id="image" class="form-control">
                                 @if ($blog->image)
-                                    <img src="{{ asset('assets/images/' . $blog->image) }}" alt="{{ $blog->title }}" class="img-fluid mt-2">
+                                    <img src="{{ asset('assets/images/blog' . $blog->image) }}" alt="{{ $blog->title }}" class="img-fluid mt-2">
                                 @endif
                             </div>
                             <button type="submit" class="btn btn-warning">Update</button>
