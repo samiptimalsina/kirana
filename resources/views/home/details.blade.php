@@ -40,7 +40,6 @@
     @include('home.partials.header', ['navdata' => $navdata])
             <br/>
             <br/>
-            <br/>
     <div class="container mx-auto mt-20 mb-10 px-4" style="margin-top:120px;">
         <div class="flex flex-wrap -mx-2 mt-20 bg-white p-6 rounded-lg shadow-lg">
             <div class="w-full md:w-5/12 px-2 mb-4 md:mb-0">
