@@ -73,7 +73,7 @@ class HomeController extends Controller
     public function index()
     {
         $navdata = $this->navdata;
-        $fooddata = Food::latest()->paginate(12);
+        $fooddata = Food::latest()->paginate(24);
         $dishesdata = Specialdishes::all();
         $testimonialdata = Testimonial::all();
         $banner = Banner::latest()->first();
@@ -126,7 +126,7 @@ class HomeController extends Controller
 
     public function blogs()
     {
-        $blogs = Blog::latest()->paginate(21);
+        $blogs = Blog::latest()->paginate(51);
 
         return view('home.blogs', [
             'navdata' => $this->navdata,
