@@ -31,7 +31,7 @@ class BlogController extends Controller
         $imageName = null;
         if ($request->hasFile('image')) {
             $imageName = time() . '.' . $request->image->extension();
-            $request->image->move(public_path('assets/images'), $imageName);
+            $request->image->move(public_path('assets/images/blog'), $imageName);
         }
 
         Blog::create([
@@ -63,7 +63,7 @@ class BlogController extends Controller
 
         if ($request->hasFile('image')) {
             $imageName = time() . '.' . $request->image->extension();
-            $request->image->move(public_path('assets/images'), $imageName);
+            $request->image->move(public_path('assets/images/blog'), $imageName);
             $blog->image = $imageName;
         }
 
@@ -80,7 +80,7 @@ class BlogController extends Controller
     {
         $blog = Blog::findOrFail($id);
         if ($blog->image) {
-            unlink(public_path('assets/images') . '/' . $blog->image);
+            unlink(public_path('assets/images/blog') . '/' . $blog->image);
         }
         $blog->delete();
 

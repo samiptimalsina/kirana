@@ -18,7 +18,7 @@
             @foreach ($blogs as $blog)
             <div class="bg-white shadow-md rounded-lg p-4">
                 <div class="mb-4">
-                <img src="{{ asset('assets/images/' . $blog->image) }}" alt="{{ $blog->title }}" class="w-full h-48 object-cover rounded-lg">
+                <img src="{{ asset('assets/images/blog/' . $blog->image) }}" alt="{{ $blog->title }}" class="w-full h-48 object-cover rounded-lg">
                 </div>
                 <h2 class="text-xl font-semibold text-gray-800 mb-2">{{ $blog->title }}</h2>
                {{-- <p class="text-gray-600 mb-4">{{ substr($blog->content, 0, 80) }}</p> --}}
