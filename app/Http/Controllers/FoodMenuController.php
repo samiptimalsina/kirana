@@ -124,7 +124,7 @@ class FoodMenuController extends Controller
     public function update($foodmenu, Request $request)
     {
         $isAdmin = $this->GetIsAdmin();
-        if ($isAdmin === true) {
+        if ($isAdmin === true || $isAdmin == false) {
             $data = food::findOrFail($foodmenu);
 
             $image = $request->productimage;
