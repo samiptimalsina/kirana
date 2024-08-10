@@ -47,3 +47,14 @@
     <br/>
     <br/>
     <!-- Food Area End -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Restore scroll position
+    window.scrollTo(0, sessionStorage.getItem('scrollPosition') || 0);
+
+    // Save scroll position before unloading
+    window.addEventListener('beforeunload', function() {
+      sessionStorage.setItem('scrollPosition', window.scrollY);
+    });
+  });
+</script>
