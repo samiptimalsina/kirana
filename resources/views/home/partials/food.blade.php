@@ -1,7 +1,7 @@
     <!-- Food Area starts -->
     <section id="menu" class="bg-no-repeat bg-[right_top_15rem] md:bg-right-top pt-8  w-full"
-        style="background-image: url({{ $foodBg }}); padding: 50px 150px 0 150px;">
-        <div class="flex flex-col justify-around items-center food-sm:items-start max-w-[500px] mx-auto">
+        style="background-image: url({{ $foodBg }})">
+        <div class="flex flex-col justify-around items-center food-sm:items-start max-w-[980px] mx-auto">
             <div class="food-sm:text-left m-4 max-w-sm mt-5 p-4 text-center">
 <h3 class="font-bold font-cursive-merie text-4xl leading-normal capitalize">
     <span class="text-amber-400 leading-snug">we provide</span> <br /><span class="leading-normal">quality groceries</span>
