@@ -13,7 +13,7 @@
 
     #bannerSection {
         background-size: cover;
-        background-position: center;
+        background-position: center center;
         background-repeat: no-repeat;
         position: relative;
         height: 500px; /* Set initial height to auto */
