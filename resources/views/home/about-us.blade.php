@@ -14,10 +14,12 @@
     @include('home.partials.header', ['navdata' => $navdata])
     @include('home.partials.page-bannner', ['title' => 'Maha Spice and Food Product'])
 
-    @include('home.partials.welcome')
+    @include('home.partials.more-about')
 
+    @include('home.partials.ceo-bod')
     @include('home.partials.mission') <!-- Our Mission Section -->
     @include('home.partials.vision')  <!-- Our Vision Section -->
+
 
     @include('home.partials.teams', [
         'testimonialdata' => $testimonialdata,

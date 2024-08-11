@@ -8,20 +8,7 @@
     color: #64748b; /* slate-600 */
     line-height: 1.625; /* leading-relaxed */
 }
-#ceo-message {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding:2rem; /* Adjust padding as needed */
-}
 
-/* Flexbox layout for the CEO message */
-.ceo-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem; /* Space between image and content */
-}
 
 /* Image styles */
 .ceo-image {
@@ -72,6 +59,7 @@
 }
 </style>
 
+<!-- Welcome Area Starts -->
 <section id="about" class="flex flex-wrap items-center justify-center lg:justify-between max-w-[960px] mx-auto p-5">
     <div class="flex justify-center basis-[500px] grow-0 pr-5">
         <img class="h-auto w-full max-w-full object-cover" src="{{ $settings->about_us_image($settings->about_us_image) ?? '' }}" alt="welcome food image" />
@@ -79,24 +67,13 @@
 
     <div class="basis-[400px] grow max-w-[650px] p-5">
         <h3 class="font-bold text-4xl">
-            <span class="text-amber-400 leading-snug">welcome</span> <br /><span class="leading-normal">Maha spice and food Product</span>
+            <span class="text-amber-400 leading-snug">Welcome</span> <br /><span class="leading-normal">Maha Spice and Food Product</span>
         </h3>
 
-        @if(Route::currentRouteName() == 'about')
-            {!! $settings->about_us !!}
-        @else
             {!! \Illuminate\Support\Str::limit($settings->about_us, 822, '....') !!}
             <br>
             <a href="{{ route('about') }}" class="inline-block rounded-sm shadow-md mt-7 px-5 py-3 bg-lime-400 uppercase text-xs font-bold text-slate-900 border border-transparent transition ease-in-out duration-300 hover:-translate-y-1 hover:scale-110 hover:bg-transparent hover:border-lime-400">
                 Read More
             </a>
-        @endif
     </div>
 </section>
-
-
-@if(Route::currentRouteName() == 'about')
- @include('home.partials.ceo-bod')
-
-@endif
-<!-- Welcome Area End -->
