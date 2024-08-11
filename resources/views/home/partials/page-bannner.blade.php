@@ -16,7 +16,6 @@
         background-position: center;
         background-repeat: no-repeat;
         position: relative;
-        height: 50vh; /* Default height as a percentage of the viewport height */
         min-height: 250px; /* Ensures a minimum height */
         max-height: 500px; /* Limits the height on very large screens */
     }
