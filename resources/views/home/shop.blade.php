@@ -23,6 +23,8 @@
 
     @include('home.partials.script')
 </body>
+@if(Route::currentRouteName() === 'shop')
+
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     // Get the last scroll position
@@ -42,4 +44,5 @@
     });
   });
 </script>
+@endif
 </html>
