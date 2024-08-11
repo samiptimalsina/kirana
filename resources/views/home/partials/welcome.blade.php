@@ -61,7 +61,7 @@
 
 <!-- Welcome Area Starts -->
 <section id="about" class="my-16 mx-8 md:mx-16 lg:my-20 lg:mx-32">
-    <div class="w-full flex py-8" style="padding:150px;">
+    <div class="w-full flex py-8" style="padding: 50px 150px 0 150px;">
         <!-- Image Container -->
         <div class="w-1/2 px-4">
             <img class="h-auto w-full object-cover" src="{{ $settings->about_us_image($settings->about_us_image) ?? '' }}" alt="welcome food image" />
