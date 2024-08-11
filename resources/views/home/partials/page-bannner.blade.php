@@ -7,11 +7,11 @@
     </div>
 </section>
 
-<script>
+{{-- <script>
     document.addEventListener('DOMContentLoaded', function() {
         const imageUrl = @json($banner_image->image_url ?? '');
         if (imageUrl) {
             document.getElementById('bannerImage').src = imageUrl;
         }
     });
-</script>
+</script> --}}
