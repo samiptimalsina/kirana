@@ -23,5 +23,23 @@
 
     @include('home.partials.script')
 </body>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Get the last scroll position
+    let lastScrollPosition = parseInt(sessionStorage.getItem('scrollPosition') || '0', 10);
 
+    // Ensure the scroll position is within 600px from the top
+    if (lastScrollPosition > 1000) {
+      lastScrollPosition = 1000;
+    }
+
+    // Restore scroll position
+    window.scrollTo(0, lastScrollPosition);
+
+    // Save scroll position before unloading
+    window.addEventListener('beforeunload', function() {
+      sessionStorage.setItem('scrollPosition', window.scrollY);
+    });
+  });
+</script>
 </html>
