@@ -16,7 +16,7 @@ Thank you for being a part of our journey. We look forward to serving you with t
             <p class="ceo-position">Chief Executive Officer</p>
         </div>
         <div class="ceo-image">
-            <img src="{{  $settings->about_us_image($settings->about_us_image) ?? ''}}" alt="CEO Image" />
+            <img src="https://betal.techzillasoft.com/teams/photo/coe.jpeg" alt="CEO Image" />
         </div>
     </div>
 </section>
