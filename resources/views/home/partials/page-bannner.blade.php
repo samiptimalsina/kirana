@@ -11,10 +11,10 @@
         }
         #bannerSection {
             background-size: cover;
-            background-position: center;
+            background-position: center center;
             background-repeat: no-repeat;
             position: relative;
-            height: 600px;
+            height: 500px;
         }
         .banner-content {
             position: relative;
