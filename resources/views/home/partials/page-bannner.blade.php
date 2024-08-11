@@ -16,32 +16,7 @@
         background-position: center;
         background-repeat: no-repeat;
         position: relative;
-        min-height: 500px; /* Ensures a minimum height */
-        max-height: 600px; /* Limits the height on very large screens */
-    }
-
-    @media (max-width: 1200px) {
-        #bannerSection {
-            height: 45vh; /* Adjusts the height for medium-large screens */
-        }
-    }
-
-    @media (max-width: 992px) {
-        #bannerSection {
-            height: 40vh; /* Adjusts the height for medium screens */
-        }
-    }
-
-    @media (max-width: 768px) {
-        #bannerSection {
-            height: 35vh; /* Adjusts the height for tablets */
-        }
-    }
-
-    @media (max-width: 576px) {
-        #bannerSection {
-            height: 30vh; /* Adjusts the height for small mobile screens */
-        }
+        height: 500px; /* Set initial height to auto */
     }
 </style>
 
@@ -57,8 +32,17 @@
         const bannerSection = document.getElementById('bannerSection');
         const imageUrl = @json($banner_image->image_url ?? '');
 
+        function adjustBannerHeight() {
+            const screenHeight = window.innerHeight;
+            const bannerHeight = Math.max(300, Math.min(500, screenHeight * 0.5));
+            bannerSection.style.height = `${bannerHeight}px`;
+        }
+
         if (imageUrl) {
             bannerSection.style.backgroundImage = `url(${imageUrl})`;
         }
+
+        adjustBannerHeight(); // Adjust height on initial load
+        window.addEventListener('resize', adjustBannerHeight); // Adjust height on window resize
     });
 </script>
