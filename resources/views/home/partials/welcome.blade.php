@@ -60,20 +60,33 @@
 </style>
 
 <!-- Welcome Area Starts -->
-<section id="about" class="flex flex-wrap items-center justify-center lg:justify-between max-w-[960px] mx-auto p-5">
-    <div class="flex justify-center basis-[500px] grow-0 pr-5">
-        <img class="h-auto w-full max-w-full object-cover" src="{{ $settings->about_us_image($settings->about_us_image) ?? '' }}" alt="welcome food image" />
-    </div>
+<section id="about" class="my-16 mx-8 md:mx-16 lg:my-20 lg:mx-32">
+    <div class="w-full flex py-8">
+        <!-- Image Container -->
+        <div class="w-1/2 px-4">
+            <img class="h-auto w-full object-cover" src="{{ $settings->about_us_image($settings->about_us_image) ?? '' }}" alt="welcome food image" />
+        </div>
 
-    <div class="basis-[400px] grow max-w-[650px] p-5">
-        <h3 class="font-bold text-4xl">
-            <span class="text-amber-400 leading-snug">Welcome</span> <br /><span class="leading-normal">Maha Spice and Food Product</span>
-        </h3>
+        <!-- Text Container -->
+        <div class="w-1/2 px-4 flex flex-col justify-center">
+            <h3 class="font-bold text-4xl mb-4">
+                <span class="text-amber-400 leading-snug">Welcome</span> <br /><span class="leading-normal">Maha Spice and Food Product</span>
+            </h3>
 
-            {!! \Illuminate\Support\Str::limit($settings->about_us, 822, '....') !!}
+            {!! \Illuminate\Support\Str::limit($settings->about_us, 800, '....') !!}
             <br>
             <a href="{{ route('about') }}" class="inline-block rounded-sm shadow-md mt-7 px-5 py-3 bg-lime-400 uppercase text-xs font-bold text-slate-900 border border-transparent transition ease-in-out duration-300 hover:-translate-y-1 hover:scale-110 hover:bg-transparent hover:border-lime-400">
                 Read More
             </a>
+        </div>
     </div>
 </section>
+
+
+
+
+<!-- Welcome Area End -->
+
+
+
+<!-- Welcome Area End -->
