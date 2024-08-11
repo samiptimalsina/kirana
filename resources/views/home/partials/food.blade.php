@@ -38,9 +38,18 @@
                 @endforeach
 
             </div>
-           <div class="mt-10">
-                {{ $fooddata->links()  }}
-            </div>
+@if(Route::currentRouteName() === 'index')
+    <div class="mt-10" style="text-align: center; background: yellow; margin-left: auto; margin-right: auto;">
+        <a href="{{ route('shop') }}"
+           class="bg-yellow-400 text-white py-2 px-4 rounded hover:bg-yellow-500 transition focus:outline-none"
+           style="margin-left: auto; margin-right: auto; display: inline-block; color: black;">
+            View More
+        </a>
+    </div>
+
+@endif
+
+
         </div>
 
     </section>
