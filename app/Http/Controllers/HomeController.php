@@ -49,7 +49,7 @@ class HomeController extends Controller
             ["text" => "about", "href" => route('about')],
             ["text" => "Our Product", "href" => route('shop')],
             ["text" => "Gallery", "href" => route('galleries')],
-            ["text" => "book", "href" => url('/') . '#book'],
+            ["text" => "book", "href" =>  route('book')],
             ["text" => "Dealers", "href" =>  route('dealers')],
             ["text" => "contact", "href" => route('contact.us')],
         ];
@@ -170,5 +170,16 @@ class HomeController extends Controller
     private function getBanner($page)
     {
         return Banner::where('page', $page)->first();
+    }
+
+    public function book()
+    {
+        return view('home.book', [
+            'navdata' => $this->navdata,
+            'fooddata' => $this->fooddata,
+            'dishesdata' => $this->dishesdata,
+            'testimonialdata' => $this->testimonialdata,
+            'banner_image' => $this->getBanner('DEALERS'),
+        ]);
     }
 }
