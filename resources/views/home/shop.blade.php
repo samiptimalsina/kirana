@@ -23,7 +23,7 @@
 
     @include('home.partials.script')
 </body>
-<script>
+{{-- <script>
   document.addEventListener('DOMContentLoaded', function() {
     // Get the last scroll position
     let lastScrollPosition = parseInt(sessionStorage.getItem('scrollPosition') || '0', 10);
@@ -41,5 +41,5 @@
       sessionStorage.setItem('scrollPosition', window.scrollY);
     });
   });
-</script>
+</script> --}}
 </html>
