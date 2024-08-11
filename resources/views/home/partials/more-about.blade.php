@@ -17,7 +17,7 @@
         <img class="h-auto w-full max-w-full object-cover rounded-lg shadow-lg" src="{{ $settings->about_us_image($settings->about_us_image) ?? '' }}" alt="Welcome Food Image" />
     </div>
 
-    <div class="mt-8 lg:mt-12 max-w-4xl mx-auto text-center lg:text-left">
+    <div class="py-12 px-6 md:px-12 lg:py-16 lg:px-24 bg-gray-50">
         <h3 class="text-3xl lg:text-4xl font-bold mb-4">
             <span class="text-amber-400">Welcome</span> <br />
             <span class="text-gray-800">Maha Spice and Food Product</span>
