@@ -9,13 +9,38 @@
             height: 100%;
             background-color: rgba(0, 0, 0, 0.4); /* Dark overlay */
         }
+#bannerSection {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    height: 500px; /* Set height to 500px for large screens */
+}
+
+    @media (max-width: 1200px) {
         #bannerSection {
-            background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
-            position: relative;
-            height: 500px;
+            height: 400px; /* Adjusts the height for medium-large screens */
         }
+    }
+
+    @media (max-width: 992px) {
+        #bannerSection {
+            height: 350px; /* Adjusts the height for medium screens */
+        }
+    }
+
+    @media (max-width: 768px) {
+        #bannerSection {
+            height: 300px; /* Adjusts the height for tablets */
+        }
+    }
+
+    @media (max-width: 576px) {
+        #bannerSection {
+            height: 250px; /* Adjusts the height for small mobile screens */
+        }
+    }
+
         .banner-content {
             position: relative;
             z-index: 2;
