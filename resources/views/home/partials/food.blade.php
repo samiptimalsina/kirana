@@ -38,6 +38,7 @@
                 @endforeach
 
             </div>
+
 @if(Route::currentRouteName() === 'index')
     <div class="mt-10" style="text-align: center; background: yellow; margin-left: auto; margin-right: auto;">
         <a href="{{ route('shop') }}"
@@ -46,9 +47,12 @@
             View More
         </a>
     </div>
+    @else
+        <div class="mt-10">
+                {{ $fooddata->links()  }}
+        </div>
 
 @endif
-
 
         </div>
 
