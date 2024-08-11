@@ -35,6 +35,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/galleries', 'blogs')->name('galleries');
     Route::get('/blogs/{slug}', 'blogDetail')->name('blogs.detail');
     Route::get('/dealers', 'dealers')->name('dealers');
+    Route::get('/book', 'book')->name('book');
     Route::get('/fetch-food-data',  'fetchFoodData')->name('api.food.data');
 });
 
