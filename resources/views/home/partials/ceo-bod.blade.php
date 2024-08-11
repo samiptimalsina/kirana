@@ -25,7 +25,7 @@ Thank you for being a part of our journey. We look forward to serving you with t
 <section id="board-of-directors" class="max-w-screen-xl mx-auto p-8">
     <div class="flex flex-wrap items-center justify-center gap-8">
         <div class="flex-1 max-w-md">
-            <img class="w-full h-auto rounded-lg shadow-lg" src="{{  $settings->about_us_image($settings->about_us_image) ?? ''}}" alt="Board of Directors Image" />
+            <img class="w-full h-auto rounded-lg shadow-lg" src="https://betal.techzillasoft.com/teams/photo/1723140846.jpg" alt="Board of Directors Image" />
         </div>
         <div class="flex-1 text-gray-600">
             <h3 class="text-2xl font-cursive mb-4 text-gray-900">Meet Our Board of Directors</h3>
