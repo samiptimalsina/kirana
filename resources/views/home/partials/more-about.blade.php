@@ -13,9 +13,7 @@
 </style>
 
 <section id="about" class="py-12 px-6 md:px-12 lg:py-16 lg:px-24 bg-gray-50">
-    <div class="relative">
-        <img class="h-auto w-full max-w-full object-cover rounded-lg shadow-lg" src="{{ $settings->about_us_image($settings->about_us_image) ?? '' }}" alt="Welcome Food Image" />
-    </div>
+
 
     <div class="py-12 px-6 md:px-12 lg:py-16 lg:px-24 bg-gray-50">
         <h3 class="text-3xl lg:text-4xl font-bold mb-4">
@@ -26,6 +24,9 @@
         <p class="text-lg text-gray-700 leading-relaxed">
             {!! $settings->about_us !!}
         </p>
+    </div>
+        <div class="relative">
+        <img class="h-auto w-full max-w-full object-cover rounded-lg shadow-lg" src="{{ $settings->about_us_image($settings->about_us_image) ?? '' }}" alt="Welcome Food Image" />
     </div>
 </section>
 
