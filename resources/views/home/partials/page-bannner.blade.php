@@ -16,8 +16,8 @@
         background-position: center;
         background-repeat: no-repeat;
         position: relative;
-        min-height: 250px; /* Ensures a minimum height */
-        max-height: 500px; /* Limits the height on very large screens */
+        min-height: 500px; /* Ensures a minimum height */
+        max-height: 600px; /* Limits the height on very large screens */
     }
 
     @media (max-width: 1200px) {
