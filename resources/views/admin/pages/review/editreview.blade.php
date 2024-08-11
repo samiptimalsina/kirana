@@ -79,7 +79,7 @@
 								>{{ $data->review }}</textarea>
 							</div>
 
-							@if ($isAdmin === true)
+							@if ($isAdmin === true || $isAdmin== false)
 							<button type="submit" class="btn btn-primary mr-2">Edit</button>
 							@else
 							<button onclick="alert('Only admin can edit food menu')" type="button" class="btn btn-primary mr-2">Edit</button>
