@@ -73,7 +73,7 @@ class HomeController extends Controller
     public function index()
     {
         $navdata = $this->navdata;
-        $fooddata = Food::latest()->paginate(24);
+        $fooddata = Food::latest()->paginate(12);
         $dishesdata = Specialdishes::all();
         $testimonialdata = Testimonial::all();
         $banner = Banner::latest()->first();
