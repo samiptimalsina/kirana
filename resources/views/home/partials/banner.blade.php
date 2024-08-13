@@ -92,7 +92,7 @@
                 setTimeout(() => {
                     descriptionText.classList.remove('fade-out');
                     descriptionText.classList.add('fade-in');
-                }, 500); // Delay before starting description fade in
+                }, 700); // Delay before starting description fade in
 
                 // Remove fade-in classes after animations complete
                 setTimeout(() => {
