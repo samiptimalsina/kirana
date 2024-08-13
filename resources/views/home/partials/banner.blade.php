@@ -33,7 +33,7 @@
     }
 
     .fade-in {
-        animation: fadeIn 3s forwards;
+        animation: fadeIn 4s forwards;
     }
 </style>
 
@@ -53,7 +53,7 @@
             // After the title fades out, fade out the description
             setTimeout(() => {
                 descriptionText.classList.add('fade-out');
-            }, 500); // Delay before starting description fade out
+            }, 2000); // Delay before starting description fade out
 
             // Wait for both to finish fading out
             setTimeout(() => {
@@ -75,21 +75,21 @@
                 setTimeout(() => {
                     descriptionText.classList.remove('fade-out');
                     descriptionText.classList.add('fade-in');
-                }, 1000); // Delay before starting description fade in
+                }, 3000); // Delay before starting description fade in
 
                 // Remove fade-in classes after animations complete
                 setTimeout(() => {
                     titleText.classList.remove('fade-in');
                     descriptionText.classList.remove('fade-in');
-                }, 3000); // Duration of fade-in + delay
+                }, 9000); // Duration of fade-in + delay
 
-            }, 1500); // Duration of fade-out animation
+            }, 3000); // Duration of fade-out animation
         }
 
         // Initial content load
         changeContent();
 
         // Change content every 3 seconds
-        setInterval(changeContent, 6000);
+        setInterval(changeContent, 12000);
     });
 </script>
