@@ -94,15 +94,15 @@
                 setTimeout(() => {
                     titleText.classList.remove('fade-in-title');
                     descriptionText.classList.remove('fade-in-description');
-                }, 10000); // Duration of the entire animation cycle
+                }, 6000); // Duration of the entire animation cycle
 
-            }, 5000); // Duration of fade-out animation
+            }, 4000); // Duration of fade-out animation
         }
 
         // Initial content load
         changeContent();
 
         // Change content every 10 seconds to match the full animation cycle
-        setInterval(changeContent, 10000);
+        setInterval(changeContent, 7000);
     });
 </script>
