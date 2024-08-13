@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
             setTimeout(() => {
                 titleText.classList.remove('fade-in');
                 descriptionText.classList.remove('fade-in');
-            }, 7000); // Duration of fade-in + delay (5s + 2s)
+            }, 5000); // Duration of fade-in + delay (5s + 2s)
 
         }, 3000); // Duration of fade-out animation (3s + 1s)
     }
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
     changeContent();
 
     // Change content every 8 seconds (6s + 2s)
-    setInterval(changeContent, 8000);
+    setInterval(changeContent, 6000);
 });
 
 </script>
