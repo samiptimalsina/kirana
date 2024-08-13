@@ -7,53 +7,41 @@
 </section>
 
 <style>
-/* Fade out and slide up animation */
-@keyframes fadeOutUp {
-    0% {
-        opacity: 1;
-        transform: translateY(0);
+    /* Fade out and slide up animation */
+    @keyframes fadeOutUp {
+        0% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        100% {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
     }
-    100% {
-        opacity: 0;
-        transform: translateY(-20px);
+
+    /* Fade in and slide down animation */
+    @keyframes fadeInDown {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
-}
 
-/* Fade in and slide down animation */
-@keyframes fadeInDown {
-    0% {
-        opacity: 0;
-        transform: translateY(-20px);
+    /* Apply fade out and slide up animations */
+    .fade-out {
+        animation: fadeOutUp 1s forwards;
     }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
+
+    /* Apply fade in and slide down animations */
+    .fade-in {
+        animation: fadeInDown 3s forwards;
     }
-}
-
-/* Fade out and slide up for title */
-.fade-out-title {
-    animation: fadeOutUp 5s forwards;
-}
-
-/* Fade in and slide down for title */
-.fade-in-title {
-    animation: fadeInDown 4s forwards;
-}
-
-/* Fade out and slide up for description */
-.fade-out-description {
-    animation: fadeOutUp 5s forwards;
-    animation-delay: 1s; /* Start fade-out after title animation */
-}
-
-/* Fade in and slide down for description */
-.fade-in-description {
-    animation: fadeInDown 6s forwards;
-    animation-delay: 4s; /* Start fade-in after title fades in */
-}
-
 </style>
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const images = @json($banner_images ?? []);
@@ -64,11 +52,15 @@
             const titleText = document.getElementById('banner-title-text');
             const descriptionText = document.getElementById('banner-description');
 
-            // Apply fade-out animation to the text
+            // Fade out the title first with slide-up
             titleText.classList.add('fade-out');
-            descriptionText.classList.add('fade-out');
 
-            // Wait for the fade-out to finish
+            // After the title fades out, fade out the description with slide-up
+            setTimeout(() => {
+                descriptionText.classList.add('fade-out');
+            }, 500); // Delay before starting description fade out
+
+            // Wait for both to finish fading out
             setTimeout(() => {
                 // Update the currentIndex for the next slide
                 if (images.length > 0) {
@@ -80,19 +72,21 @@
                 titleText.innerHTML = images[currentIndex]?.title ?? '';
                 descriptionText.innerHTML = images[currentIndex]?.description ?? '';
 
-                // Remove fade-out class to reset the animation
+                // Fade in the title first with slide-down
                 titleText.classList.remove('fade-out');
-                descriptionText.classList.remove('fade-out');
-
-                // Apply fade-in animation to the text
                 titleText.classList.add('fade-in');
-                descriptionText.classList.add('fade-in');
 
-                // Remove fade-in class after animation to reset
+                // After the title fades in, fade in the description with slide-down
+                setTimeout(() => {
+                    descriptionText.classList.remove('fade-out');
+                    descriptionText.classList.add('fade-in');
+                }, 500); // Delay before starting description fade in
+
+                // Remove fade-in classes after animations complete
                 setTimeout(() => {
                     titleText.classList.remove('fade-in');
                     descriptionText.classList.remove('fade-in');
-                }, 1000); // Duration of fade-in animation
+                }, 1500); // Duration of fade-in + delay
 
             }, 1000); // Duration of fade-out animation
         }
@@ -100,7 +94,7 @@
         // Initial content load
         changeContent();
 
-        // Change content every 3 seconds
+        // Change content every 5 seconds
         setInterval(changeContent, 3000);
     });
 </script>
