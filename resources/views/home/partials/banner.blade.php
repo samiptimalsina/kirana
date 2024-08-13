@@ -38,7 +38,19 @@
 
     /* Apply fade in and slide down animations */
     .fade-in {
-        animation: fadeInDown 3s forwards;
+        animation: fadeInDown 2s forwards;
+    }
+
+    /* Additional fade-in delay for description */
+    .fade-in-description {
+        animation: fadeInDown 2s forwards;
+        animation-delay: 1s; /* Delay before the description fades in */
+    }
+
+    /* Additional delay for fade out of both title and description */
+    .fade-out-description {
+        animation: fadeOutUp 1s forwards;
+        animation-delay: 1s; /* Delay before the description fades out */
     }
 </style>
 
@@ -55,10 +67,10 @@
             // Fade out the title first with slide-up
             titleText.classList.add('fade-out');
 
-            // After the title fades out, fade out the description with slide-up
+            // After the title fades out, fade out the description
             setTimeout(() => {
-                descriptionText.classList.add('fade-out');
-            }, 1000); // Delay before starting description fade out
+                descriptionText.classList.add('fade-out-description');
+            }, 500); // Delay before starting description fade out
 
             // Wait for both to finish fading out
             setTimeout(() => {
@@ -76,19 +88,19 @@
                 titleText.classList.remove('fade-out');
                 titleText.classList.add('fade-in');
 
-                // After the title fades in, fade in the description with slide-down
+                // After the title fades in, fade in the description with a delay
                 setTimeout(() => {
-                    descriptionText.classList.remove('fade-out');
-                    descriptionText.classList.add('fade-in');
+                    descriptionText.classList.remove('fade-out-description');
+                    descriptionText.classList.add('fade-in-description');
                 }, 500); // Delay before starting description fade in
 
                 // Remove fade-in classes after animations complete
                 setTimeout(() => {
                     titleText.classList.remove('fade-in');
-                    descriptionText.classList.remove('fade-in');
-                }, 2000); // Duration of fade-in + delay
+                    descriptionText.classList.remove('fade-in-description');
+                }, 3000); // Duration of fade-in + delay
 
-            }, 5000); // Duration of fade-out animation
+            }, 1500); // Duration of fade-out animation
         }
 
         // Initial content load
