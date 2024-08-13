@@ -7,33 +7,38 @@
 </section>
 
 <style>
-    /* Fade out animation */
-    @keyframes fadeOut {
+    /* Fade out and slide up animation */
+    @keyframes fadeOutUp {
         0% {
             opacity: 1;
+            transform: translateY(0);
         }
         100% {
             opacity: 0;
+            transform: translateY(-20px);
         }
     }
 
-    /* Fade in animation */
-    @keyframes fadeIn {
+    /* Fade in and slide down animation */
+    @keyframes fadeInDown {
         0% {
             opacity: 0;
+            transform: translateY(20px);
         }
         100% {
             opacity: 1;
+            transform: translateY(0);
         }
     }
 
-    /* Apply fade out and fade in animations */
+    /* Apply fade out and slide up animations */
     .fade-out {
-        animation: fadeOut 1s forwards;
+        animation: fadeOutUp 1s forwards;
     }
 
+    /* Apply fade in and slide down animations */
     .fade-in {
-        animation: fadeIn 4s forwards;
+        animation: fadeInDown 3s forwards;
     }
 </style>
 
@@ -47,13 +52,13 @@
             const titleText = document.getElementById('banner-title-text');
             const descriptionText = document.getElementById('banner-description');
 
-            // Fade out the title first
+            // Fade out the title first with slide-up
             titleText.classList.add('fade-out');
 
-            // After the title fades out, fade out the description
+            // After the title fades out, fade out the description with slide-up
             setTimeout(() => {
                 descriptionText.classList.add('fade-out');
-            }, 2000); // Delay before starting description fade out
+            }, 1000); // Delay before starting description fade out
 
             // Wait for both to finish fading out
             setTimeout(() => {
@@ -67,29 +72,29 @@
                 titleText.innerHTML = images[currentIndex]?.title ?? '';
                 descriptionText.innerHTML = images[currentIndex]?.description ?? '';
 
-                // Fade in the title first
+                // Fade in the title first with slide-down
                 titleText.classList.remove('fade-out');
                 titleText.classList.add('fade-in');
 
-                // After the title fades in, fade in the description
+                // After the title fades in, fade in the description with slide-down
                 setTimeout(() => {
                     descriptionText.classList.remove('fade-out');
                     descriptionText.classList.add('fade-in');
-                }, 3000); // Delay before starting description fade in
+                }, 1000); // Delay before starting description fade in
 
                 // Remove fade-in classes after animations complete
                 setTimeout(() => {
                     titleText.classList.remove('fade-in');
                     descriptionText.classList.remove('fade-in');
-                }, 9000); // Duration of fade-in + delay
+                }, 3000); // Duration of fade-in + delay
 
-            }, 3000); // Duration of fade-out animation
+            }, 2000); // Duration of fade-out animation
         }
 
         // Initial content load
         changeContent();
 
-        // Change content every 3 seconds
-        setInterval(changeContent, 12000);
+        // Change content every 5 seconds
+        setInterval(changeContent, 5000);
     });
 </script>
