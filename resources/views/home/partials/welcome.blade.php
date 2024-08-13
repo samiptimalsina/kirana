@@ -102,7 +102,7 @@
 
             {!! \Illuminate\Support\Str::limit($settings->about_us, 800, '....') !!}
             <br>
-            <a href="{{ route('about') }}" class="inline-block rounded-sm shadow-md mt-7 px-5 py-3 bg-lime-400 uppercase text-xs font-bold text-slate-900 border border-transparent transition ease-in-out duration-300 hover:-translate-y-1 hover:scale-110 hover:bg-transparent hover:border-lime-400">
+            <a href="{{ route('about') }}" class="inline-block rounded-sm shadow-md mt-7 px-5 py-3 bg-lime-400 uppercase text-xs font-bold text-slate-900 border border-transparent transition ease-in-out duration-300 hover:-translate-y-1 hover:scale-110 hover:bg-transparent hover:border-lime-400" style="background-color:#F9EA50;">
                 Read More
             </a>
         </div>
@@ -123,7 +123,8 @@
 
             {!! \Illuminate\Support\Str::limit($settings->about_us, 800, '....') !!}
             <br>
-            <a href="{{ route('about') }}" class="inline-block rounded-sm shadow-md mt-7 px-5 py-3 bg-lime-400 uppercase text-xs font-bold text-slate-900 border border-transparent transition ease-in-out duration-300 hover:-translate-y-1 hover:scale-110 hover:bg-transparent hover:border-lime-400">
+            <a href="{{ route('about') }}" class="inline-block rounded-sm shadow-md mt-7 px-5 py-3  uppercase text-xs font-bold text-slate-900 border border-transparent transition ease-in-out duration-300 hover:-translate-y-1 hover:scale-110 hover:bg-transparent hover:border-lime-400"
+             style="background-color:#F9EA50;">
                 Read More
             </a>
         </div>
