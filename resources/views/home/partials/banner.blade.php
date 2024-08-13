@@ -7,51 +7,52 @@
 </section>
 
 <style>
-    /* Fade out and slide up animation */
-    @keyframes fadeOutUp {
-        0% {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        100% {
-            opacity: 0;
-            transform: translateY(-20px);
-        }
+/* Fade out and slide up animation */
+@keyframes fadeOutUp {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
     }
+    100% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
 
-    /* Fade in and slide down animation */
-    @keyframes fadeInDown {
-        0% {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        100% {
-            opacity: 1;
-            transform: translateY(0);
-        }
+/* Fade in and slide down animation */
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
     }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-    /* Fade out and slide up for title */
-    .fade-out-title {
-        animation: fadeOutUp 5s forwards;
-    }
+/* Fade out and slide up for title */
+.fade-out-title {
+    animation: fadeOutUp 5s forwards;
+}
 
-    /* Fade in and slide down for title */
-    .fade-in-title {
-        animation: fadeInDown 4s forwards;
-    }
+/* Fade in and slide down for title */
+.fade-in-title {
+    animation: fadeInDown 4s forwards;
+}
 
-    /* Fade out and slide up for description */
-    .fade-out-description {
-        animation: fadeOutUp 5s forwards;
-        animation-delay: 1s; /* Start fade-out after title animation */
-    }
+/* Fade out and slide up for description */
+.fade-out-description {
+    animation: fadeOutUp 5s forwards;
+    animation-delay: 1s; /* Start fade-out after title animation */
+}
 
-    /* Fade in and slide down for description */
-    .fade-in-description {
-        animation: fadeInDown 6s forwards;
-        animation-delay: 4s; /* Start fade-in after title fades in */
-    }
+/* Fade in and slide down for description */
+.fade-in-description {
+    animation: fadeInDown 6s forwards;
+    animation-delay: 4s; /* Start fade-in after title fades in */
+}
+
 </style>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
