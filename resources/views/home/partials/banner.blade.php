@@ -86,9 +86,9 @@
                 setTimeout(() => {
                     titleText.classList.remove('fade-in');
                     descriptionText.classList.remove('fade-in');
-                }, 3000); // Duration of fade-in + delay
+                }, 5000); // Duration of fade-in + delay
 
-            }, 2000); // Duration of fade-out animation
+            }, 5000); // Duration of fade-out animation
         }
 
         // Initial content load
