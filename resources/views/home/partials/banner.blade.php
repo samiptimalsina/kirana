@@ -64,12 +64,12 @@
             const titleText = document.getElementById('banner-title-text');
             const descriptionText = document.getElementById('banner-description');
 
-            // Fade out the title first with slide-up
+            // Fade out the title first
             titleText.classList.add('fade-out');
 
             // After the title fades out, fade out the description
             setTimeout(() => {
-                descriptionText.classList.add('fade-out-description');
+                descriptionText.classList.add('fade-out');
             }, 500); // Delay before starting description fade out
 
             // Wait for both to finish fading out
@@ -84,29 +84,29 @@
                 titleText.innerHTML = images[currentIndex]?.title ?? '';
                 descriptionText.innerHTML = images[currentIndex]?.description ?? '';
 
-                // Fade in the title first with slide-down
+                // Fade in the title first
                 titleText.classList.remove('fade-out');
                 titleText.classList.add('fade-in');
 
-                // After the title fades in, fade in the description with a delay
+                // After the title fades in, fade in the description
                 setTimeout(() => {
-                    descriptionText.classList.remove('fade-out-description');
-                    descriptionText.classList.add('fade-in-description');
+                    descriptionText.classList.remove('fade-out');
+                    descriptionText.classList.add('fade-in');
                 }, 500); // Delay before starting description fade in
 
                 // Remove fade-in classes after animations complete
                 setTimeout(() => {
                     titleText.classList.remove('fade-in');
-                    descriptionText.classList.remove('fade-in-description');
-                }, 3000); // Duration of fade-in + delay
+                    descriptionText.classList.remove('fade-in');
+                }, 1500); // Duration of fade-in + delay
 
-            }, 1500); // Duration of fade-out animation
+            }, 1000); // Duration of fade-out animation
         }
 
         // Initial content load
         changeContent();
 
-        // Change content every 5 seconds
-        setInterval(changeContent, 5000);
+        // Change content every 3 seconds
+        setInterval(changeContent, 3000);
     });
 </script>
