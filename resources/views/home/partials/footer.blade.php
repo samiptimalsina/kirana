@@ -56,7 +56,7 @@ ensuring freshness and flavor in every product, catering to diverse culinary nee
                         style="background-color: #3b5998;">
                         <a href="#" class="cursor-pointer text-white"><i class="fa-brands fa-facebook"></i></a>
                     </li>
-                    <li class="mr-3 my-1 cursor-pointer border rounded-full border-transparent hover:border-white hover:rounded-full px-1 bg-twitter"
+                    {{-- <li class="mr-3 my-1 cursor-pointer border rounded-full border-transparent hover:border-white hover:rounded-full px-1 bg-twitter"
                         style="background-color: #1DA1F2;">
                         <a href="#" class="cursor-pointer text-white"><i class="fa-brands fa-twitter"></i></a>
                     </li>
@@ -67,7 +67,7 @@ ensuring freshness and flavor in every product, catering to diverse culinary nee
                     <li class="mr-3 my-1 cursor-pointer border rounded-full border-transparent hover:border-white hover:rounded-full px-1 bg-pinterest"
                         style="background-color: #E60023;">
                         <a href="#" class="cursor-pointer text-white"><i class="fa-brands fa-pinterest"></i></a>
-                    </li>
+                    </li>--}}
                     <li class="my-1 cursor-pointer border rounded-full border-transparent hover:border-white hover:rounded-full px-1 bg-instagram"
                         style="background-color: #C13584;">
                         <a href="#" class="cursor-pointer text-white"><i class="fa-brands fa-instagram"></i></a>
