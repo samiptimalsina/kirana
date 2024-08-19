@@ -190,20 +190,47 @@ class HomeController extends Controller
 
     public function fetchFoodData(Request $request)
     {
+
+        $rules = [
+            'name' => 'required|string|max:255',
+            'phone' => 'required|string|max:20',
+            'person' => 'required|integer|min:1|max:10',
+            'address' => 'nullable|string|max:500',
+        ];
+
+        if ($request->has('food_id') && $this->foodIdExists($request->input('food_id'))) {
+            $rules['product_name'] = 'nullable|string|max:255';
+        } else {
+            $rules['product_name'] = 'required|string|max:255';
+        }
+
+        $validatedData = $request->validate($rules, [
+            'person.required' => 'Please select the quantity field.',
+            'product_name.required' => 'Product name is required.',
+        ]);
+
+
         $data = new reservation;
-        $data->name = $request->name;
-        $data->product_name = $request->product_name;
-        $data->phone_number = $request->phone;
-        $data->date = $request->date;
-        $data->time = $request->time;
-        $data->person = $request->person;
-        $data->food_id = $request->food_id ?? null;
-        $data->address = $request->address ?? null;
+        $data->name = $validatedData['name'];
+        $data->product_name = $validatedData['product_name'] ?? null;
+        $data->phone_number = $validatedData['phone'];
+        $data->person = $validatedData['person'];
+        $data->food_id = $validatedData['food_id'] ?? null;
+        $data->address = $validatedData['address'] ?? null;
 
         $data->save();
 
         return redirect()->back()->with('msg', 'Order Booked successfully');
     }
+
+    // Helper function to check if food_id exists
+    protected function foodIdExists($foodId)
+    {
+        // Replace with actual logic to check if the food ID exists in your database
+        return \App\Models\Food::where('id', $foodId)->exists();
+    }
+
+
 
 
     public function sendEmail(Request $request)
