@@ -48,7 +48,7 @@
                         @if(is_array($product->img))
                             @foreach($product->img as $image)
                                 <li data-thumb="{{ asset($image) }}">
-                                    <img class="w-full rounded-lg" src="{{ asset($image) }}" alt="{{ $product->name }}" />
+                                    <img class="w-full rounded-lg " src="{{ asset($image) }}" alt="{{ $product->name }}" style="height: 362px; width:300px;"/>
                                 </li>
                             @endforeach
                         @else
@@ -70,7 +70,7 @@
                 <span class="block mt-3"></span>
 
             </p>
-                <form action="{{ route('reservation.store') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('reservation.product') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="food_id" value="{{ $product->id }}">
                     <div class=" -mx-2 mb-4">
@@ -81,6 +81,10 @@
                         <div class="w-full md:w-1/2 px-2 custom-input my-2">
                             <i class="fa fa-phone text-sm"></i>
                             <input type="text" id="phone" name="phone" class="w-full rounded pl-10 py-3 text-gray-700 border focus:border-amber-500 focus:ring-amber-500" placeholder="Phone Number" required>
+                        </div>
+                        <div class="w-full md:w-1/2 px-2 custom-input my-2">
+                            <i class="fa fa-map text-sm"></i>
+                            <input type="text" id="address" name="address" class="w-full rounded pl-10 py-3 text-gray-700 border focus:border-amber-500 focus:ring-amber-500" placeholder="Address" required>
                         </div>
                     </div>
                     <div class="flex flex-wrap -mx-2 mb-4">

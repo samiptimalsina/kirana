@@ -106,7 +106,8 @@ Connect on social media for updates. We're here to help and look forward to hear
                 </div>
                 <div class="card h-fit max-w-6xl p-5 md:p-12" id="form">
                     <h2 class="mb-4 text-2xl font-bold dark:text-white">Ready to Get Started?</h2>
-                    <form id="contactForm">
+                    <form id="contactForm" action="{{route('send.email')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="mb-6">
                             <div class="mx-0 mb-1 sm:mb-4">
                                 <div class="mx-0 mb-1 sm:mb-4">

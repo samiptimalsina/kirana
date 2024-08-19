@@ -29,6 +29,8 @@ use App\Http\Controllers\TestimonialController;
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('index');
     Route::get('/contact-us', 'contactUs')->name('contact.us');
+    // web.php
+    Route::post('/send-email', 'sendEmail')->name('send.email');
     Route::get('/product/{slug}', 'productDetail')->name('admin.details');
     Route::get('/about-us', 'aboutUs')->name('about');
     Route::get('/shop', 'shop')->name('shop');
@@ -36,7 +38,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/blogs/{slug}', 'blogDetail')->name('blogs.detail');
     Route::get('/dealers', 'dealers')->name('dealers');
     Route::get('/book', 'book')->name('book');
-    Route::get('/fetch-food-data',  'fetchFoodData')->name('api.food.data');
+    Route::post('/product/booked',  'fetchFoodData')->name('reservation.product');
 });
 
 
