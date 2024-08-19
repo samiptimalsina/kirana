@@ -4,14 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\Food;
+use App\Models\Team;
 use App\Models\Banner;
+use App\Models\Dealer;
 use App\Models\Setting;
+use App\Mail\ContactMail;
+use App\Models\Reservation;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
+
 use App\Models\Specialdishes;
-use App\Models\Dealer;
-use App\Models\Team;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -181,5 +185,38 @@ class HomeController extends Controller
             'testimonialdata' => $this->testimonialdata,
             'banner_image' => $this->getBanner('DEALERS'),
         ]);
+    }
+
+
+    public function fetchFoodData(Request $request)
+    {
+        $data = new reservation;
+        $data->name = $request->name;
+        $data->product_name = $request->product_name;
+        $data->phone_number = $request->phone;
+        $data->date = $request->date;
+        $data->time = $request->time;
+        $data->person = $request->person;
+        $data->food_id = $request->food_id ?? null;
+        $data->address = $request->address ?? null;
+
+        $data->save();
+
+        return redirect()->back()->with('msg', 'Order Booked successfully');
+    }
+
+
+    public function sendEmail(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'phone' => 'required|string|max:20',
+            'email' => 'required|email|max:255',
+            'textarea' => 'required|string',
+        ]);
+
+        Mail::to('your-email@example.com')->send(new ContactMail($validated));
+
+        return response()->json(['success' => true]);
     }
 }
