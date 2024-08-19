@@ -70,40 +70,85 @@
                 <span class="block mt-3"></span>
 
             </p>
+            @if (session('msg'))
+    <div class="alert alert-success">
+        {{ session('msg') }}
+    </div>
+@endif
+
                 <form action="{{ route('reservation.product') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="food_id" value="{{ $product->id }}">
+
                     <div class=" -mx-2 mb-4">
                         <div class="w-full md:w-1/2 px-2 mb-4 md:mb-0 custom-input">
                             <i class="fa fa-user text-sm"></i>
-                            <input type="text" id="name" name="name" class="w-full rounded pl-10 py-3 text-gray-700 border focus:border-amber-500 focus:ring-amber-500" placeholder="Your name">
+                            <input type="text" id="name" name="name"
+                                class="w-full rounded pl-10 py-3 text-gray-700 border
+                                @error('name') border-red-500 @enderror
+                                focus:border-amber-500 focus:ring-amber-500"
+                                placeholder="Your name"
+                                value="{{ old('name') }}">
+                            @error('name')
+                                <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
+
                         <div class="w-full md:w-1/2 px-2 custom-input my-2">
                             <i class="fa fa-phone text-sm"></i>
-                            <input type="text" id="phone" name="phone" class="w-full rounded pl-10 py-3 text-gray-700 border focus:border-amber-500 focus:ring-amber-500" placeholder="Phone Number" required>
+                            <input type="text" id="phone" name="phone"
+                                class="w-full rounded pl-10 py-3 text-gray-700 border
+                                @error('phone') border-red-500 @enderror
+                                focus:border-amber-500 focus:ring-amber-500"
+                                placeholder="Phone Number" required
+                                value="{{ old('phone') }}">
+                            @error('phone')
+                                <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
+
                         <div class="w-full md:w-1/2 px-2 custom-input my-2">
                             <i class="fa fa-map text-sm"></i>
-                            <input type="text" id="address" name="address" class="w-full rounded pl-10 py-3 text-gray-700 border focus:border-amber-500 focus:ring-amber-500" placeholder="Address" required>
+                            <input type="text" id="address" name="address"
+                                class="w-full rounded pl-10 py-3 text-gray-700 border
+                                @error('address') border-red-500 @enderror
+                                focus:border-amber-500 focus:ring-amber-500"
+                                placeholder="Address"
+                                value="{{ old('address') }}">
+                            @error('address')
+                                <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
                     </div>
+
                     <div class="flex flex-wrap -mx-2 mb-4">
                         <div class="w-full md:w-1/2 px-2 custom-input">
                             <i class="fa fa-border-none text-sm"></i>
-                            <select name="person" id="person" class="w-full rounded pl-10 py-3 text-gray-700 border focus:border-amber-500 focus:ring-amber-500" required>
+                            <select name="person" id="person"
+                                class="w-full rounded pl-10 py-3 text-gray-700 border
+                                @error('person') border-red-500 @enderror
+                                focus:border-amber-500 focus:ring-amber-500"
+                                required>
                                 <option value="0" disabled selected>QTY</option>
                                 @for($i = 1; $i <= 10; $i++)
-                                    <option value="{{ $i }}">{{ $i }}</option>
+                                    <option value="{{ $i }}"
+                                        {{ old('person') == $i ? 'selected' : '' }}>{{ $i }}
+                                    </option>
                                 @endfor
                             </select>
+                            @error('person')
+                                <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
                     </div>
-                    <div class="text-left ">
+
+                    <div class="text-left">
                         <button type="submit" class="inline-block rounded-sm shadow-md mt-7 px-5 py-3 mx-8 bg-amber-500 uppercase text-sm font-bold text-white border border-transparent transition ease-in-out duration-300 custom-button">
                             Book a Product
                         </button>
                     </div>
                 </form>
+
             </div>
         </div>
     </div>
