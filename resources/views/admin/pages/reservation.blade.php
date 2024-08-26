@@ -10,7 +10,7 @@
 					<table class="table table-hover overflow-auto block">
 						<thead>
 							<tr class="bg-slate-800">
-								@foreach(["Customer Name", "Phone number",  "Product Name", "Qty", "Created at"] as $heading)
+								@foreach(["Customer Name", "Phone number",  "Product Name", "Qty", "Created at",'feedback'] as $heading)
 									<th class="font-bold text-white">{{$heading}}</th>
 								@endforeach
 							</tr>
@@ -25,6 +25,7 @@
                                    <td>{{ $data->food ? $data->food->name : $data->product_name }}</td>
 									<td>{{$data->person}}</td>
 									<td>{{$data->created_at}}</td>
+									<td>{{$data->feedback?->feedback ?? ''}}</td>
 								</tr>
 								@endforeach
 							@endif

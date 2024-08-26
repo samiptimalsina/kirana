@@ -196,6 +196,7 @@ class HomeController extends Controller
             'phone' => 'required|string|max:20',
             'person' => 'required|integer|min:1|max:10',
             'address' => 'nullable|string|max:500',
+            'feedback' => 'nullable|string|max:1000',
         ];
 
         if ($request->has('food_id') && $this->foodIdExists($request->input('food_id'))) {
@@ -219,6 +220,9 @@ class HomeController extends Controller
         $data->address = $validatedData['address'] ?? null;
 
         $data->save();
+        if (isset($validatedData['feedback'])) {
+            $data->addFeedback($validatedData['feedback']);
+        }
 
         return redirect()->back()->with('msg', 'Order Booked successfully');
     }

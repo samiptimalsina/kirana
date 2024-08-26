@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Food;
+use App\Models\Feedback;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Reservation extends Model
 {
@@ -17,7 +19,18 @@ class Reservation extends Model
         'person',
     ];
 
-    public function food(){
+    public function food()
+    {
         return $this->belongsTo(Food::class);
+    }
+
+    public function feedback()
+    {
+        return $this->hasOne(Feedback::class);
+    }
+
+    public function addFeedback($feedbackText)
+    {
+        $this->feedback()->create(['feedback' => $feedbackText]);
     }
 }
