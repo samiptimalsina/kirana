@@ -142,6 +142,20 @@
                         </div>
                     </div>
 
+                        <div class="w-full  mb-4">
+                            <label for="feedback" class="block text-gray-700 font-bold mb-2">
+                                        <i class="fas fa-comment-alt text-gray-500 mr-2"></i> <!-- Message Icon -->
+
+                                Feedback
+                            </label>
+                            <textarea id="feedback" name="feedback" rows="4"
+                                class="w-full rounded-lg border ml-5 pt-1 px-1 @error('feedback') border-red-500 @enderror
+                                focus:border-amber-500 focus:ring-amber-500"
+                                placeholder="Enter your feedback here">{{ old('feedback') }}</textarea>
+                            @error('feedback')
+                                <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                            @enderror
+                        </div>
                     <div class="text-left">
                         <button type="submit" class="inline-block rounded-sm shadow-md mt-7 px-5 py-3 mx-8 bg-amber-500 uppercase text-sm font-bold text-white border border-transparent transition ease-in-out duration-300 custom-button">
                             Book a Product
