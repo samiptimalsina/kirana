@@ -54,7 +54,7 @@ ensuring freshness and flavor in every product, catering to diverse culinary nee
                     <li class="mr-4 my-1">Follow Us:</li>
                     <li class="mr-3 my-1 cursor-pointer border rounded-full border-transparent hover:border-white hover:rounded-full m- px-1 bg-blue-500"
                         style="background-color: #3b5998;">
-                        <a href="#" class="cursor-pointer text-white"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.facebook.com/mahaspicefoodproduct" target="_blank" class="cursor-pointer text-white"><i class="fa-brands fa-facebook"></i></a>
                     </li>
                     {{-- <li class="mr-3 my-1 cursor-pointer border rounded-full border-transparent hover:border-white hover:rounded-full px-1 bg-twitter"
                         style="background-color: #1DA1F2;">
@@ -70,7 +70,7 @@ ensuring freshness and flavor in every product, catering to diverse culinary nee
                     </li>--}}
                     <li class="my-1 cursor-pointer border rounded-full border-transparent hover:border-white hover:rounded-full px-1 bg-instagram"
                         style="background-color: #C13584;">
-                        <a href="#" class="cursor-pointer text-white"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/mahaspicefood/?next=%2F" target="_blank" class="cursor-pointer text-white"><i class="fa-brands fa-instagram"></i></a>
                     </li>
                 </ul>
 
