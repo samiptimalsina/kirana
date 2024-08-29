@@ -35,7 +35,7 @@
                 However, as a company’s member, his main focus is to manufacture best quality of products, creating new taste for our valued customers and is to build a company that can achieve the highest levels of customer satisfaction with highest levels of integrity and business ethics.
             </p>
             <p class="text-xl font-bold text-gray-900">Sushant Neupane</p>
-            <p class="text-base text-lime-500">Chairman of the Board</p>
+            <p class="text-base text-lime-500">BOD</p>
         </div>
     </div>
 </section>
