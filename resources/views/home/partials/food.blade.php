@@ -2,7 +2,7 @@
     <section id="menu" class="bg-no-repeat bg-[right_top_15rem] md:bg-right-top pt-8  w-full"
         style="background-image: url({{ $foodBg }})">
         <div class="flex flex-col justify-around items-center food-sm:items-start max-w-[980px] mx-auto">
-            <div class="food-sm:text-left m-4 max-w-xl mt-5 p-4 text-center">
+            <div class="food-sm:text-left m-4 max-w-lg mt-5 p-4 text-center">
 <h3 class="font-bold font-cursive-merie text-4xl leading-normal capitalize">
     <span class="text-amber-400 leading-snug">We provide </span> <br /><span class="leading-normal">quality product</span>
 </h3>
