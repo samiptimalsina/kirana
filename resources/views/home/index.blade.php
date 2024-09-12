@@ -6,12 +6,14 @@
 </head>
 
 <body>
-    					@if(session()->has('msg'))
-					<p class="alert alert-info" style="background: #d97706">{{ session()->get('msg') }}</p>
-					@endif
+    @if (session()->has('msg'))
+        <p class="alert alert-info" style="background: #d97706">{{ session()->get('msg') }}</p>
+    @endif
     @include('home.partials.preloader')
     @include('home.partials.header', ['navdata' => $navdata])
-    @include('home.partials.banner', ['bannerImg' => $banner_images[1]?->image_url ?? 'assets/images/banner-bg.jpg'])
+    @include('home.partials.banner', [
+        'bannerImg' => $banner_images[1]?->image_url ?? 'assets/images/banner-bg.jpg',
+    ])
     @include('home.partials.welcome')
     @include('home.partials.food', ['fooddata' => $fooddata, 'foodBg' => ''])
 
@@ -26,9 +28,10 @@
     {{-- <img src="{{ $banner_images[0]?->image_url}}"> --}}
     @include('home.partials.footer')
 
+    @include('home.partials.chat-buttons')
     @include('home.partials.script')
 </body>
-@if(Route::currentRouteName() === 'shop')
+@if (Route::currentRouteName() === 'shop')
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Get the last scroll position
@@ -55,5 +58,6 @@
             sessionStorage.removeItem('scrollPosition');
         });
     </script>
-    @endif
+@endif
+
 </html>
