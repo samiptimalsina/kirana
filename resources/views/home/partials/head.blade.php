@@ -4,18 +4,19 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 <!-- Page Title -->
 <!-- Page Title -->
-<title>High-Quality Spices and Food Products | Maha Spice and Food Product Industries Pvt. Ltd.</title>
+<title>Maha Spice and Food Product | Quality Snacks and Namkeen Manufacturer in Nepal</title>
 
 <!-- Meta Description -->
 <meta name="description"
-    content="Discover premium spices and food products at Maha Spice and Food Product Industries Pvt. Ltd. We offer the finest quality ingredients sourced with care to enhance your culinary experience. Visit us today!" />
+    content="Maha Spice and Food Product is a leading FMCG brand in Nepal, offering a wide range of quality snacks and namkeen. Founded in 2074 by Mr.
+    Madan Raj Neupane, we ensure balanced taste and health through our 50+ product varieties, reaching 10,920 outlets across 4 provinces." />
 
 <!-- Meta Author -->
 <meta name="author" content="Maha Spice and Food Product Industries Pvt. Ltd." />
 
 <!-- Meta Keywords -->
 <meta name="keywords"
-    content="spices, food products, premium spices, culinary ingredients, Maha Spice, food industries, quality spices, Maha Spice and Food Product Industries" />
+    content="Maha Spice, FMCG products, snacks, namkeen, Nepal, Madan Raj Neupane, Sudduer Paschim Pradesh, Lumbini Pradesh, Karnali Pradesh, Bagmati Pradesh, quality snacks, food product, Nepal dealership, puff snacks, sole proprietorship" />
 <!-- Favicon -->
 @if (isset($settings->logo))
     <!-- If the logo exists, use it as the favicon -->
