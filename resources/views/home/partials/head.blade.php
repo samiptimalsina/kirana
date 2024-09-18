@@ -17,10 +17,17 @@
 <meta name="keywords"
     content="spices, food products, premium spices, culinary ingredients, Maha Spice, food industries, quality spices, Maha Spice and Food Product Industries" />
 <!-- Favicon -->
-<link rel="apple-touch-icon" sizes="180x180" href="">
-<link rel="icon" type="image/png" sizes="32x32" href=">
-<link rel="icon" type="image/png" sizes="16x16"
-    href="">
+@if (isse($settings->logo))
+    <!-- If the logo exists, use it as the favicon -->
+    <link rel="icon" type="image/png" href="{{ $settings->getLogo($settings->logo) }}" sizes="32x32">
+    <link rel="icon" type="image/png" href="{{ $settings->getLogo($settings->logo) }}" sizes="16x16">
+@else
+    <!-- Default favicon links if logo doesn't exist -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/default/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/default/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/default/favicon-16x16.png">
+@endif
+
 <link rel="manifest" href="/site.webmanifest">
 <!-- CSS libraries -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" />
