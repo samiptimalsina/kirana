@@ -17,7 +17,7 @@
 <meta name="keywords"
     content="spices, food products, premium spices, culinary ingredients, Maha Spice, food industries, quality spices, Maha Spice and Food Product Industries" />
 <!-- Favicon -->
-@if (isse($settings->logo))
+@if (isset($settings->logo))
     <!-- If the logo exists, use it as the favicon -->
     <link rel="icon" type="image/png" href="{{ $settings->getLogo($settings->logo) }}" sizes="32x32">
     <link rel="icon" type="image/png" href="{{ $settings->getLogo($settings->logo) }}" sizes="16x16">
