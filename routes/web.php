@@ -44,7 +44,7 @@ Route::controller(HomeController::class)->group(function () {
 
 /* Admin */
 // Apply the auth middleware to all routes
-Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified', 'admin'])->group(function () {
     // Admin Routes
     Route::controller(AdminController::class)->group(function () {
         Route::get('/admin/dashboard', 'index')->name('admin.index');
