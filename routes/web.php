@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\DealerController;
+use App\Http\Controllers\DispatchController;
 use App\Http\Controllers\FoodMenuController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\SpecialDishController;
@@ -46,6 +47,7 @@ Route::controller(HomeController::class)->group(function () {
 // Apply the auth middleware to all routes
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified', 'admin'])->group(function () {
     // Admin Routes
+
     Route::controller(AdminController::class)->group(function () {
         Route::get('/admin/dashboard', 'index')->name('admin.index');
     });
@@ -105,5 +107,9 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
         Route::match(['post', 'get', 'put'], 'setting', [BannerController::class, 'updateOrCreateSettings'])->name('settings');
         Route::resource('dealers', DealerController::class);
         Route::resource('teams', TeamController::class);
+        Route::match(['get'],'dispatch/{id}',[DispatchController::class, 'dispatchSetup'])->name('dispatch.order');
+        Route::match(['get'],'order-tracking/{orderId}',[DispatchController::class, 'trackOrder'])->name('track.order');
+        Route::match(['get','post'],'add/new/{id}',[DispatchController::class, 'addNewOrder'])->name('add.new.order');
+
     });
 });

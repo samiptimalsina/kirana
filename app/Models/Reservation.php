@@ -11,12 +11,9 @@ class Reservation extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'name',
-        'phone_number',
-        'date',
-        'time',
-        'person',
+    protected $guarded = [
+        'id',
+
     ];
 
     public function food()

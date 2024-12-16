@@ -18,12 +18,13 @@ class AdminMiddleware
     public function handle(Request $request, Closure $next)
     {
         if (auth()->check()) {
-            if (auth()->user()->userType == Role::ADMIN->value) {
+
+            if (auth()->user()->usertype == Role::ADMIN->value) {
                 return $next($request);
             }
         }
 
 
-        return redirect()->route('home')->with('error', 'You do not have admin access.');
+        return redirect()->route('index')->with('error', 'You do not have admin access.');
     }
 }

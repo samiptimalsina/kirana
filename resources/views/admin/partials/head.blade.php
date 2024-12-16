@@ -31,3 +31,10 @@
 
 <script src="https://kit.fontawesome.com/7d5e6558a7.js" crossorigin="anonymous"></script>
 <script src="{{ asset('js/app.js') }}" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+
+<!-- Chartist CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.min.css" />
+
+<!-- Chartist JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.min.js"></script>
