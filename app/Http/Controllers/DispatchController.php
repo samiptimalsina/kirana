@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Milon\Barcode\DNS1D;
+use Illuminate\Support\Facades\File;
+
 
 class DispatchController extends Controller
 {
@@ -147,15 +150,37 @@ class DispatchController extends Controller
     // Method to track an order by its ID
     public function trackOrder($orderId)
     {
+        // Fetch order data from API
         $response = Http::withHeaders([
             'X-API-Key' => $this->apiKey,
         ])->get("{$this->baseUrl}/api/v1/client/track-order/{$orderId}");
-        $responseBody = $response->body();
 
-        $order = json_decode($responseBody)->data;
+        // Decode the response body safely
+        $responseBody = json_decode($response->body());
+
+        // Handle potential errors in API response
+        if (!$response->successful() || !isset($responseBody->data)) {
+            return redirect()->back()->with('error', 'Unable to fetch order details.');
+        }
+
+        $order = $responseBody->data;
+
+        // Generate barcode image
+        $d = new DNS1D();
+
+        $barcodeDir = public_path('images/barcodes');
+        if (!File::isDirectory($barcodeDir)) {
+            File::makeDirectory($barcodeDir, 0755, true, true);
+        }
+
+        $barcodeImagePath = 'images/barcodes/order-' . $orderId . '.png';
+        $barcodeFullPath = public_path($barcodeImagePath);
+        file_put_contents($barcodeFullPath, base64_decode($d->getBarcodePNG('123456789', 'C39')));
+
+        $order->barcodeImage = $barcodeImagePath;
+
+
         return view('admin.dispatch.track-order', compact('order'));
-
-
     }
 
     // Method to show the delivery locations on a view (for frontend)
