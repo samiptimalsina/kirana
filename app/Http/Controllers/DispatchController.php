@@ -80,7 +80,7 @@ class DispatchController extends Controller
         $defaultOrder = array_merge($reqArr, [
             'order_type' => 'delivery_order',
             'service_type_id' => 3,
-            'product_category_id' => 2,
+            'product_category_id' => 8,
             'order_reference_id' => $this->generateOrderReferenceId(),
         ]);
 

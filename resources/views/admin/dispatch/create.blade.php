@@ -1,4 +1,29 @@
 <x-admin.index :user="$user" :isAdmin="$isAdmin">
+
+    <style>
+
+.select2-container--default, .select2-selection--multiple{
+    height: auto !important;
+}
+.select2-container--default,.select2-container--focus, .select2-selection--multiple {
+    border: solid #22a7f054 1px;
+    outline: 0;
+    border-radius: 5px;
+}
+.select2-selection--multiple:focus {
+    outline: none;
+}
+
+#hub-select, #area-select {
+    background-color: white;
+    border: solid #22a7f054 1px;
+    border-radius: 5px;
+}
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+    border: solid #22a7f054 1px;
+    outline: 0;
+}
+</style>
     <!-- Ensure proper version of Select2 CSS is included -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js" defer></script>
@@ -162,6 +187,14 @@
 
         $(document).ready(function() {
             $('#hub-select, #area-select').select2();
+            $('#select2-area-select-container').css({
+                'margin-top': '-15px',
+                'padding': '0'
+            });
+            $('#select2-hub-select-container').css({
+                'margin-top': '-15px',
+                'padding': '0'
+            });
 
             $('#hub-select').on('change', function() {
                 const hubId = $(this).val();
@@ -173,5 +206,9 @@
                 $('#area-select').trigger('change');
             });
         });
+
+
     </script>
+
+
 </x-admin.index>
