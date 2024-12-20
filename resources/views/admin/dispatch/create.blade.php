@@ -100,7 +100,7 @@
                 </div>
 
                 <div class="mb-4">
-                    <label for="weight" class="block text-sm font-medium text-gray-700">Weight</label>
+                    <label for="weight" class="block text-sm font-medium text-gray-700">Weight(Kg)</label>
                     <input type="number" step="0.01" name="weight" value="{{ old('weight') }}" id="weight" class="w-full mt-2 p-2 border border-gray-300 rounded-md @error('weight') border-red-500 @enderror">
                     @error('weight')
                         <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
@@ -108,7 +108,7 @@
                 </div>
 
                 <div class="mb-4">
-                    <label for="length" class="block text-sm font-medium text-gray-700">Length</label>
+                    <label for="length" class="block text-sm font-medium text-gray-700">Length (CM)</label>
                     <input type="number" step="0.01" name="length" value="{{ old('length') }}" id="length" class="w-full mt-2 p-2 border border-gray-300 rounded-md @error('length') border-red-500 @enderror">
                     @error('length')
                         <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
@@ -116,7 +116,7 @@
                 </div>
 
                 <div class="mb-4">
-                    <label for="breadth" class="block text-sm font-medium text-gray-700">Breadth</label>
+                    <label for="breadth" class="block text-sm font-medium text-gray-700">Breadth (CM)</label>
                     <input type="number" step="0.01" name="breadth" value="{{ old('breadth') }}" id="breadth" class="w-full mt-2 p-2 border border-gray-300 rounded-md @error('breadth') border-red-500 @enderror">
                     @error('breadth')
                         <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
@@ -124,7 +124,7 @@
                 </div>
 
                 <div class="mb-4">
-                    <label for="height" class="block text-sm font-medium text-gray-700">Height</label>
+                    <label for="height" class="block text-sm font-medium text-gray-700">Height(CM)</label>
                     <input type="number" step="0.01" name="height" value="{{ old('height') }}" id="height" class="w-full mt-2 p-2 border border-gray-300 rounded-md @error('height') border-red-500 @enderror">
                     @error('height')
                         <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
