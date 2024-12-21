@@ -23,7 +23,6 @@
     <link rel="icon" type="image/png" href="{{ $settings->getLogo($settings->logo) }}" sizes="32x32">
     <link rel="icon" type="image/png" href="{{ $settings->getLogo($settings->logo) }}" sizes="16x16">
 @else
-    <!-- Default favicon links if logo doesn't exist -->
     <link rel="apple-touch-icon" sizes="180x180" href="/default/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/default/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/default/favicon-16x16.png">
@@ -47,3 +46,5 @@
 <!-- Scripts -->
 <script src="https://kit.fontawesome.com/7d5e6558a7.js" crossorigin="anonymous"></script>
 <script src="{{ asset('js/app.js') }}" defer></script>
+
+    <!-- Default favicon links if logo doesn't exist -->
