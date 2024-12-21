@@ -82,10 +82,14 @@
                         <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
                     @enderror
                 </div>
+                @php
+                $price=$reservation->food?->price?? 0 *$reservation->person ?? 0;
+                @endphp
+        
 
                 <div class="mb-4">
                     <label for="product_price" class="block text-sm font-medium text-gray-700">Product Price</label>
-                    <input type="number" step="0.01" name="product_price" value="{{ old('product_price', $reservation->food?->price ?? '') }}" id="product_price" class="w-full mt-2 p-2 border border-gray-300 rounded-md @error('product_price') border-red-500 @enderror" required>
+                    <input type="number" step="0.01" name="product_price" value="{{ old('product_price',  $price ?? '') }}" id="product_price" class="w-full mt-2 p-2 border border-gray-300 rounded-md @error('product_price') border-red-500 @enderror" required>
                     @error('product_price')
                         <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
                     @enderror
