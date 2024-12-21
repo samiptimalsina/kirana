@@ -133,7 +133,7 @@
 
                 <div class="mb-4">
                     <label for="product_description" class="block text-sm font-medium text-gray-700">Product Description</label>
-                    <textarea name="product_description" id="product_description" class="w-full mt-2 p-2 border border-gray-300 rounded-md @error('product_description') border-red-500 @enderror" rows="3">{{ old('product_description', $reservation->product_description ?? '') }}</textarea>
+                    <textarea name="product_description" id="product_description" class="w-full mt-2 p-2 border border-gray-300 rounded-md @error('product_description') border-red-500 @enderror" rows="3">{{ old('product_description', $reservation->food?->product_description ?? '') }}</textarea>
                     @error('product_description')
                         <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
                     @enderror
