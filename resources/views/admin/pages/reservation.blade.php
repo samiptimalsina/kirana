@@ -16,29 +16,28 @@
                     <table class="table table-hover overflow-auto block">
                         <thead>
                             <tr class="bg-slate-800">
-                                @foreach (['Customer Name', 'Phone number', 'Product Name', 'Qty', 'Created at', 'feedback', 'Dispach'] as $heading)
+                                @foreach (['Customer Name', 'Phone number', 'Product Name', 'Qty', 'Created at', 'feedback', 'Dispatch'] as $heading)
                                     <th class="font-bold text-white">{{ $heading }}</th>
                                 @endforeach
                             </tr>
                         </thead>
                         <tbody>
-                            @if ($data)
-
-                                @foreach ($data as $data)
+                            @if ($data && $data->count() > 0)
+                                @foreach ($data as $reservation)
                                     <tr>
-                                        <td>{{ $data->name }}</td>
-                                        <td>{{ $data->phone_number }}</td>
-                                        <td>{{ $data->food ? $data->food->name : $data->product_name }}</td>
-                                        <td>{{ $data->person }}</td>
-                                        <td>{{ $data->created_at }}</td>
-                                        <td>{{ $data->feedback?->feedback ?? '' }}</td>
+                                        <td>{{ $reservation->name }}</td>
+                                        <td>{{ $reservation->phone_number }}</td>
+                                        <td>{{ $reservation->food ? $reservation->food->name : $reservation->product_name }}</td>
+                                        <td>{{ $reservation->person }}</td>
+                                        <td>{{ $reservation->created_at }}</td>
+                                        <td>{{ $reservation->feedback?->feedback ?? '' }}</td>
                                         <td>
-                                            @if ($data->tracking_code)
+                                            @if ($reservation->tracking_code)
                                                 <a class="bg-black font-bold p-2.5 rounded text-white"
-                                                    href="{{ route('track.order', $data->tracking_code) }}" style="background: rebeccapurple; text-decoration:none">Track Order</a>
+                                                    href="{{ route('track.order', $reservation->tracking_code) }}" style="background: rebeccapurple; text-decoration:none">Track Order</a>
                                             @else
-                                                <a class="bedge-primary bg-amber-500 font-bold p-2.5 rounded text-white"
-                                                    href="{{ route('dispatch.order', $data->id) }}">Dispatch</a>
+                                                <a class="badge-primary bg-amber-500 font-bold p-2.5 rounded text-white"
+                                                    href="{{ route('dispatch.order', $reservation->id) }}">Dispatch</a>
                                             @endif
                                         </td>
                                     </tr>
@@ -46,6 +45,14 @@
                             @endif
                         </tbody>
                     </table>
+
+                    <!-- Pagination Links -->
+                    @if ($data && $data->count() > 0)
+                        <div class="d-flex justify-content-center">
+                            {{ $data->links() }} <!-- Display pagination controls -->
+                        </div>
+                    @endif
+
                 </div>
             </div>
         </div>

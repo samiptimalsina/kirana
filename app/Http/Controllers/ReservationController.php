@@ -28,7 +28,7 @@ class ReservationController extends Controller
     public function index()
     {
         $isAdmin = $this->GetIsAdmin();
-        $data = $isAdmin === true ? reservation::all() : null;
+        $data = $isAdmin === true ? Reservation::latest()->paginate(20) : null;
         $user = Auth::id() ? Auth::user() : null;
         return view("admin.pages.reservation", compact("data", "isAdmin", "user"));
     }

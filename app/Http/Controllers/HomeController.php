@@ -80,7 +80,7 @@ class HomeController extends Controller
     public function index()
     {
         $navdata = $this->navdata;
-        $fooddata = Food::latest()->paginate(12);
+        $fooddata = Food::latest()->paginate(6);
         $dishesdata = Specialdishes::all();
         $testimonialdata = Testimonial::all();
         $banner = Banner::latest()->first();
@@ -194,6 +194,7 @@ class HomeController extends Controller
     public function fetchFoodData(Request $request)
     {
 
+
         $rules = [
             'name' => 'required|string|max:255',
             'phone' => 'required|string|max:20',
@@ -208,13 +209,16 @@ class HomeController extends Controller
             $rules['product_name'] = 'required|string|max:255';
         }
 
+        if ($request->has('food_id')) {
+            $rules['food_id'] = 'required|exists:food,id';
+        }
+
         $validatedData = $request->validate($rules, [
             'person.required' => 'Please select the quantity field.',
             'product_name.required' => 'Product name is required.',
         ]);
 
-
-        $data = new reservation;
+        $data = new Reservation;
         $data->name = $validatedData['name'];
         $data->product_name = $validatedData['product_name'] ?? null;
         $data->phone_number = $validatedData['phone'];
