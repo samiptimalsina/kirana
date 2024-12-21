@@ -254,6 +254,21 @@ class HomeController extends Controller
         ]);
     }
 
+public function gallerySlug($slug)
+{
+    $gallery = Gallery::where('slug', $slug)->firstOrFail();
+
+    // Pass the necessary data to the view
+    return view('home.gallery-details', [
+        'gallery' => $gallery,             // The specific gallery data
+        'navdata' => $this->navdata,       // Assuming this is set in your controller
+        'fooddata' => $this->fooddata,     // Food-related data
+        'dishesdata' => $this->dishesdata, // Dish-related data
+        'testimonialdata' => $this->testimonialdata, // Testimonial data
+        'banner_image' => $this->getBanner('BLOG'),  // Banner image data for the section
+    ]);
+}
+
 
     public function sendEmail(Request $request)
     {

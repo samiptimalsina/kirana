@@ -38,6 +38,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/shop', 'shop')->name('shop');
     Route::get('/blogs', 'blogs')->name('blogs');
     Route::get('/galleries', 'gallery')->name('galleries');
+    Route::get('/galleries/{slug}', 'gallerySlug')->name('galleries.slug');
     Route::get('/blogs/{slug}', 'blogDetail')->name('blogs.detail');
     Route::get('/dealers', 'dealers')->name('dealers');
     Route::get('/book', 'book')->name('book');

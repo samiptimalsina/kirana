@@ -13,21 +13,18 @@
     <main class="container mx-auto py-6">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- Blog cards here -->
-            @foreach ($galleries as $gallery)
-                <div class="bg-white shadow-md  p-4 text-white bg-black bg-opacity-50  p-2 hover:bg-opacity-75">
-                    <div class="mb-4">
-                        <img src="{{ asset($gallery->images[0]) }}" alt="Image"
-                             class="w-full h-48 object-cover rounded-lg cursor-pointer"
-                             onclick="openModal('{{ asset($gallery->images[0]) }}')">
+                @foreach ($gallery->images as $image)
+                    <div class="bg-white shadow-md rounded-lg p-4">
+                        <div class="mb-4">
+                            <img src="{{ asset($image) }}" alt="Image"
+                                class="w-full h-48 object-cover rounded-lg cursor-pointer"
+                                onclick="openModal('{{ asset($image) }}')">
+                        </div>
+                        <h2 class="text-xl font-semibold text-gray-800 mb-2 hidden">{{ $gallery->gallery_name ?? '' }}
+                        </h2>
                     </div>
-                    <!-- Display Gallery Name -->
-                    <h2 class="text-xl font-semibold text-blue-400	text-center">
-                        <a class="text-blue-400 text-center" href="{{ route('galleries.slug', ['slug' => $gallery->slug]) }}">{{ $gallery->gallery_name }}</a>
-                    </h2>
-                </div>
-            @endforeach
+                @endforeach
         </div>
-        {{ $galleries->links() }}
     </main>
 
     <!-- Modal -->
