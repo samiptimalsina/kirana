@@ -6,6 +6,7 @@ use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use App\Models\Blog; // Import the Blog model
+use App\Models\Gallery;
 
 class BlogSeedr extends Seeder
 {
@@ -16,7 +17,7 @@ class BlogSeedr extends Seeder
      */
     public function run()
     {
-        DB::table('blogs')->truncate(); // Use the table name here
+        DB::table('galleries')->truncate(); // Use the table name here
 
         $imagesPath = public_path('assets/images/blog');
 
@@ -39,10 +40,9 @@ class BlogSeedr extends Seeder
             $imagePath = 'assets/images/blog/' . $fileName;
 
             // Create the blog entry
-            Blog::create([
-                'title' => pathinfo($fileName, PATHINFO_FILENAME), // Use the file name as the title
+            Gallery::create([
+                'gallery_name' => pathinfo($fileName, PATHINFO_FILENAME), // Use the file name as the title
                 'slug' => Str::slug(pathinfo($fileName, PATHINFO_FILENAME)), // Generate a slug from the title
-                'content' => 'Image description or content here', // Customize or leave empty
                 'image' => $imagePath,
             ]);
         }

@@ -88,9 +88,15 @@
                 <i class="fa-solid fa-bowl-rice menu-icon"></i>
             </a>
         </li>
-                <li class="nav-item">
+       <li class="nav-item">
             <a class="nav-link" href="{{ route('dealers.index') }}">
                 <span class="menu-title">Deallers</span>
+                <i class="fa-solid fa-bowl-rice menu-icon"></i>
+            </a>
+        </li>
+       <li class="nav-item">
+            <a class="nav-link" href="{{ route('galleries.index') }}">
+                <span class="menu-title">Galleries</span>
                 <i class="fa-solid fa-bowl-rice menu-icon"></i>
             </a>
         </li>

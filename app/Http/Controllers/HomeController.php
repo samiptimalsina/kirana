@@ -9,6 +9,7 @@ use App\Models\Banner;
 use App\Models\Dealer;
 use App\Models\Setting;
 use App\Mail\ContactMail;
+use App\Models\Gallery;
 use App\Models\Reservation;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
@@ -45,6 +46,7 @@ class HomeController extends Controller
      * Variable containing banner image URL.
      */
     private $banner_image;
+    private $galleries;
 
     public function __construct()
     {
@@ -52,6 +54,7 @@ class HomeController extends Controller
             ["text" => "home", "href" => url('/') . '#home'],
             ["text" => "about", "href" => route('about')],
             ["text" => "Our Product", "href" => route('shop')],
+            ["text" => "blogs", "href" => route('blogs')],
             ["text" => "Gallery", "href" => route('galleries')],
             ["text" => "book", "href" =>  route('book')],
             ["text" => "Dealers", "href" =>  route('dealers')],
@@ -235,6 +238,17 @@ class HomeController extends Controller
     }
 
 
+    public function gallery(){
+       $galleries= Gallery::latest()->paginate(9);;
+        return view('home.gallery',[
+            'navdata' => $this->navdata,
+            'galleries' => $galleries,
+            'fooddata' => $this->fooddata,
+            'dishesdata' => $this->dishesdata,
+            'testimonialdata' => $this->testimonialdata,
+            'banner_image' => $this->getBanner('BLOG'),
+        ]);
+    }
 
 
     public function sendEmail(Request $request)

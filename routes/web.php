@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\DealerController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\DispatchController;
 use App\Http\Controllers\FoodMenuController;
 use App\Http\Controllers\ReservationController;
@@ -35,7 +36,8 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/product/{slug}', 'productDetail')->name('admin.details');
     Route::get('/about-us', 'aboutUs')->name('about');
     Route::get('/shop', 'shop')->name('shop');
-    Route::get('/galleries', 'blogs')->name('galleries');
+    Route::get('/blogs', 'blogs')->name('blogs');
+    Route::get('/galleries', 'gallery')->name('galleries');
     Route::get('/blogs/{slug}', 'blogDetail')->name('blogs.detail');
     Route::get('/dealers', 'dealers')->name('dealers');
     Route::get('/book', 'book')->name('book');
@@ -110,6 +112,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
         Route::match(['get'],'dispatch/{id}',[DispatchController::class, 'dispatchSetup'])->name('dispatch.order');
         Route::match(['get'],'order-tracking/{orderId}',[DispatchController::class, 'trackOrder'])->name('track.order');
         Route::match(['get','post'],'add/new/{id}',[DispatchController::class, 'addNewOrder'])->name('add.new.order');
+        Route::resource('galleries', GalleryController::class);
+
 
     });
 });
