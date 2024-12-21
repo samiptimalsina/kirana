@@ -4,90 +4,137 @@
 <head>
     @include('home.partials.head')
     <style>
-        /* Custom CSS for login form */
-        .login-container {
+        /* Resetting margin and padding */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Custom CSS for blog details page */
+        .blog-details-container {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
             background-color: #f4f4f4;
+            padding: 0; /* Removed padding */
+            margin: 0; /* Removed margin */
+            width: 100%; /* Full width */
+            max-width: 100vw; /* Ensure it doesn't exceed the viewport width */
         }
 
-        .login-form {
-            max-width: 400px;
-            padding: 20px;
+        .blog-details-card {
             background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+            padding: 30px;
+            margin: 0 auto; /* Centering the card */
         }
 
-        .form-group {
-            margin-bottom: 15px;
-            display: flex;
-            flex-direction: column;
+        .blog-details-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
         }
 
-        .form-group label {
+        .blog-details-title {
+            font-size: 2rem;
             font-weight: bold;
-            margin-bottom: 5px;
+            color: #333;
+            margin: 20px 0;
         }
 
-        .form-group input[type="text"],
-        .form-group input[type="password"],
-        .form-group select {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
+        .blog-details-meta {
+            color: #888;
+            font-size: 1rem;
+            margin-bottom: 20px;
         }
 
-        .form-group button {
-            width: 100%;
-            padding: 10px;
+        .blog-details-meta span {
+            margin-right: 15px;
+        }
+
+        .blog-details-content {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #444;
+            margin-top: 20px;
+        }
+
+        .blog-details-footer {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .back-to-home {
+            display: inline-block;
+            padding: 10px 20px;
             background-color: #4caf50;
-            color: #fff;
-            border: none;
+            color: white;
+            font-size: 1rem;
             border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+            text-decoration: none;
+            transition: background-color 0.3s;
         }
 
-        .form-group button:hover {
+        .back-to-home:hover {
             background-color: #45a049;
+        }
+
+        @media (max-width: 768px) {
+            .blog-details-card {
+                padding: 20px;
+            }
+
+            .blog-details-title {
+                font-size: 1.6rem;
+            }
+
+            .blog-details-meta {
+                font-size: 0.9rem;
+            }
+
+            .blog-details-content {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
 
-@if (session()->has('msg'))
-    <p class="alert alert-info">{{ session()->get('msg') }}</p>
-@endif
-@include('home.partials.preloader')
-@include('home.partials.header', ['navdata' => $navdata])
-@include('home.partials.page-bannner', ['title' => 'Blog Details'])
+<body>
+    @if (session()->has('msg'))
+        <p class="alert alert-info">{{ session()->get('msg') }}</p>
+    @endif
+    @include('home.partials.preloader')
+    @include('home.partials.header', ['navdata' => $navdata])
+    @include('home.partials.page-bannner', ['title' => 'Blog Details'])
 
+    <main class="blog-details-container">
+        <div class="blog-details-card">
+            <img src="{{ asset('assets/images/blog/' . $blog->image) }}" alt="{{ $blog->title }}" class="blog-image">
 
-<main class="container mx-auto py-6">
-    <div class=" mx-auto bg-white shadow-md rounded-lg p-6">
-        {{-- <p class="text-gray-600 mb-4">Published on <span class="font-semibold">June 1, 2024</span> by <span
-                class="font-semibold">John Doe</span></p> --}}
-        <img src="{{ url($blog->image) }}" alt="{{ $blog->title ?? '' }}" alt="Blog Image"
-            class="w-full h-auto rounded-lg mb-4" style="height: 550px;">
-        <br>
+            <h2 class="blog-details-title">{{ $blog->title }}</h2>
 
-        <h2 class="text-xl font-semibold text-gray-800 mb-2 mt-2">{{ $blog->title }}</h2>
-        <br>
-        <p class="text-gray-800 leading-relaxed mb-4">{!! $blog->short_desc ?? '' !!}</p>
-        <p class="text-gray-800 leading-relaxed mb-4">{!! $blog->content ?? '' !!}</p>
-    </div>
-</main>
+            <div class="blog-details-meta">
+                <span>Published on: {{ $blog->created_at->format('M d, Y') }}</span>
+                {{-- <span>By: {{ $blog->author ?? 'Unknown Author' }}</span> --}}
+            </div>
 
+            <div class="blog-details-content">
+                {!! $blog->content !!}
+            </div>
+        </div>
+    </main>
 
-{{-- @include('home.partials.table', ['tableBg' => 'assets/images/table-bg.jpg']) --}}
-@include('home.partials.footer')
-
-@include('home.partials.script')
+    @include('home.partials.footer')
+    @include('home.partials.script')
 </body>
 
 </html>

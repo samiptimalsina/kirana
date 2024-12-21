@@ -13,7 +13,7 @@
 	<script src="admin/js/misc.js"></script>
 	<!-- endinject -->
 	<!-- Custom js for this page -->
-	{{-- <script src="admin/js/dashboard.js"></script> --}}
+	<script src="admin/js/dashboard.js"></script>
 	<script type="text/javascript">
 		$(".alert").delay(4000).slideUp(200, function() {
 	    $(this).alert('close');
