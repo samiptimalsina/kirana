@@ -78,8 +78,8 @@
 
         <h2 class="text-xl font-semibold text-gray-800 mb-2 mt-2">{{ $blog->title }}</h2>
         <br>
-        <p class="text-gray-800 leading-relaxed mb-4">{{ $blog->short_desc ?? '' }}</p>
-        <p class="text-gray-800 leading-relaxed mb-4">{{ $blog->content ?? '' }}</p>
+        <p class="text-gray-800 leading-relaxed mb-4">{!! $blog->short_desc ?? '' !!}</p>
+        <p class="text-gray-800 leading-relaxed mb-4">{!! $blog->content ?? '' !!}</p>
     </div>
 </main>
 

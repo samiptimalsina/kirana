@@ -22,17 +22,20 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="content">Short Desc</label>
-                                <textarea name="short_desc" id="short_desc" rows="5" class="form-control" ></textarea>
+                                <label for="short_desc">Short Desc</label>
+                                <textarea name="short_desc" id="short_desc" rows="5" class="form-control"></textarea>
                             </div>
+
                             <div class="form-group">
                                 <label for="content">Content</label>
-                                <textarea name="content" id="content" rows="5" class="form-control" required></textarea>
+                                <textarea name="content" id="content" rows="5" class="form-control editor"></textarea>
                             </div>
+
                             <div class="form-group">
                                 <label for="image">Image</label>
                                 <input type="file" name="image" id="image" class="form-control">
                             </div>
+
                             <button type="submit" class="btn btn-success">Create</button>
                         </form>
                     </div>
@@ -40,14 +43,32 @@
             </div>
         </div>
     </div>
-</x-admin.index>
 
-@section('scripts')
-    @parent
-    <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Include Summernote CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            CKEDITOR.replace('content');
+            // Dynamically load Summernote JS using $.getScript()
+            $.getScript('https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.js', function () {
+                // Initialize Summernote once the script is loaded
+                $('.editor').summernote({
+                    height: 300,  // Set the editor height
+                    toolbar: [
+                        ['style', ['bold', 'italic', 'underline', 'clear']],
+                        ['font', ['strikethrough', 'superscript', 'subscript']],
+                        ['para', ['ul', 'ol', 'paragraph']],
+                        ['table', ['table']],
+                        ['insert', ['link', 'picture', 'video']],
+                        ['view', ['fullscreen', 'codeview']]
+                    ]
+                });
+            }).fail(function () {
+                console.error('Failed to load Summernote script');
+            });
         });
     </script>
-@endsection
+</x-admin.index>

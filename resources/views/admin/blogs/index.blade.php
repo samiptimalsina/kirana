@@ -16,7 +16,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Image</th>
                 <th scope="col">Title</th>
-                <th scope="col">Content</th>
+                <th scope="col">Short Desc</th>
                 <th scope="col">Actions</th>
             </tr>
         </thead>
@@ -30,7 +30,7 @@
                         @endif
                     </td>
                     <td>{{ $blog->title }}</td>
-                    <td>{{ Str::limit($blog->content, 100) }}</td>
+                    <td>{!! Str::limit($blog->short_desc, 100) !!}</td>
                     <td>
                         <a href="{{ route('blogs.edit', $blog->id) }}" class="btn btn-warning btn-sm">Edit</a>
                         <form action="{{ route('blogs.destroy', $blog->id) }}" method="POST" class="d-inline-block">
