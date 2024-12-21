@@ -87,7 +87,7 @@
                                 class="w-full rounded pl-10 py-3 text-gray-700 border
                                 @error('name') border-red-500 @enderror
                                 focus:border-amber-500 focus:ring-amber-500"
-                                placeholder="Your name"
+                                placeholder="Enter Receiver name"
                                 value="{{ old('name') }}">
                             @error('name')
                                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -100,7 +100,7 @@
                                 class="w-full rounded pl-10 py-3 text-gray-700 border
                                 @error('phone') border-red-500 @enderror
                                 focus:border-amber-500 focus:ring-amber-500"
-                                placeholder="Phone Number" required
+                                placeholder="Enter Phone Receiver Number" required
                                 value="{{ old('phone') }}">
                             @error('phone')
                                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
