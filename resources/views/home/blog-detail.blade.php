@@ -150,7 +150,10 @@
     @endif
     @include('home.partials.preloader')
     @include('home.partials.header', ['navdata' => $navdata])
-    @include('home.partials.page-bannner', ['title' => 'Blog Details'])
+    @include('home.partials.page-bannner', [
+        'title' => 'Blog Details',
+        'height'=>'100px;'
+        ])
 
     <main class="max-w-full mx-auto p-5 sm:p-10 md:p-16 relative">
         <div class="bg-cover h-64 text-center overflow-hidden"
