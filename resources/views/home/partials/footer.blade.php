@@ -32,11 +32,13 @@
          </div>
          <div class="basis-full md:basis-[300px] flex-grow single-widget single-widget3 leading-loose p-5">
              <div style="width: 100%; height: 200px; overflow: hidden;">
-                 <a href="https://maps.app.goo.gl/sBKMzn5bQ8qVst4m6">
+                 <a href="https://www.google.com/maps/place/28%C2%B037'15.0%22N+81%C2%B008'27.4%22E/@28.6208333,81.1409444,17z/data=!4m4!3m3!8m2!3d28.6208333!4d81.1409444?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D"
+                     target="_blank">
                      <iframe width="100%" height="200" frameborder="0" scrolling="no" marginheight="0"
                          marginwidth="0"
                          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14027.19265812297!2d81.1409446!3d28.6208198!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDM3JzE1LjAiTiA4McKwMDgnMzYuNyJF!5e0!3m2!1sen!2s!4v1690468901806!5m2!1sen!2s"></iframe>
                  </a>
+
              </div>
          </div>
      </div>
