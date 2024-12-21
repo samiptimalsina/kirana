@@ -113,7 +113,7 @@
                                 class="w-full rounded pl-10 py-3 text-gray-700 border
                                 @error('address') border-red-500 @enderror
                                 focus:border-amber-500 focus:ring-amber-500"
-                                placeholder="Address"
+                                placeholder="Enter Receiver Full Address"
                                 value="{{ old('address') }}">
                             @error('address')
                                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
