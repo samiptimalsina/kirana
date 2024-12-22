@@ -27,12 +27,13 @@ class FoodMenuController extends Controller
      */
     public function index()
     {
-        $data = food::all();
+        $data = food::paginate(10);
 
         $user = Auth::id() ? Auth::user() : null;
         $isAdmin = $this->GetIsAdmin();
         return view("admin.pages.foodmenu.foodmenu", compact("data", "isAdmin", "user"));
     }
+
 
     /**
      * Show the form for creating a new foodmenu entry.
