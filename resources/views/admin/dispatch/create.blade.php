@@ -34,25 +34,19 @@
             <form action="{{ route('add.new.order', $reservation->id) }}" method="POST" class="bg-white p-6 shadow-md rounded-md">
 
                 @csrf
-                <!-- Hub Selector -->
-                <div class="mb-4">
-                    <label for="hub-select" class="block text-sm font-medium text-gray-700">Select Hub</label>
-                    <select name="hub_id" id="hub-select" class="w-full mt-2 p-2 border border-gray-300 rounded-md @error('hub_id') border-red-500 @enderror">
-                        <option value="">Choose a hub</option>
-                        @foreach ($locations as $location)
-                            <option value="{{ $location['id'] }}" {{ old('hub_id') == $location['id'] ? 'selected' : '' }}>{{ $location['hubName'] }}</option>
-                        @endforeach
-                    </select>
-                    @error('hub_id')
-                        <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
-                    @enderror
-                </div>
+
 
                 <!-- Area Selector -->
                 <div class="mb-4">
                     <label for="area-select" class="block text-sm font-medium text-gray-700">Select Area</label>
                     <select name="area_id" id="area-select" class="w-full mt-2 p-2 border border-gray-300 rounded-md @error('area_id') border-red-500 @enderror">
                         <option value="">Choose an area</option>
+                        @foreach ($locations as $item)
+                        <option value="{{ $item['id'] }}"
+                            @if(old('area_id') == $item['id']) selected @endif>
+                            {{ $item['name'] }}
+                        </option>
+                        @endforeach
                     </select>
                     @error('area_id')
                         <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
@@ -85,7 +79,7 @@
                 @php
                 $price=$reservation->food?->price?? 0 *$reservation->person ?? 0;
                 @endphp
-        
+
 
                 <div class="mb-4">
                     <label for="product_price" class="block text-sm font-medium text-gray-700">Product Price</label>

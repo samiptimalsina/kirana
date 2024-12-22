@@ -50,8 +50,18 @@ class DispatchController extends Controller
     public function dispatchSetup($id)
     {
         $reservation = Reservation::where('id', $id)->with('food')->first();
-        $locations = $this->getLocations();
-        $locations = $locations->getData(true);
+
+        $location = $this->getLocations();
+
+        $locationsData = $location->getData(true);
+
+        $locations = [];
+
+        foreach ($locationsData as $location) {
+            foreach ($location['areas'] as $area) {
+                $locations[] = $area;
+            }
+        }
         return view('admin.dispatch.create', compact('locations', 'reservation'));
     }
 
@@ -61,13 +71,13 @@ class DispatchController extends Controller
             'hub_id' => 'nullable|string',
             'area_id' => 'required|string',
             'receiver_name' => 'required|string|max:255',
-            'receiver_contact' => 'required|string|max:15',
+            'receiver_contact' => 'required|regex:/^\d{10}$/',
             'receiver_alternate_number' => 'nullable|string|max:15',
             'product_price' => 'required|numeric|min:0',
             'cod_amount' => 'required|numeric|min:0',
-            'weight' => 'nullable|numeric|min:0',
+            'weight' => 'required|numeric|min:0',
             'length' => 'nullable|numeric|min:0',
-            'breadth' => 'required|numeric|min:0',
+            'breadth' => 'nullable|numeric|min:0',
             'height' => 'nullable|numeric|min:0',
             'product_description' => 'required|string|max:500',
             'receiver_address' => 'required|string|max:500',
