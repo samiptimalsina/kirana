@@ -166,7 +166,7 @@
                                                 <p><strong>Date:</strong>
                                                     {{ \Carbon\Carbon::parse($history->createdAt)->format('d-M-Y, H:i:s') }}
                                                 </p>
-                                                <p><strong>Status:</strong> {{ $history->status }}</p>
+                                                <p><strong>Status:</strong> <small class="bg-green-500 text-white px-2 py-1 rounded-full text-sm">{{ $history->status }}</small></p>
                                                 <p><strong>Activity Type:</strong> {{ $history->activityType }}</p>
                                                 <p><strong>Activity By:</strong> {{ $history->activityBy }}</p>
                                                 <p><strong>Hub Name:</strong> {{ $history->hubName }}</p>
