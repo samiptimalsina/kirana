@@ -58,17 +58,17 @@ class DispatchController extends Controller
     public function addNewOrder(Request $request,$id)
     {
         $request->validate([
-            'hub_id' => 'required|string',
+            'hub_id' => 'nullable|string',
             'area_id' => 'required|string',
             'receiver_name' => 'required|string|max:255',
             'receiver_contact' => 'required|string|max:15',
             'receiver_alternate_number' => 'nullable|string|max:15',
             'product_price' => 'required|numeric|min:0',
             'cod_amount' => 'required|numeric|min:0',
-            'weight' => 'required|numeric|min:0',
-            'length' => 'required|numeric|min:0',
+            'weight' => 'nullable|numeric|min:0',
+            'length' => 'nullable|numeric|min:0',
             'breadth' => 'required|numeric|min:0',
-            'height' => 'required|numeric|min:0',
+            'height' => 'nullable|numeric|min:0',
             'product_description' => 'required|string|max:500',
             'receiver_address' => 'required|string|max:500',
             'receiver_landmark' => 'nullable|string|max:255',
