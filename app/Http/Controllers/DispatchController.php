@@ -83,7 +83,8 @@ class DispatchController extends Controller
             'length' => 'nullable|numeric|min:0',
             'breadth' => 'nullable|numeric|min:0',
             'height' => 'nullable|numeric|min:0',
-            'product_description' => 'required|string|max:500',
+            'product_description' => 'required|string|regex:/^[A-Za-z0-9\- \/,]+$/',
+
             'receiver_address' => 'required|string|max:500',
             'receiver_landmark' => 'nullable|string|max:255',
             'remarks' => 'nullable|string|max:500',
