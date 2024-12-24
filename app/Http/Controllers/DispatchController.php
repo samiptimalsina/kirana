@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Milon\Barcode\DNS1D;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
-use Milon\Barcode\DNS1D;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Http;
 
 
 class DispatchController extends Controller
@@ -25,12 +26,13 @@ class DispatchController extends Controller
         $requestData = [
             'initial_weight' => $request->input('initial_weight', 10),
             'order_type' => $request->input('order_type', 'delivery_order'),
-            'service_type_id' => $request->input('service_type_id', 1),
-            'location_id' => $request->input('location_id', 606),
+            'service_type_id' => $request->input('service_type_id', 3),
+            'location_id' => $request->input('location_id'),
             'length' => $request->input('length', null),
             'breadth' => $request->input('breadth', null),
             'height' => $request->input('height', null),
         ];
+        Log::info('Request Data for getRate API:', $requestData);
 
         $response = Http::withHeaders([
             'X-API-Key' => $this->apiKey,
@@ -64,6 +66,8 @@ class DispatchController extends Controller
         }
         return view('admin.dispatch.create', compact('locations', 'reservation'));
     }
+
+
 
     public function addNewOrder(Request $request,$id)
     {

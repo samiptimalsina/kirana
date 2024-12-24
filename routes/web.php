@@ -113,6 +113,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
         Route::match(['get'],'dispatch/{id}',[DispatchController::class, 'dispatchSetup'])->name('dispatch.order');
         Route::match(['get'],'order-tracking/{orderId}',[DispatchController::class, 'trackOrder'])->name('track.order');
         Route::match(['get','post'],'add/new/{id}',[DispatchController::class, 'addNewOrder'])->name('add.new.order');
+        Route::match(['post'], 'client/order-rates', [DispatchController::class, 'getOrderRates'])->name('client.order.rates');
+
         Route::resource('galleries', GalleryController::class);
 
 
