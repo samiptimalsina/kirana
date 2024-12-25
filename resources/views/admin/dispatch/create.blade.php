@@ -46,7 +46,7 @@
 
 
                 <!-- Area Selector -->
-                <div class="mb-4 grid grid-cols-6">
+                <div class="mb-4 ">
                     <label for="area-select" class="block text-sm font-medium text-gray-700">Select Area</label>
                     <select name="area_id" id="area-select"
                         class="w-full mt-2 p-2 border border-gray-300 rounded-md @error('area_id') border-red-500 @enderror">
@@ -58,7 +58,7 @@
                         <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
                     @enderror
                 </div>
-                <div class="mb-4 grid grid-cols-6">
+                <div class="mb-4">
 
                     <label for="weight" class="block text-sm font-medium text-gray-700">Weight(Kg)   </label>
                     <input type="number" step="0.01" name="weight" value="{{ old('weight') }}" id="weight"
