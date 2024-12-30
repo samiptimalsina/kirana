@@ -56,7 +56,7 @@ class HomeController extends Controller
             ["text" => "Our Product", "href" => route('shop')],
             ["text" => "blogs", "href" => route('blogs')],
             ["text" => "Gallery", "href" => route('galleries')],
-            ["text" => "Shop", "href" =>  route('shop')],
+            ["text" => "Shop", "href" =>  route('shop', ['type' => 'shop'])],
             ["text" => "Dealers", "href" =>  route('dealers')],
             ["text" => "contact", "href" => route('contact.us')],
         ];
@@ -120,8 +120,16 @@ class HomeController extends Controller
         ]);
     }
 
-    public function shop()
+    public function shop(Request $request)
     {
+        if ($request->query('type') === 'shop') {
+            $this->fooddata->setCollection(
+                $this->fooddata->getCollection()->filter(function ($food) {
+                    return $food->price > 20; 
+                })
+            );
+        }
+
         return view('home.shop', [
             'navdata' => $this->navdata,
             'fooddata' => $this->fooddata,
@@ -130,6 +138,7 @@ class HomeController extends Controller
             'banner_image' => $this->getBanner('SHOP'),
         ]);
     }
+
 
     public function blogs()
     {
