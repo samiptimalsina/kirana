@@ -186,7 +186,8 @@
                                             <div class="space-y-2">
                                                 <h3 class="text-lg font-medium">Proof of Pickup</h3>
                                                 <p><strong>Signature:</strong>
-                                                    {{ $order->proof->proofOfPickup->signature ?: 'N/A' }}</p>
+                                                    <img src="{{ $order->proof->proofOfPickup->signature ?: 'N/A' }}" class="w-20 h-20 inline-block border border-gray-300 rounded-md">
+                                                    </p>
                                                 <p><strong>Images:</strong>
                                                     @foreach ($order->proof->proofOfPickup->images as $image)
                                                         <img src="{{ $image }}" alt="Pickup Image"
