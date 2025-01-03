@@ -56,7 +56,7 @@
                  </script>
                  <a class="text-cyan-400" href="https://github.com/samiptimalsina" target="_blank"></a> | Design
                  inspired by
-                 <a class="text-cyan-400" href="https://techzillasoft.com" target="_blank">TechzillaSoft</a>
+                 <a class="text-cyan-400" href="https://techknowledge.com.np/" target="_blank">Tech Knowledge</a>
              </span>
              <ul class="social-icons flex flex-wrap my-3 mx-5 transition ease-in-out duration-300">
                  <li class="mr-4 my-1">Follow Us:</li>
