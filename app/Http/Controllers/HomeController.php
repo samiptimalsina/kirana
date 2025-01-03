@@ -17,6 +17,7 @@ use Illuminate\Http\Request;
 use App\Models\Specialdishes;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class HomeController extends Controller
 {
@@ -122,17 +123,36 @@ class HomeController extends Controller
 
     public function shop(Request $request)
     {
+        $foodCollection = $this->fooddata->getCollection();
+
         if ($request->query('type') === 'shop') {
-            $this->fooddata->setCollection(
-                $this->fooddata->getCollection()->filter(function ($food) {
-                    return $food->price > 20; 
-                })
-            );
+            $foodCollection = $foodCollection->filter(function ($food) {
+                return $food->price > 20;
+            });
         }
+
+        $query = $request->query();
+        $query['type'] = 'shop';
+
+        $currentPage = $request->query('page', 1);
+        $perPage = 10;
+
+        $paginatedFoodData = new LengthAwarePaginator(
+            $foodCollection->forPage($currentPage, $perPage),
+            $foodCollection->count(),
+            $perPage,
+            $currentPage,
+            [
+                'path' => $request->url(),
+                'query' => $query
+            ]
+        );
+
+        $this->fooddata->setCollection($paginatedFoodData->getCollection());
 
         return view('home.shop', [
             'navdata' => $this->navdata,
-            'fooddata' => $this->fooddata,
+            'fooddata' => $paginatedFoodData,
             'dishesdata' => $this->dishesdata,
             'testimonialdata' => $this->testimonialdata,
             'banner_image' => $this->getBanner('SHOP'),
